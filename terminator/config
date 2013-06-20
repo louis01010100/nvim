@@ -1,0 +1,40 @@
+[global_config]
+  title_transmit_fg_color = "#7D7DB3"
+  title_inactive_fg_color = "#3D4866"
+  title_receive_bg_color = "#1A1A34"
+  title_transmit_bg_color = "#3D4766"
+  title_receive_fg_color = "#3D4866"
+  title_inactive_bg_color = "#1A1A34"
+[keybindings]
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_right = <Alt>l
+  go_left = <Alt>h
+[profiles]
+  [[default]]
+    scrollbar_position = Disabled
+    background_darkness = 0.85
+    background_type = transparent
+    cursor_color = ""
+    scroll_background = False
+    font = Mono 12
+    allow_bold = False
+    cursor_blink = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
