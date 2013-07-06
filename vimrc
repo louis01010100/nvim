@@ -1,3 +1,4 @@
+
 set nocompatible               " be iMproved
 set showcmd     " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
@@ -26,13 +27,13 @@ syntax on
   
 colorscheme sorcerer
  
-autocmd BufReadPre *.sh call system("ctags -R -a --languages=Sh")
-autocmd BufReadPre *.pl,*.pm call system("ctags -R -a --languages=Perl")
-autocmd BufReadPre *.rb,*.erb call system("ctags -R -a --languages=Ruby")
-autocmd BufReadPre *.c call system("ctags -R -a --languages=C")
-autocmd BufReadPre *.cpp call system("ctags -R -a --languages=C++")
-autocmd BufReadPre *.js call system("ctags -R -a --languages=Javascript")
-autocmd BufReadPre *.java call system("ctags -R -a --languages=Java")
+autocmd BufReadPre *.sh call system("ctags -R -a --languages-force=Sh")
+autocmd BufReadPre *.pl,*.pm call system("ctags -R -a --languages-force=Perl")
+autocmd BufReadPre *.rb,*.erb call system("ctags -R -a --languages-force=Ruby")
+autocmd BufReadPre *.c call system("ctags -R -a --languages-force=C")
+autocmd BufReadPre *.cpp call system("ctags -R -a --languages-force=C++")
+autocmd BufReadPre *.js call system("ctags -R -a --languages-force=Javascript")
+autocmd BufReadPre *.java call system("ctags -R -a --languages-force=Java")
 autocmd BufReadPre *.js call system("jsctags * -o jstags")
  
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
@@ -53,7 +54,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-nmap <F2> :TagbarToggle<CR>
+nmap <F1> :TagbarToggle<CR>
 
 " For Command-T
 let g:CommandTCancelMap=['<ESC>','<C-c>']
@@ -61,3 +62,7 @@ set wildignore+=.git,tags,*.class,*.o,.svn
 
 " For auto-pairs
 let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
+
+"...."
+
+" For matchit
