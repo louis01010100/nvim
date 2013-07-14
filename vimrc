@@ -43,8 +43,11 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript setlocal tags=jstags,./jstags
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType css setlocal iskeyword=64,48-57,95,192-255
+autocmd FileType css setlocal  sw=2 sts=2 cindent
 
 autocmd FileType html setlocal sw=2 sts=2 cindent
+autocmd FileType html setlocal iskeyword=64,48-57,95,192-255
  
  
 call pathogen#infect()  
