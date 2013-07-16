@@ -34,14 +34,7 @@ autocmd BufReadPre *.c call system("ctags -R -a --languages-force=C")
 autocmd BufReadPre *.cpp call system("ctags -R -a --languages-force=C++")
 autocmd BufReadPre *.js call system("ctags -R -a --languages-force=Javascript")
 autocmd BufReadPre *.java call system("ctags -R -a --languages-force=Java")
-autocmd BufReadPre *.js call system("jsctags * -o jstags")
  
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
-
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
-autocmd FileType javascript setlocal tags=jstags,./jstags
-
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType css setlocal iskeyword=64,48-57,95,192-255
 autocmd FileType css setlocal  sw=2 sts=2 cindent
@@ -65,7 +58,3 @@ set wildignore+=.git,tags,*.class,*.o,.svn
 
 " For auto-pairs
 let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
-
-"...."
-
-" For matchit
