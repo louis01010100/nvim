@@ -11,7 +11,7 @@ set tw=0
 set cindent
 set hidden
 set autoread
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 set autowriteall
 set t_Co=256
 set hls
@@ -41,6 +41,7 @@ autocmd FileType css setlocal  sw=2 sts=2 cindent
 
 autocmd FileType html setlocal sw=2 sts=2 cindent
 autocmd FileType html setlocal iskeyword=64,48-57,95,192-255
+autocmd FileType javascript setlocal sw=4 sts=4 cindent 
  
  
 call pathogen#infect()  
@@ -58,3 +59,6 @@ set wildignore+=.git,tags,*.class,*.o,.svn
 
 " For auto-pairs
 let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
+
+set grepprg=ack\ --nogroup\ --column\ $*
+set grepformat=%f:%l:%c:%m
