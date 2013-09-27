@@ -1,5 +1,6 @@
-﻿set nocompatible    " be iMproved
-set showcmd         " Show (partial) command in status line.
+﻿
+set nocompatible               " be iMproved
+set showcmd     " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
@@ -11,6 +12,10 @@ set tabstop=4
 set cindent
 set autoread		"When a file has been detected to have been changed outside of Vim and 
                     "it has not been changed inside of Vim, automatically read it again
+set autowriteall
+set t_Co=256
+set hls
+set cursorline
 set autowriteall
 set t_Co=256
 set hls
