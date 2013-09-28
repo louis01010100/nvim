@@ -67,7 +67,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-nmap <F1> :TagbarToggle<CR>
+nmap <F2> :TagbarToggle<CR>
 
 " For Command-T
 let g:CommandTCancelMap=['<ESC>','<C-c>']
@@ -75,3 +75,6 @@ set wildignore+=.git,tags,*.class,*.o,.svn
 
 " For auto-pairs
 let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
+
+set grepprg=ack-grep\ --nogroup\ --column\ $*
+set grepformat=%f:%l:%c:%m
