@@ -7,8 +7,9 @@ set smartcase       " Do smart case matching
 set incsearch       " Incremental search
 set nu
 set tw=0
-set expandtab
 set tabstop=4 
+set shiftwidth=4 
+"set softtabstop=4
 set cindent
 set autoread		"When a file has been detected to have been changed outside of Vim and 
                     "it has not been changed inside of Vim, automatically read it again
@@ -63,10 +64,11 @@ autocmd FileType perl setlocal sw=4 ts=4 cindent
 call pathogen#infect()  
 call pathogen#helptags()  
  
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-c> <c-w>c
 nmap <F2> :TagbarToggle<CR>
 
 " For Command-T
@@ -78,3 +80,5 @@ let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
 
 set grepprg=ack-grep\ --nogroup\ --column\ $*
 set grepformat=%f:%l:%c:%m
+
+onoremap av :<c-u>normal! F$vf}<cr> " on operator pending mode mapping; <c-u> removes range inserted; normal! execute normal command from ex mode
