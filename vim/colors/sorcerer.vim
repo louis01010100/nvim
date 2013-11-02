@@ -18,7 +18,7 @@ hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=248
 hi ColorColumn            cterm=NONE             ctermbg=16     ctermfg=fg
 hi Cursor                 cterm=NONE             ctermbg=241   ctermfg=fg
 hi CursorColumn           cterm=NONE             ctermbg=16   
-hi CursorLine             cterm=NONE             ctermbg=236   
+hi CursorLine             cterm=NONE             ctermbg=233   ctermfg=NONE
 hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=124    ctermfg=16
 hi DiffChange             cterm=NONE             ctermbg=68    ctermfg=16
@@ -29,7 +29,6 @@ hi FoldColumn             cterm=NONE             ctermbg=239   ctermfg=66
 hi Folded                 cterm=NONE             ctermbg=16    ctermfg=60
 hi IncSearch              cterm=NONE             ctermbg=185   ctermfg=236
 hi LineNr                 cterm=NONE             ctermbg=NONE    ctermfg=239
-hi CursorLineNr                 cterm=NONE             ctermbg=NONE    ctermfg=242
 hi MatchParen             cterm=NONE             ctermbg=16    ctermfg=226
 hi ModeMsg                cterm=NONE             ctermbg=236   ctermfg=145
 hi MoreMsg                cterm=NONE             ctermbg=234   ctermfg=29

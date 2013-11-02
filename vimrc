@@ -20,7 +20,6 @@ set cursorline
 set autowriteall
 set t_Co=256
 set hls
-set cursorline
 set backspace=indent,eol,start 
 
 
@@ -37,8 +36,7 @@ set statusline+=(%p%%)\     "Percentage through file in lines as in CTRL-G
  
 filetyp plugin indent on      " activate filetype after initializing vundle 
 syntax on
-  
-  
+    
 colorscheme sorcerer
  
 autocmd BufReadPre *.sh call system("ctags -R -a --languages-force=Sh")
@@ -59,7 +57,7 @@ autocmd FileType html setlocal iskeyword=64,48-57,95,192-255
 autocmd FileType javascript setlocal sw=4 ts=4 cindent
 autocmd FileType java setlocal sw=4 ts=4 cindent
 autocmd FileType perl setlocal sw=4 ts=4 cindent
- 
+
  
 call pathogen#infect()  
 call pathogen#helptags()  
@@ -71,6 +69,15 @@ map <c-l> <c-w>l
 map <c-c> <c-w>c
 nmap <F2> :TagbarToggle<CR>
 
+nmap <Leader>n :set nu!<CR>
+nmap <Leader>h :set hls!<CR>
+
+" invisible character
+nmap <Leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
+hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=236
+hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=236
+
 " For Command-T
 let g:CommandTCancelMap=['<ESC>','<C-c>']
 set wildignore+=.git,tags,*.class,*.o,.svn
@@ -81,4 +88,4 @@ let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
 set grepprg=ack-grep\ --nogroup\ --column\ $*
 set grepformat=%f:%l:%c:%m
 
-onoremap av :<c-u>normal! F$vf}<cr> " on operator pending mode mapping; <c-u> removes range inserted; normal! execute normal command from ex mode
+
