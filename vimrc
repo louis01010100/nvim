@@ -58,7 +58,7 @@ autocmd FileType javascript setlocal sw=4 ts=4 cindent
 autocmd FileType java setlocal sw=4 ts=4 cindent
 autocmd FileType perl setlocal sw=4 ts=4 cindent
 
- 
+
 call pathogen#infect()  
 call pathogen#helptags()  
  
@@ -71,6 +71,8 @@ nmap <F2> :TagbarToggle<CR>
 
 nmap <Leader>n :set nu!<CR>
 nmap <Leader>h :set hls!<CR>
+nmap <Leader>p :set paste!<CR>
+nmap <Leader>w :set wrap!<CR>
 
 " invisible character
 nmap <Leader>l :set list!<CR>
