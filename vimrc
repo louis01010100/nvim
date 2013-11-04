@@ -16,7 +16,6 @@ set autoread		"When a file has been detected to have been changed outside of Vim
 set autowriteall
 set t_Co=256
 set hls
-set cursorline
 set autowriteall
 set t_Co=256
 set hls
@@ -38,7 +37,6 @@ set statusline+=(%p%%)\     "Percentage through file in lines as in CTRL-G
 filetyp plugin indent on      " activate filetype after initializing vundle 
 syntax on
   
-  
 colorscheme sorcerer
  
 autocmd BufReadPre *.sh call system("ctags -R -a --languages-force=Sh")
@@ -52,6 +50,8 @@ autocmd BufReadPre *.java call system("ctags -R -a --languages-force=Java")
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType css setlocal iskeyword=64,48-57,95,192-255
 autocmd FileType css setlocal  sw=2 ts=2 cindent
+
+autocmd FileType xml setlocal  sw=2 ts=2 cindent
 
 autocmd FileType html setlocal sw=2 ts=2 cindent
 autocmd FileType html setlocal iskeyword=64,48-57,95,192-255
@@ -69,7 +69,11 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-c> <c-w>c
-nmap <F2> :TagbarToggle<CR>
+nmap <F3> :NERDTreeToggle<CR>
+nmap <F4> :TagbarToggle<CR>
+nmap <F2> :set invnumber<CR>
+set pastetoggle=<F5>
+
 
 " For Command-T
 let g:CommandTCancelMap=['<ESC>','<C-c>']
@@ -81,4 +85,6 @@ let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
 set grepprg=ack-grep\ --nogroup\ --column\ $*
 set grepformat=%f:%l:%c:%m
 
-onoremap av :<c-u>normal! F$vf}<cr> " on operator pending mode mapping; <c-u> removes range inserted; normal! execute normal command from ex mode
+
+"onoremap av :<c-u>normal! F$vf}<cr> " on operator pending mode mapping; <c-u> removes range inserted; normal! execute normal command from ex mode
+
