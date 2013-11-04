@@ -28,6 +28,7 @@ set statusline+=%c,     "Column number
 set statusline+=%l/     "Line number
 set statusline+=%L      "Number of lines in buffer
 set statusline+=(%p%%)\     "Percentage through file in lines as in CTRL-G
+
  
 filetyp plugin indent on      " activate filetype after initializing vundle 
 syntax on
@@ -59,13 +60,15 @@ nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
 nmap <c-c> <c-w>c
 
-nmap <F2> :TagbarToggle<CR>
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 nmap <Leader>n :set nu!<CR>
 nmap <Leader>h :set hls!<CR>
 nmap <Leader>p :set paste!<CR>
 nmap <Leader>w :set wrap!<CR>
+nmap <Leader>q :qa<CR>
+nmap <Leader>s :wa<CR>
 
 " invisible character
 nmap <Leader>l :set list!<CR>
