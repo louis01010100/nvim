@@ -68,7 +68,6 @@ nmap <Leader>n :set nu!<CR>
 nmap <Leader>h :set hls!<CR>
 nmap <Leader>p :set paste!<CR>
 nmap <Leader>w :set wrap!<CR>
-nmap <Leader>s :wa<CR>
 
 " invisible character
 nmap <Leader>l :set list!<CR>
