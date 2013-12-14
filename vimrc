@@ -81,6 +81,3 @@ set wildignore+=.git,tags,*.class,*.o,.svn
 
 " For auto-pairs
 let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
-
-"set grepprg=ack-grep\ --nogroup\ --column\ $*
-"set grepformat=%f:%l:%c:%m
