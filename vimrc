@@ -16,6 +16,7 @@ set t_Co=256
 set hlsearch
 set cursorline
 set backspace=indent,eol,start 
+set splitright
 
 
 " Customize status line
@@ -71,8 +72,8 @@ nmap <Leader>w :set wrap!<CR>
 " invisible character
 nmap <Leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
-hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=236
-hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=236
+hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=239
+hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
 " For Command-T
 let g:CommandTCancelMap=['<ESC>','<C-c>']
