@@ -12,12 +12,12 @@ set cindent
 set autoread		"When a file has been detected to have been changed outside of Vim and 
                     "it has not been changed inside of Vim, automatically read it again
 set autowriteall
+set wildmode=list
 set t_Co=256
-set hlsearch
-set cursorline
+set hls
+"set cursorline
 set backspace=indent,eol,start 
 set splitright
-
 
 " Customize status line
 set laststatus=2
@@ -36,48 +36,49 @@ syntax on
     
 colorscheme sorcerer
  
-autocmd BufReadPre *.sh call system("ctags -R -a --languages-force=Sh")
-autocmd BufReadPre *.pl,*.pm call system("ctags -R -a --languages-force=Perl")
-autocmd BufReadPre *.rb,*.erb call system("ctags -R -a --languages-force=Ruby")
-autocmd BufReadPre *.c call system("ctags -R -a --languages-force=C")
-autocmd BufReadPre *.cpp call system("ctags -R -a --languages-force=C++")
-autocmd BufReadPre *.js call system("ctags -R -a --languages-force=Javascript")
-autocmd BufReadPre *.java call system("ctags -R -a --languages-force=Java")
+" autocmd BufReadPre *.sh call system("ctags -R -a --languages-force=Sh")
+" autocmd BufReadPre *.pl,*.pm call system("ctags -R -a --languages-force=Perl")
+" autocmd BufReadPre *.rb,*.erb call system("ctags -R -a --languages-force=Ruby")
+" autocmd BufReadPre *.c call system("ctags -R -a --languages-force=C")
+" autocmd BufReadPre *.cpp call system("ctags -R -a --languages-force=C++")
+" autocmd BufReadPre *.js call system("ctags -R -a --languages-force=Javascript")
+" autocmd BufReadPre *.java call system("ctags -R -a --languages-force=Java")
  
-autocmd FileType css setlocal  sw=2 ts=2 cindent omnifunc=csscomplete#CompleteCSS iskeyword=64,48-57,95,192-255
+autocmd FileType css setlocal  sw=2 ts=2 cindent 
 autocmd FileType xml setlocal  sw=2 ts=2 cindent
 autocmd FileType html setlocal sw=2 ts=2 cindent iskeyword=64,48-57,95,192-255
 autocmd FileType javascript setlocal sw=4 ts=4 cindent
 autocmd FileType java setlocal sw=4 ts=4 cindent
 autocmd FileType perl setlocal sw=4 ts=4 cindent
 
-
 call pathogen#infect()  
 call pathogen#helptags()  
  
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
-nmap <c-c> <c-w>c
+nmap <unique> <c-h> <c-w>h
+nmap <unique> <c-j> <c-w>j
+nmap <unique> <c-k> <c-w>k
+nmap <unique> <c-l> <c-w>l
+nmap <unique> <c-c> <c-w>c
 
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :TagbarToggle<CR>
-
-nmap <Leader>n :set nu!<CR>
-nmap <Leader>h :set hls!<CR>
-nmap <Leader>p :set paste!<CR>
-nmap <Leader>w :set wrap!<CR>
+nmap <unique> <silent> <F2> :NERDTreeToggle<CR>
+nmap <unique> <silent> <F3> :TagbarToggle<CR>
+nmap <unique> <silent> <Leader>n :set nu!<CR>
+nmap <unique> <silent> <Leader>h :set hls!<CR>
+nmap <unique> <silent> <Leader>p :set paste!<CR>
+nmap <unique> <silent> <Leader>w :set wrap!<CR>
 
 " invisible character
-nmap <Leader>l :set list!<CR>
+nmap <unique> <silent> <Leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
 hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=239
 hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
-" For Command-T
+" For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>']
 set wildignore+=.git,tags,*.class,*.o,.svn
 
 " For auto-pairs
 let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
+
+"autocmd BufNewFile * call Header()
+
