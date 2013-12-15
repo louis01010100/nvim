@@ -82,3 +82,23 @@ let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
 
 "autocmd BufNewFile * call Header()
 
+
+call textobj#user#plugin('jsfunction', {
+\   '-': {
+\     'select-a-function': 'JavascriptFunctionA',
+\     'select-a': 'af',
+\   },
+\ })
+
+function! JavascriptFunctionA() 
+	call search('function', 'b')
+	let begin_pos = getpos('.')
+	call search('{')
+	normal! %
+	let end_pos = getpos('.')
+	return ['v', begin_pos, end_pos]
+endfunction
+
+
+
+
