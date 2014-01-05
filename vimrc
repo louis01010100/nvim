@@ -8,7 +8,7 @@ set nu
 set tw=0
 set tabstop=4 
 set shiftwidth=4 
-set cindent
+"set cindent
 set autoread		"When a file has been detected to have been changed outside of Vim and 
                     "it has not been changed inside of Vim, automatically read it again
 set autowriteall
@@ -54,21 +54,25 @@ autocmd FileType perl setlocal sw=4 ts=4 cindent
 call pathogen#infect()  
 call pathogen#helptags()  
  
-nmap <unique> <c-h> <c-w>h
-nmap <unique> <c-j> <c-w>j
-nmap <unique> <c-k> <c-w>k
-nmap <unique> <c-l> <c-w>l
-nmap <unique> <c-c> <c-w>c
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+nmap <c-c> <c-w>c
 
-nmap <unique> <silent> <F2> :NERDTreeToggle<CR>
-nmap <unique> <silent> <F3> :TagbarToggle<CR>
-nmap <unique> <silent> <Leader>n :set nu!<CR>
-nmap <unique> <silent> <Leader>h :set hls!<CR>
-nmap <unique> <silent> <Leader>p :set paste!<CR>
-nmap <unique> <silent> <Leader>w :set wrap!<CR>
+nmap <silent> <F2> :NERDTreeToggle<CR>
+nmap <silent> <F3> :TagbarToggle<CR>
+
+nmap <silent> <Leader>n :set nu!<CR>
+nmap <silent> <Leader>h :set hls!<CR>
+nmap <silent> <Leader>p :set paste!<CR>
+nmap <silent> <Leader>w :set wrap!<CR>
+nmap <silent> <Leader>c ^"+y$$
+nmap <silent> <Leader>v "+p
+nmap <Leader>s :so %<CR>
 
 " invisible character
-nmap <unique> <silent> <Leader>l :set list!<CR>
+nmap <silent> <Leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
 hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=239
 hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
