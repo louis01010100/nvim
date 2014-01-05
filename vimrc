@@ -44,6 +44,7 @@ colorscheme sorcerer
 " autocmd BufReadPre *.js call system("ctags -R -a --languages-force=Javascript")
 " autocmd BufReadPre *.java call system("ctags -R -a --languages-force=Java")
  
+ autocmd BufReadPre *.txt setlocal spell
 autocmd FileType css setlocal  sw=2 ts=2 cindent 
 autocmd FileType xml setlocal  sw=2 ts=2 cindent
 autocmd FileType html setlocal sw=2 ts=2 cindent iskeyword=64,48-57,95,192-255
@@ -100,7 +101,7 @@ function! JavascriptFunctionA()
 	call search('function', 'b')
 	let begin_pos = getpos('.')
 	call search('{')
-	normal! %
+	normal %
 	let end_pos = getpos('.')
 	return ['v', begin_pos, end_pos]
 endfunction
