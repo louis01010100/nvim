@@ -65,6 +65,8 @@ nmap <silent> <F3> :TagbarToggle<CR>
 
 nmap <silent> <Leader>n :set nu!<CR>
 nmap <silent> <Leader>h :set hls!<CR>
+nmap <silent> <Leader>n :set nu!<CR>
+nmap <silent> <Leader>h :set hls!<CR>
 nmap <silent> <Leader>p :set paste!<CR>
 nmap <silent> <Leader>w :set wrap!<CR>
 nmap <silent> <Leader>c ^"+y$$
@@ -84,9 +86,9 @@ set wildignore+=.git,tags,*.class,*.o,.svn
 " For auto-pairs
 let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
 
-"autocmd BufNewFile * call Header()
 
 
+" text-obj-user related
 call textobj#user#plugin('jsfunction', {
 \   '-': {
 \     'select-a-function': 'JavascriptFunctionA',
@@ -104,5 +106,16 @@ function! JavascriptFunctionA()
 endfunction
 
 
+call textobj#user#plugin('path', {
+\   '-': {
+\     'pattern': '/[0-9a-zA-Z_-]\+',
+\     'select': 'ah',
+\   },
+\ })
 
-
+call textobj#user#plugin('var', {
+\	'-': {
+\		'pattern' : '\(\$\|@\|%\)\({\)\?[-_0-9a-zA-Z]\+\(}\)\?\_s*',
+\		'select' : 'av',
+\	},
+\ })
