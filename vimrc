@@ -72,7 +72,7 @@ nmap <silent> <Leader>p :set paste!<CR>
 nmap <silent> <Leader>w :set wrap!<CR>
 nmap <silent> <Leader>c ^"+y$$
 nmap <silent> <Leader>v "+p
-nmap <Leader>s :so %<CR>
+nmap <Leader>s :so ~/.vimrc<CR>
 
 " invisible character
 nmap <silent> <Leader>l :set list!<CR>
@@ -94,18 +94,52 @@ call textobj#user#plugin('jsfunction', {
 \   '-': {
 \     'select-a-function': 'JavascriptFunctionA',
 \     'select-a': 'af',
+\     'select-i-function': 'JavascriptFunctionI',
+\     'select-i': 'if',
 \   },
 \ })
 
 function! JavascriptFunctionA() 
+	let current_word = expand('<cword>')
+
+	if 'function' == current_word
+		normal w
+	endif
+
+	" find the begin of a function
+	call search('function', 'b')
+	let begin_line  = prevnonblank(line('.') - 1) + 1
+	let begin_pos = [0, begin_line, 1, 0]
+
+	" find the end of a function
+	call search('{')
+	normal %
+	let end_line = nextnonblank(line('.') + 1)
+	if end_line == 0
+		normal G
+		let end_pos = getpos('.')
+	else
+		let end_pos = [0, end_line - 1, 1, 0]
+	endif
+
+	return ['v', begin_pos, end_pos]
+endfunction
+
+function! JavascriptFunctionI() 
+	let current_word = expand('<cword>')
+
+	if 'function' == current_word
+		normal w
+	endif
+
 	call search('function', 'b')
 	let begin_pos = getpos('.')
+
 	call search('{')
 	normal %
 	let end_pos = getpos('.')
 	return ['v', begin_pos, end_pos]
 endfunction
-
 
 call textobj#user#plugin('path', {
 \   '-': {
