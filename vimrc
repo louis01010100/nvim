@@ -63,6 +63,7 @@ nmap <c-c> <c-w>c
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
+nmap <silent> <F4> :call AutoPairsToggle()<CR>
 
 nmap <silent> <Leader>n :set nu!<CR>
 nmap <silent> <Leader>h :set hls!<CR>
@@ -85,8 +86,7 @@ let g:CommandTCancelMap=['<ESC>','<C-c>']
 set wildignore+=.git,tags,*.class,*.o,.svn
 
 " For auto-pairs
-let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
-
+"let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
 
 
 " text-obj-user related
