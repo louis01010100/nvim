@@ -44,7 +44,7 @@ colorscheme sorcerer
 " autocmd BufReadPre *.js call system("ctags -R -a --languages-force=Javascript")
 " autocmd BufReadPre *.java call system("ctags -R -a --languages-force=Java")
  
- autocmd BufReadPre *.txt setlocal spell
+autocmd BufReadPre *.txt setlocal spell
 autocmd FileType css setlocal  sw=2 ts=2 cindent 
 autocmd FileType xml setlocal  sw=2 ts=2 cindent
 autocmd FileType html setlocal sw=2 ts=2 cindent iskeyword=64,48-57,95,192-255
@@ -74,6 +74,8 @@ nmap <silent> <Leader>w :set wrap!<CR>
 nmap <silent> <Leader>cl :call CopyLine()<CR>
 nmap <silent> <Leader>v "+p
 nmap <Leader>s :so ~/.vimrc<CR>
+nmap <silent> <C-u> <C-y><C-y><C-y><C-y><C-y><C-y><C-y><C-y>
+nmap <silent> <C-d> <C-e><C-e><C-e><C-e><C-e><C-e><C-e><C-e>
 
 " invisible character
 nmap <silent> <Leader>l :set list!<CR>
