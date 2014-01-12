@@ -71,7 +71,7 @@ nmap <silent> <Leader>n :set nu!<CR>
 nmap <silent> <Leader>h :set hls!<CR>
 nmap <silent> <Leader>p :set paste!<CR>
 nmap <silent> <Leader>w :set wrap!<CR>
-nmap <silent> <Leader>c ^"+y$$
+nmap <silent> <Leader>cl :call CopyLine()<CR>
 nmap <silent> <Leader>v "+p
 nmap <Leader>s :so ~/.vimrc<CR>
 
@@ -154,3 +154,10 @@ call textobj#user#plugin('var', {
 \		'select' : 'av',
 \	},
 \ })
+
+function! CopyLine() 		
+	let pos = getpos('.')
+	normal! ^"+y$
+	call setpos('.', pos)
+	echo "copy '".@+."' to +"
+endfunction
