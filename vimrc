@@ -110,7 +110,6 @@ function! CopyLine()
 	let pos = getpos('.')
 	normal! ^"+y$
 	call setpos('.', pos)
-	echo "copy '"@+"' to +"
 endfunction
 
 function! CopyParagraph() 		
