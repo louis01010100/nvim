@@ -75,8 +75,10 @@ nmap <silent> <Leader>cl :call CopyLine()<CR>
 nmap <silent> <Leader>cp :call CopyParagraph()<CR>
 nmap <silent> <Leader>v "+p
 nmap <Leader>s :so ~/.vimrc<CR>
+nmap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nmap <silent> <C-u> 5<C-y>
 nmap <silent> <C-d> 5<C-e>
+
 
 " invisible character
 nmap <silent> <Leader>l :set list!<CR>
