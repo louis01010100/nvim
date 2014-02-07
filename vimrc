@@ -112,6 +112,7 @@ function! CopyLine()
 	let pos = getpos('.')
 	normal! ^"+y$
 	call setpos('.', pos)
+	echo "1 line yanked"
 endfunction
 
 function! CopyParagraph() 		
