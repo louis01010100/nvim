@@ -15,7 +15,7 @@ set autowriteall
 set wildmode=list
 set t_Co=256
 set hls
-"set cursorline
+set cursorline
 set backspace=indent,eol,start 
 set splitright
 
