@@ -12,7 +12,7 @@ set shiftwidth=4
 set autoread		"When a file has been detected to have been changed outside of Vim and 
                     "it has not been changed inside of Vim, automatically read it again
 set autowriteall
-set wildmode=list
+set wildmode=list   "In Ex mode, press <tab> to list all the files in the current working directory
 set t_Co=256
 set hls
 set cursorline
@@ -72,7 +72,7 @@ nmap <silent> <Leader>h :set hls!<CR>
 nmap <silent> <Leader>p :set paste!<CR>
 nmap <silent> <Leader>w :set wrap!<CR>
 nmap <silent> <Leader>cl :call CopyLine()<CR>
-nmap <silent> <Leader>cp :call CopyParagraph()<CR>
+nmap <silent> <Leader>cs :call CopySection()<CR>
 nmap <silent> <Leader>v "+p
 nmap <Leader>s :so ~/.vimrc<CR>
 nmap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
@@ -115,7 +115,7 @@ function! CopyLine()
 	echo "1 line yanked"
 endfunction
 
-function! CopyParagraph() 		
+function! CopySection() 		
 	let pos = getpos('.')
 	normal! "+yip
 	call setpos('.', pos)
