@@ -72,7 +72,7 @@ nmap <silent> <Leader>h :set hls!<CR>
 nmap <silent> <Leader>p :set paste!<CR>
 nmap <silent> <Leader>w :set wrap!<CR>
 nmap <silent> <Leader>cl :call CopyLine()<CR>
-nmap <silent> <Leader>cs :call CopySection()<CR>
+nmap <silent> <Leader>cp :call CopyParagraph()<CR>
 nmap <silent> <Leader>v "+p
 nmap <Leader>s :so ~/.vimrc<CR>
 nmap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
@@ -115,8 +115,9 @@ function! CopyLine()
 	echo "1 line yanked"
 endfunction
 
-function! CopySection() 		
+function! CopyParagraph() 		
 	let pos = getpos('.')
 	normal! "+yip
 	call setpos('.', pos)
+	echo "1 paragraph yanked"
 endfunction
