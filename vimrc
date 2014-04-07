@@ -61,9 +61,9 @@ nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
 nmap <c-c> <c-w>c
 
-nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <F3> :TagbarToggle<CR>
-nmap <silent> <F4> :call AutoPairsToggle()<CR>
+nmap <silent> <F5> :NERDTreeToggle<CR>
+nmap <silent> <F6> :TagbarToggle<CR>
+nmap <silent> <F7> :call AutoPairsToggle()<CR>
 
 nmap <silent> <Leader>n :set nu!<CR>
 nmap <silent> <Leader>h :set hls!<CR>
