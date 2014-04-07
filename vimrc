@@ -14,7 +14,7 @@ set autoread		"When a file has been detected to have been changed outside of Vim
 set autowriteall
 set wildmode=list   "In Ex mode, press <tab> to list all the files in the current working directory
 set t_Co=256
-set hls
+set nohls
 set cursorline
 set backspace=indent,eol,start 
 set splitright
@@ -55,33 +55,34 @@ autocmd FileType perl setlocal sw=4 ts=4 cindent
 call pathogen#infect()  
 call pathogen#helptags()  
  
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
-nmap <c-c> <c-w>c
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-c> <c-w>c
 
-nmap <silent> <F5> :NERDTreeToggle<CR>
-nmap <silent> <F6> :TagbarToggle<CR>
-nmap <silent> <F7> :call AutoPairsToggle()<CR>
+nnoremap <silent> <F5> :NERDTreeToggle<CR>
+nnoremap <silent> <F6> :TagbarToggle<CR>
+nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
 
-nmap <silent> <Leader>n :set nu!<CR>
-nmap <silent> <Leader>h :set hls!<CR>
-nmap <silent> <Leader>n :set nu!<CR>
-nmap <silent> <Leader>h :set hls!<CR>
-nmap <silent> <Leader>p :set paste!<CR>
-nmap <silent> <Leader>w :set wrap!<CR>
-nmap <silent> <Leader>cl :call CopyLine()<CR>
-nmap <silent> <Leader>cp :call CopyParagraph()<CR>
-nmap <silent> <Leader>v "+p
-nmap <Leader>s :so ~/.vimrc<CR>
-nmap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
-nmap <silent> <C-u> 5<C-y>
-nmap <silent> <C-d> 5<C-e>
+nnoremap <silent> <Leader>n :set nu!<CR>
+nnoremap <silent> <Leader>h :set hls!<CR>
+nnoremap <silent> <Leader>n :set nu!<CR>
+nnoremap <silent> <Leader>h :set hls!<CR>
+nnoremap <silent> <Leader>p :set paste!<CR>
+nnoremap <silent> <Leader>w :set wrap!<CR>
+nnoremap <silent> <Leader>cl :call CopyLine()<CR>
+nnoremap <silent> <Leader>cp :call CopyParagraph()<CR>
+nnoremap <silent> <Leader>v "+p
+nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
+nnoremap <Leader>s :so ~/.vimrc<CR>
+nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <silent> <C-u> 5<C-y>
+nnoremap <silent> <C-d> 5<C-e>
 
 
 " invisible character
-nmap <silent> <Leader>l :set list!<CR>
+nnoremap <silent> <Leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
 hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=239
 hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
@@ -119,5 +120,4 @@ function! CopyParagraph()
 	let pos = getpos('.')
 	normal! "+yip
 	call setpos('.', pos)
-	echo "1 paragraph yanked"
 endfunction

@@ -58,7 +58,6 @@ function s:Kwbd(kwbdStage)
 endfunction
 
 command! Kwbd call s:Kwbd(1)
-nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
 
 " Create a mapping (e.g. in your .vimrc) like this:
 "nmap <C-W>! <Plug>>Kwbd
