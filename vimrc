@@ -55,15 +55,19 @@ autocmd FileType perl setlocal sw=4 ts=4 cindent
 call pathogen#infect()  
 call pathogen#helptags()  
  
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-c> <c-w>c
+nnoremap <C-Left> <c-w>h
+nnoremap <C-Down> <c-w>j
+nnoremap <C-Up> <c-w>k
+nnoremap <C-Right> <c-w>l
+nnoremap <C-k> V:m '<-2<CR><Esc>
+nnoremap <C-j> V:m '>+1<CR><Esc>
+vnoremap <C-k> :m '<-2<CR>gv
+vnoremap <C-j> :m '>+1<CR>gv
+nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
-nnoremap <silent> <F6> :TagbarToggle<CR>
 nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
+nnoremap <silent> <F6> :TagbarToggle<CR>
 
 nnoremap <silent> <Leader>n :set nu!<CR>
 nnoremap <silent> <Leader>h :set hls!<CR>
