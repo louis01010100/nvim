@@ -46,6 +46,8 @@ colorscheme sorcerer
  
 autocmd BufReadPre *.txt setlocal spell
 autocmd FileType css setlocal  sw=2 ts=2 cindent 
+autocmd FileType ruby setlocal  sw=2 ts=2 cindent 
+autocmd FileType eruby setlocal  sw=2 ts=2 cindent 
 autocmd FileType xml setlocal  sw=2 ts=2 cindent
 autocmd FileType html setlocal sw=2 ts=2 cindent iskeyword=64,48-57,95,192-255
 autocmd FileType javascript setlocal sw=4 ts=4 cindent
@@ -59,10 +61,14 @@ nnoremap <C-Left> <c-w>h
 nnoremap <C-Down> <c-w>j
 nnoremap <C-Up> <c-w>k
 nnoremap <C-Right> <c-w>l
-nnoremap <C-k> V:m '<-2<CR><Esc>
-nnoremap <C-j> V:m '>+1<CR><Esc>
-vnoremap <C-k> :m '<-2<CR>gv
-vnoremap <C-j> :m '>+1<CR>gv
+nnoremap <C-h> <c-w>h
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
+nnoremap <C-l> <c-w>l
+"nnoremap <C-k> V:m '<-2<CR><Esc>
+"nnoremap <C-j> V:m '>+1<CR><Esc>
+"vnoremap <C-k> :m '<-2<CR>gv
+"vnoremap <C-j> :m '>+1<CR>gv
 nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
