@@ -54,8 +54,8 @@ autocmd FileType javascript setlocal sw=4 ts=4 cindent
 autocmd FileType java setlocal sw=4 ts=4 cindent
 autocmd FileType perl setlocal sw=4 ts=4 cindent
 
-call pathogen#infect()  
-call pathogen#helptags()  
+"call pathogen#infect()  
+"call pathogen#helptags()  
  
 nnoremap <C-Left> <c-w>h
 nnoremap <C-Down> <c-w>j
