@@ -81,8 +81,9 @@ nnoremap <silent> <Leader>n :set nu!<CR>
 nnoremap <silent> <Leader>h :set hls!<CR>
 nnoremap <silent> <Leader>p :set paste!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
-"nnoremap <silent> yal :call CopyLine()<CR>
-nnoremap <silent> yap :call CopyParagraph()<CR>
+nnoremap <silent> <Leader>cl :call CopyLine()<CR>
+nnoremap <silent> <Leader>cp :call CopyParagraph()<CR>
+nnoremap <silent> <Leader>ce :call CopyEntire()<CR>
 nnoremap <silent> <Leader>v "+p
 nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
 nnoremap <Leader>s :so ~/.vimrc<CR>
@@ -128,5 +129,11 @@ endfunction
 function! CopyParagraph() 		
 	let pos = getpos('.')
 	normal! "+yip
+	call setpos('.', pos)
+endfunction
+
+function! CopyEntire() 		
+	let pos = getpos('.')
+	normal! gg"+yG
 	call setpos('.', pos)
 endfunction
