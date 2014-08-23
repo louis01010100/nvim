@@ -54,8 +54,8 @@ autocmd FileType javascript setlocal sw=4 ts=4 cindent
 autocmd FileType java setlocal sw=4 ts=4 cindent
 autocmd FileType perl setlocal sw=4 ts=4 cindent
 
-"call pathogen#infect()  
-"call pathogen#helptags()  
+execute pathogen#infect()  
+execute pathogen#helptags()  
  
 nnoremap <C-Left> <c-w>h
 nnoremap <C-Down> <c-w>j
@@ -81,15 +81,14 @@ nnoremap <silent> <Leader>n :set nu!<CR>
 nnoremap <silent> <Leader>h :set hls!<CR>
 nnoremap <silent> <Leader>p :set paste!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
-nnoremap <silent> <Leader>cl :call CopyLine()<CR>
-nnoremap <silent> <Leader>cp :call CopyParagraph()<CR>
+"nnoremap <silent> yal :call CopyLine()<CR>
+nnoremap <silent> yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>v "+p
 nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
 nnoremap <Leader>s :so ~/.vimrc<CR>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
-
 
 " invisible character
 nnoremap <silent> <Leader>l :set list!<CR>
