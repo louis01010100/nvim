@@ -77,8 +77,6 @@ nnoremap <silent> <F6> :TagbarToggle<CR>
 
 nnoremap <silent> <Leader>n :set nu!<CR>
 nnoremap <silent> <Leader>h :set hls!<CR>
-nnoremap <silent> <Leader>n :set nu!<CR>
-nnoremap <silent> <Leader>h :set hls!<CR>
 nnoremap <silent> <Leader>p :set paste!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>cl :call CopyLine()<CR>
