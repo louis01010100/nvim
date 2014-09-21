@@ -17,7 +17,6 @@ set t_Co=256
 set nohls
 set cursorline
 set backspace=indent,eol,start 
-set splitright
 
 " Customize status line
 set laststatus=2
@@ -31,7 +30,7 @@ set statusline+=%L      "Number of lines in buffer
 set statusline+=(%p%%)\     "Percentage through file in lines as in CTRL-G
 
  
-filetyp plugin indent on      " activate filetype after initializing vundle 
+filetype plugin indent on      " activate filetype after initializing vundle 
 syntax on
     
 colorscheme sorcerer
@@ -57,10 +56,6 @@ autocmd FileType perl setlocal sw=4 ts=4 cindent
 execute pathogen#infect()  
 execute pathogen#helptags()  
  
-nnoremap <C-Left> <c-w>h
-nnoremap <C-Down> <c-w>j
-nnoremap <C-Up> <c-w>k
-nnoremap <C-Right> <c-w>l
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
@@ -69,10 +64,10 @@ nnoremap <C-l> <c-w>l
 "nnoremap <C-j> V:m '>+1<CR><Esc>
 "vnoremap <C-k> :m '<-2<CR>gv
 "vnoremap <C-j> :m '>+1<CR>gv
-nnoremap <C-c> <c-w>c
+nnoremp <C-c> <c-w>c
 
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
-nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
+"nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR>
 
 nnoremap <silent> <Leader>n :set nu!<CR>
