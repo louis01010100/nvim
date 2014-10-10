@@ -64,7 +64,7 @@ nnoremap <C-l> <c-w>l
 "nnoremap <C-j> V:m '>+1<CR><Esc>
 "vnoremap <C-k> :m '<-2<CR>gv
 "vnoremap <C-j> :m '>+1<CR>gv
-nnoremp <C-c> <c-w>c
+nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
 "nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
