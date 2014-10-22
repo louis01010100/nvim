@@ -64,12 +64,11 @@ nnoremap <C-l> <c-w>l
 "nnoremap <C-j> V:m '>+1<CR><Esc>
 "vnoremap <C-k> :m '<-2<CR>gv
 "vnoremap <C-j> :m '>+1<CR>gv
-nnoremp <C-c> <c-w>c
+nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
-"nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
-nnoremap <silent> <F6> :TagbarToggle<CR>
-
+nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
+nnoremap <silent> <F6> :TagbarToggle<CR> 
 nnoremap <silent> <Leader>n :set nu!<CR>
 nnoremap <silent> <Leader>h :set hls!<CR>
 nnoremap <silent> <Leader>p :set paste!<CR>
@@ -93,10 +92,6 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 " For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>']
 set wildignore+=.git,tags,*.class,*.o,.svn
-
-" For auto-pairs
-"let g:AutoPairsShortcutBackInsert = '<Leader><BS>'
-
 
 call textobj#user#plugin('path', {
 \   '-': {
