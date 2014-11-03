@@ -76,7 +76,7 @@ nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
-nnoremap <silent> <Leader>v "+p
+nnoremap <silent> <Leader>p "+p
 nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
 nnoremap <Leader>s :so ~/.vimrc<CR>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
