@@ -71,7 +71,7 @@ nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR> 
 nnoremap <silent> <Leader>n :set nu!<CR>
 nnoremap <silent> <Leader>h :set hls!<CR>
-nnoremap <silent> <Leader>p :set paste!<CR>
+nnoremap <silent> <Leader>v :set paste!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
 nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
