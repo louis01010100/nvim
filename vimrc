@@ -9,9 +9,7 @@ set tw=0
 set tabstop=4 
 set shiftwidth=4 
 "set cindent
-set autoread		"When a file has been detected to have been changed outside of Vim and 
-                    "it has not been changed inside of Vim, automatically read it again
-set autowriteall
+set autoread		"When a file has been detected to have been changed outside of Vim and "it has not been changed inside of Vim, automatically read it again set autowriteall
 set wildmode=list   "In Ex mode, press <tab> to list all the files in the current working directory
 set t_Co=256
 set nohls
@@ -91,6 +89,7 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
 " For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>']
+let g:CommandTMaxHeight=20
 set wildignore+=.git,tags,*.class,*.o,.svn
 
 call textobj#user#plugin('path', {
