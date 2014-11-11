@@ -71,9 +71,9 @@ nnoremap <silent> <Leader>n :set nu!<CR>
 nnoremap <silent> <Leader>h :set hls!<CR>
 nnoremap <silent> <Leader>v :set paste!<CR>
 nnoremap <silent> <Leader>w :set wrap!<CR>
-nnoremap <silent> <Leader>yal :call CopyLine()<CR>
-nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
-nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
+nnoremap <silent> <Leader>yl :call CopyLine()<CR>
+nnoremap <silent> <Leader>yp :call CopyParagraph()<CR>
+nnoremap <silent> <Leader>ye :call CopyEntire()<CR>
 nnoremap <silent> <Leader>p "+p
 nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
 nnoremap <Leader>s :so ~/.vimrc<CR>
