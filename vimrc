@@ -80,6 +80,7 @@ nnoremap <Leader>s :so ~/.vimrc<CR>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
+nnoremap <silent> <Leader>m :make<CR><CR>
 
 " invisible character
 nnoremap <silent> <Leader>l :set list!<CR>
