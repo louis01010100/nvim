@@ -114,9 +114,7 @@ function! CopyLine()
 endfunction
 
 function! CopyParagraph() 		
-	let pos = getpos('.')
-	normal! "+yip
-	call setpos('.', pos)
+	normal! "+yap
 endfunction
 
 function! CopyEntire() 		
