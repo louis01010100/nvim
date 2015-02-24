@@ -11,7 +11,8 @@ set shiftwidth=4
 set hidden
 
 "set cindent
-set autoread		"When a file has been detected to have been changed outside of Vim and "it has not been changed inside of Vim, automatically read it again set autowriteall
+set autoread		
+set autowriteall
 set wildmode=list:longest   "In Ex mode, press <tab> to list all the files in the current working directory
 set t_Co=256
 set nohls
