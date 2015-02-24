@@ -1,5 +1,4 @@
 ﻿set nocompatible               " be iMproved
-
 set showcmd     	" Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
@@ -18,8 +17,9 @@ set t_Co=256
 set nohls
 set cursorline
 set backspace=indent,eol,start 
-set scrolloff=999
+set scrolloff=5
 set relativenumber
+set autowriteall
 
 " Customize status line
 set laststatus=2
@@ -38,6 +38,7 @@ syntax on
     
 colorscheme sorcerer
  
+
 autocmd FileType css setlocal  sw=2 ts=2 cindent 
 autocmd FileType ruby setlocal  sw=2 ts=2 cindent 
 autocmd FileType eruby setlocal  sw=2 ts=2 cindent 
@@ -73,7 +74,8 @@ nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
 nnoremap <silent> <Leader>p o<C-r>+<ESC>
-nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
+"nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
+nnoremap <silent> <Leader>q :bd<CR>
 nnoremap <Leader>. :so ~/.vimrc<CR>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
