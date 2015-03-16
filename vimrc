@@ -51,8 +51,8 @@ autocmd FileType perl setlocal sw=4 ts=4 cindent
 execute pathogen#infect()  
 execute pathogen#helptags()  
  
-nnoremap j gj
-nnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
@@ -70,7 +70,8 @@ nnoremap <silent> <Leader>h :set hls!<CR>
 nnoremap <silent> <Leader>v :set paste!<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
-nnoremap <silent> <Leader>w :wa!<CR>
+nnoremap <silent> <Leader>wa :wa!<CR>
+nnoremap <silent> <Leader>wp :set wrap!<CR>
 nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
