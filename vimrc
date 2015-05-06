@@ -33,6 +33,8 @@ set statusline+=%l/     "Line number
 set statusline+=%L      "Number of lines in buffer
 set statusline+=(%p%%)\   "Percentage through file in lines as in CTRL-G
 
+set splitbelow
+set splitright
  
 filetype plugin indent on      " activate filetype after initializing vundle 
 syntax on
@@ -40,14 +42,6 @@ syntax on
 colorscheme sorcerer
  
 
-autocmd FileType css setlocal  sw=2 ts=2 cindent 
-autocmd FileType ruby setlocal  sw=2 ts=2 cindent 
-autocmd FileType eruby setlocal  sw=2 ts=2 cindent 
-autocmd FileType xml setlocal  sw=2 ts=2 cindent
-autocmd FileType html setlocal sw=2 ts=2 cindent iskeyword=64,48-57,95,192-255
-autocmd FileType javascript setlocal sw=4 ts=4 cindent
-autocmd FileType java setlocal sw=4 ts=4 cindent
-autocmd FileType perl setlocal sw=4 ts=4 cindent
 execute pathogen#infect()  
 execute pathogen#helptags()  
  
@@ -57,17 +51,13 @@ nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
-"nnoremap <C-k> V:m '<-2<CR><Esc>
-"nnoremap <C-j> V:m '>+1<CR><Esc>
-"vnoremap <C-k> :m '<-2<CR>gv
-"vnoremap <C-j> :m '>+1<CR>gv
 nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
 nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR> 
 nnoremap <silent> <Leader>h :set hls!<CR>
-nnoremap <silent> <Leader>v :set paste!<CR>
+nnoremap <silent> <Leader>v :VimShellPop<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
 nnoremap <silent> <Leader>wa :wa!<CR>
@@ -76,9 +66,7 @@ nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
 nnoremap <silent> <Leader>p o<C-r>+<ESC>
-"nnoremap <silent> <Leader>q :<C-u>Kwbd<CR>
 nnoremap <silent> <Leader>q :bd<CR>
-nnoremap <Leader>. :so ~/.vimrc<CR>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
@@ -126,3 +114,6 @@ function! CopyEntire()
 	normal! gg"+yG
 	call setpos('.', pos)
 endfunction
+
+let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! ")." "'
+let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
