@@ -45,6 +45,7 @@ colorscheme sorcerer
 execute pathogen#infect()  
 execute pathogen#helptags()  
  
+map <Space> \
 "nnoremap j gj
 "nnoremap k gk
 nnoremap <C-h> <c-w>h
@@ -80,8 +81,10 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 let g:scratch_insert_autohide = 0
 
 " For Command-T 
-let g:CommandTCancelMap=['<ESC>','<C-c>']
+let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
 let g:CommandTMaxHeight=20
+let g:CommandTSelectNextMap='<C-n>'
+let g:CommandTSelectPrevMap='<C-p>'
 set wildignore+=.git,tags,*.class,*.o,.svn
 
 call textobj#user#plugin('path', {
@@ -115,5 +118,8 @@ function! CopyEntire()
 	call setpos('.', pos)
 endfunction
 
-let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! ")." "'
-let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
+highlight SignColumn ctermbg=none
+"
+"YouCompleteMe"
+let g:ycm_key_list_select_completion=['<C-n>']
+let g:ycm_key_list_previous_completion=['<C-p>']
