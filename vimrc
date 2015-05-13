@@ -44,7 +44,11 @@ colorscheme sorcerer
 
 execute pathogen#infect()  
 execute pathogen#helptags()  
+
+set timeoutlen=1000 ttimeoutlen=0
  
+nnoremap [op :set paste<CR>
+nnoremap ]op :set nopaste<CR>
 map <Space> \
 "nnoremap j gj
 "nnoremap k gk
@@ -54,9 +58,9 @@ nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
 nnoremap <C-c> <c-w>c
 
-nnoremap <silent> <F5> :NERDTreeToggle<CR>
-nnoremap <silent> <F7> :call AutoPairsToggle()<CR>
-nnoremap <silent> <F6> :TagbarToggle<CR> 
+
+nnoremap <silent> <F6> :call AutoPairsToggle()<CR>
+nnoremap <silent> <F5> :TagbarToggle<CR> 
 nnoremap <silent> <Leader>h :set hls!<CR>
 nnoremap <silent> <Leader>v :VimShellPop<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
@@ -85,7 +89,7 @@ let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
 let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
-set wildignore+=.git,tags,*.class,*.o,.svn
+set wildignore+=.git,*.class,*.o,.svn
 
 call textobj#user#plugin('path', {
 \   '-': {
