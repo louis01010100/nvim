@@ -26,7 +26,7 @@ set relativenumber
 set autowriteall
 
 " Customize status line
-et laststatus=2
+set laststatus=2
 set statusline=\ %F     "Full path to the file in the buffer
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]
 set statusline+=%m      "Modified flag, text is [+]; [-] if 'modifiable' is off."
