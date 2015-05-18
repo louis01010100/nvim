@@ -53,8 +53,15 @@ execute pathogen#helptags()
 set timeoutlen=1000 ttimeoutlen=0
  
 map <Space> \
+nnoremap [o <NOP>
+nnoremap ]o <NOP>
 nnoremap [op :set paste<CR>
 nnoremap ]op :set nopaste<CR>
+nnoremap <silent> [oq :copen<CR>
+nnoremap <silent> ]oq :cclose<CR>
+nnoremap <silent> [ol :lopen<CR>
+nnoremap <silent> ]ol :lclose<CR>
+
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
