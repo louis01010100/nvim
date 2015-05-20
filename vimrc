@@ -53,14 +53,49 @@ execute pathogen#helptags()
 set timeoutlen=1000 ttimeoutlen=0
  
 map <Space> \
-nnoremap [o <NOP>
-nnoremap ]o <NOP>
+
+" customized unimpaired mapping
 nnoremap [op :set paste<CR>
 nnoremap ]op :set nopaste<CR>
+
 nnoremap <silent> [oq :copen<CR>
 nnoremap <silent> ]oq :cclose<CR>
 nnoremap <silent> [ol :lopen<CR>
 nnoremap <silent> ]ol :lclose<CR>
+
+nnoremap <silent> [A :first<CR>
+nnoremap <silent> ]A :last<CR>
+nnoremap <silent> [a :previous<CR>
+nnoremap <silent> ]a :next<CR>
+
+nnoremap <silent> [B :first<CR>
+nnoremap <silent> ]B :last<CR>
+nnoremap <silent> [b :previous<CR>
+nnoremap <silent> ]b :next<CR>
+
+nnoremap <silent> [L :lfirst<CR>
+nnoremap <silent> ]L :llast<CR>
+nnoremap <silent> [l :lprevious<CR>
+nnoremap <silent> ]l :lnext<CR>
+
+nnoremap <silent> [T :tfirst<CR>
+nnoremap <silent> ]T :tlast<CR>
+nnoremap <silent> [t :tprevious<CR>
+nnoremap <silent> ]t :tnext<CR>
+
+
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+
+
+nnoremap [c :call Conflict(1)<CR>
+nnoremap ]c :call Conflict(0)<CR>
+
+function! Conflict(reverse)
+  call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
+endfunction
 
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
