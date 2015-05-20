@@ -6,7 +6,7 @@ set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
 set nu
-set tw=0
+set tw=80
 set tabstop=4 
 set shiftwidth=4 
 set hidden
@@ -17,7 +17,10 @@ runtime! macros/matchit.vim
 "set cindent
 set autoread		
 set autowriteall
-set wildmode=list:longest   "In Ex mode, press <tab> to list all the files in the current working directory
+
+"In Ex mode, press <tab> to list all the files in the current working directory
+set wildmode=list:longest   
+
 set t_Co=256
 set nohls
 set cursorline
@@ -44,7 +47,7 @@ set sidescrolloff=5
 filetype plugin indent on      " activate filetype after initializing vundle 
 syntax on
     
-colorscheme hybrid
+colorscheme sorcerer
  
 
 execute pathogen#infect()  
@@ -78,10 +81,10 @@ nnoremap <silent> ]L :llast<CR>
 nnoremap <silent> [l :lprevious<CR>
 nnoremap <silent> ]l :lnext<CR>
 
-nnoremap <silent> [T :tfirst<CR>
-nnoremap <silent> ]T :tlast<CR>
-nnoremap <silent> [t :tprevious<CR>
-nnoremap <silent> ]t :tnext<CR>
+nnoremap <silent> [T :tabfirst<CR>
+nnoremap <silent> ]T :tablast<CR>
+nnoremap <silent> [t :tabp<CR>
+nnoremap <silent> ]t :tabn<CR>
 
 
 nnoremap <silent> [Q :cfirst<CR>
@@ -97,6 +100,13 @@ function! Conflict(reverse)
   call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
+nnoremap <silent> [oh :set hlsearch<CR>
+nnoremap <silent> ]oh :set nohlsearch<CR>
+nnoremap <silent> [oc :set cursorcolumn<CR>
+nnoremap <silent> ]oc :set nocursorcolumn<CR>
+nnoremap <silent> [or :set relativenumber<CR>
+nnoremap <silent> ]or :set norelativenumber<CR>
+
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
@@ -105,6 +115,7 @@ nnoremap <C-c> <c-w>c
 
 nnoremap <F1> :DelimitMateSwitch<CR> 
 nnoremap <silent> <F2> :TagbarToggle<CR> 
+nnoremap <silent> <F3> :ColorToggle<CR> 
 
 nnoremap <silent> <Leader>so :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>jsd :TernDef<CR>
@@ -118,7 +129,7 @@ nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
 nnoremap <silent> <Leader>p o<C-r>+<ESC>
 nnoremap <silent> <Leader>q :bd<CR>
-nnoremap <silent> <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
 nnoremap <Leader>f :Ack<SPACE>
@@ -175,3 +186,5 @@ let g:ycm_key_list_previous_completion=['<C-p>']
 
 autocmd WinLeave * setlocal nocursorline
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+
+let longLine=matchadd('ErrorMsg', '\%>80v.\+', -1)

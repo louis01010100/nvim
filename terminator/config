@@ -32,7 +32,6 @@
     icon_bell = False
     show_titlebar = False
     font = Monospace 12
-    allow_bold = False
     cursor_blink = False
 [layouts]
   [[default]]
