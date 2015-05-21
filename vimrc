@@ -187,4 +187,4 @@ let g:ycm_key_list_previous_completion=['<C-p>']
 autocmd WinLeave * setlocal nocursorline
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 
-let longLine=matchadd('ErrorMsg', '\%>80v.\+', -1)
+let longLine=matchadd('WarningMsg', '\%>80v.\+', -1)
