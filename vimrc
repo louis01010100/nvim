@@ -54,7 +54,7 @@ execute pathogen#infect()
 execute pathogen#helptags()  
 
 set timeoutlen=1000 ttimeoutlen=0
- 
+
 map <Space> \
 
 " customized unimpaired mapping
@@ -115,7 +115,7 @@ nnoremap <C-c> <c-w>c
 
 nnoremap <F1> :DelimitMateSwitch<CR> 
 nnoremap <silent> <F2> :TagbarToggle<CR> 
-nnoremap <silent> <F3> :ColorToggle<CR> 
+"nnoremap <silent> <F4> :ColorToggle<CR> 
 
 nnoremap <silent> <Leader>so :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>jsd :TernDef<CR>
