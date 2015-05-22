@@ -5,7 +5,7 @@ set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
-set nu
+set number
 set tw=80
 set tabstop=4 
 set shiftwidth=4 
@@ -22,7 +22,7 @@ set autowriteall
 set wildmode=list:longest   
 
 set t_Co=256
-set nohls
+set hlsearch
 set cursorline
 set backspace=indent,eol,start 
 set relativenumber
@@ -106,6 +106,8 @@ nnoremap <silent> [oc :set cursorcolumn<CR>
 nnoremap <silent> ]oc :set nocursorcolumn<CR>
 nnoremap <silent> [or :set relativenumber<CR>
 nnoremap <silent> ]or :set norelativenumber<CR>
+nnoremap <silent> [ow :set wrap<CR>
+nnoremap <silent> ]ow :set nowrap<CR>
 
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
@@ -129,7 +131,7 @@ nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
 nnoremap <silent> <Leader>p o<C-r>+<ESC>
 nnoremap <silent> <Leader>q :bd<CR>
-nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+noremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
 nnoremap <Leader>f :Ack<SPACE>
