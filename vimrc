@@ -116,13 +116,12 @@ nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
 nnoremap <C-c> <c-w>c
 
-nnoremap <F1> :DelimitMateSwitch<CR> 
 nnoremap <silent> <F2> :TagbarToggle<CR> 
-"nnoremap <silent> <F4> :ColorToggle<CR> 
+nnoremap <silent> <F4> :ColorToggle<CR> 
 
 nnoremap <silent> <Leader>so :source ~/.vimrc<CR>
-nnoremap <silent> <Leader>jsd :TernDef<CR>
-nnoremap <silent> <Leader>jsr :TernRef<CR>
+nnoremap <silent> <Leader>d :TernDef<CR>
+nnoremap <silent> <Leader>r :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
 nnoremap <silent> <Leader>wa :wa!<CR>

@@ -35,9 +35,10 @@ hi MatchParen             cterm=NONE             ctermbg=NONE    ctermfg=226
 hi ModeMsg                cterm=NONE             ctermbg=NONE  ctermfg=230
 hi MoreMsg                cterm=NONE             ctermbg=234   ctermfg=29
 hi NonText                cterm=NONE             ctermbg=NONE   ctermfg=59
-hi Pmenu                  cterm=NONE             ctermbg=238   ctermfg=231
+hi Pmenu                  cterm=NONE             ctermbg=102   ctermfg=230
 hi PmenuSbar              cterm=NONE             ctermbg=250   ctermfg=fg
-hi PmenuSel               cterm=NONE             ctermbg=149   ctermfg=16
+hi PmenuSel               cterm=NONE             ctermbg=109   ctermfg=230
+hi PmenuThumb             cterm=reverse          ctermbg=NONE    ctermfg=fg
 hi Question               cterm=NONE             ctermbg=NONE    ctermfg=248
 hi Search                 cterm=NONE             ctermbg=185   ctermfg=0
 hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
