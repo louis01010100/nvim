@@ -11,6 +11,7 @@ set tabstop=4
 set shiftwidth=4 
 set hidden
 set history=10000
+set display=uhex
 
 runtime! macros/matchit.vim
 
