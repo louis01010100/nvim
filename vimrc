@@ -130,7 +130,8 @@ nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
 nnoremap <silent> <Leader>p o<C-r>+<ESC>
-nnoremap <silent> <Leader>q :bd<CR>
+nnoremap <silent> <Leader>bd :bd<CR>
+nnoremap <silent> <Leader>qa :qa!<CR>
 noremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
@@ -195,4 +196,3 @@ let longLine=matchadd('WarningMsg', '\%>80v.\+', -1)
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 let g:bookmark_center = 1
-
