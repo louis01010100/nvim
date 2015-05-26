@@ -41,7 +41,8 @@ hi PmenuSel               cterm=NONE             ctermbg=109   ctermfg=230
 hi PmenuThumb             cterm=reverse          ctermbg=NONE    ctermfg=fg
 hi Question               cterm=NONE             ctermbg=NONE    ctermfg=248
 hi Search                 cterm=NONE             ctermbg=185   ctermfg=0
-hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
+"hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
+hi SignColumn             cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi SpecialKey             cterm=NONE             ctermbg=NONE    ctermfg=59
 hi SpellBad               cterm=undercurl        ctermbg=NONE    ctermfg=196
 hi SpellCap               cterm=undercurl        ctermbg=NONE    ctermfg=21
