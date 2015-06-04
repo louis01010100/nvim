@@ -124,8 +124,8 @@ nnoremap <silent> <Leader>d :TernDef<CR>
 nnoremap <silent> <Leader>r :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
-nnoremap <silent> <Leader>wa :wa!<CR>
-nnoremap <silent> <Leader>wqa :wqa!<CR>
+nnoremap <Leader>wa :wa!<CR>
+nnoremap <silent> <Leader>qa :qa!<CR>
 nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
@@ -135,7 +135,7 @@ nnoremap <silent> <Leader>qa :qa!<CR>
 noremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
-nnoremap <Leader>f :Ack<SPACE>
+"nnoremap <Leader>f :Ack<SPACE>
 
 " invisible character
 

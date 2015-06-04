@@ -69,7 +69,7 @@ hi Statement              cterm=NONE             ctermbg=NONE    ctermfg=67
 hi Keyword                cterm=NONE             ctermbg=NONE    ctermfg=96
 hi Constant               cterm=NONE             ctermbg=NONE    ctermfg=130
 hi Number                 cterm=NONE             ctermbg=NONE    ctermfg=130
-hi Special                cterm=NONE             ctermbg=NONE    ctermfg=64
+hi Special                cterm=NONE             ctermbg=NONE    ctermfg=65
 hi PreProc                cterm=NONE             ctermbg=NONE    ctermfg=65
 hi Todo                   cterm=NONE			 ctermbg=234     ctermfg=96
 
