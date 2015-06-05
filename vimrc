@@ -14,7 +14,6 @@ set history=10000
 set display=uhex
 
 runtime! macros/matchit.vim
-
 "set cindent
 set autoread		
 set autowriteall
@@ -125,7 +124,7 @@ nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
 "nnoremap <Leader>wa :wa!<CR>
-nnoremap <Leader><Leader> :wa<CR>
+nnoremap <Leader>wa :wa<CR>
 nnoremap <silent> <Leader>qa :qa!<CR>
 nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
