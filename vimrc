@@ -12,6 +12,7 @@ set shiftwidth=4
 set hidden
 set history=10000
 set display=uhex
+set expandtab
 
 runtime! macros/matchit.vim
 "set cindent
@@ -25,7 +26,6 @@ set t_Co=256
 set hlsearch
 set cursorline
 set backspace=indent,eol,start 
-set relativenumber
 set autowriteall
 
 " Customize status line
@@ -60,11 +60,20 @@ map <Space> \
 " customized unimpaired mapping
 nnoremap [op :set paste<CR>
 nnoremap ]op :set nopaste<CR>
-
 nnoremap <silent> [oq :copen<CR>
 nnoremap <silent> ]oq :cclose<CR>
 nnoremap <silent> [ol :lopen<CR>
 nnoremap <silent> ]ol :lclose<CR>
+nnoremap <silent> [oh :set hlsearch<CR>
+nnoremap <silent> ]oh :set nohlsearch<CR>
+nnoremap <silent> [oc :set cursorcolumn<CR>
+nnoremap <silent> ]oc :set nocursorcolumn<CR>
+nnoremap <silent> [or :set relativenumber<CR>
+nnoremap <silent> ]or :set norelativenumber<CR>
+nnoremap <silent> [ow :set wrap<CR>
+nnoremap <silent> ]ow :set nowrap<CR>
+nnoremap <silent> [ol :set list<CR>
+nnoremap <silent> ]ol :set nolist<CR>
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -100,14 +109,6 @@ function! Conflict(reverse)
   call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
-nnoremap <silent> [oh :set hlsearch<CR>
-nnoremap <silent> ]oh :set nohlsearch<CR>
-nnoremap <silent> [oc :set cursorcolumn<CR>
-nnoremap <silent> ]oc :set nocursorcolumn<CR>
-nnoremap <silent> [or :set relativenumber<CR>
-nnoremap <silent> ]or :set norelativenumber<CR>
-nnoremap <silent> [ow :set wrap<CR>
-nnoremap <silent> ]ow :set nowrap<CR>
 
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
@@ -195,3 +196,8 @@ let longLine=matchadd('WarningMsg', '\%>80v.\+', -1)
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 let g:bookmark_center = 1
+
+autocmd FileType html setlocal sw=2 ts=2
+autocmd FileType xml setlocal sw=2 ts=2
+autocmd FileType javascript setlocal sw=4 ts=4
+autocmd FileType css setlocal sw=4 ts=4
