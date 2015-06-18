@@ -12,6 +12,7 @@ set shiftwidth=4
 set hidden
 set history=10000
 set display=uhex
+set expandtab
 
 runtime! macros/matchit.vim
 "set cindent
@@ -62,11 +63,20 @@ nnoremap <silent>]os :set scrolloff=0<CR>
 " customized unimpaired mapping
 nnoremap [op :set paste<CR>
 nnoremap ]op :set nopaste<CR>
-
 nnoremap <silent> [oq :copen<CR>
 nnoremap <silent> ]oq :cclose<CR>
 nnoremap <silent> [ol :lopen<CR>
 nnoremap <silent> ]ol :lclose<CR>
+nnoremap <silent> [oh :set hlsearch<CR>
+nnoremap <silent> ]oh :set nohlsearch<CR>
+nnoremap <silent> [oc :set cursorcolumn<CR>
+nnoremap <silent> ]oc :set nocursorcolumn<CR>
+nnoremap <silent> [or :set relativenumber<CR>
+nnoremap <silent> ]or :set norelativenumber<CR>
+nnoremap <silent> [ow :set wrap<CR>
+nnoremap <silent> ]ow :set nowrap<CR>
+nnoremap <silent> [ol :set list<CR>
+nnoremap <silent> ]ol :set nolist<CR>
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -103,21 +113,13 @@ function! Conflict(reverse)
   call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
-nnoremap <silent> [oh :set hlsearch<CR>
-nnoremap <silent> ]oh :set nohlsearch<CR>
-nnoremap <silent> [oc :set cursorcolumn<CR>
-nnoremap <silent> ]oc :set nocursorcolumn<CR>
-nnoremap <silent> [or :set relativenumber<CR>
-nnoremap <silent> ]or :set norelativenumber<CR>
-nnoremap <silent> [ow :set wrap<CR>
-nnoremap <silent> ]ow :set nowrap<CR>
 
-nnoremap <C-h> <c-w>h
-nnoremap <C-j> <c-w>j
-nnoremap <C-k> <c-w>k
-nnoremap <C-l> <c-w>l
-nnoremap <C-c> <c-w>c
-
+" nnoremap <C-h> <c-w>h
+" nnoremap <C-j> <c-w>j
+" nnoremap <C-k> <c-w>k
+" nnoremap <C-l> <c-w>l
+" nnoremap <C-c> <c-w>c
+"
 nnoremap <silent> <F2> :TagbarToggle<CR> 
 nnoremap <silent> <F4> :ColorToggle<CR> 
 
@@ -200,4 +202,10 @@ let g:bookmark_auto_save = 1
 let g:bookmark_center = 1
 let g:bookmark_auto_close = 1
 
+" auto-pairs
 let g:AutoPairsShortcutBackInsert = '<C-b>'
+
+autocmd FileType html setlocal sw=2 ts=2
+autocmd FileType xml setlocal sw=2 ts=2
+autocmd FileType javascript setlocal sw=4 ts=4
+autocmd FileType css setlocal sw=4 ts=4
