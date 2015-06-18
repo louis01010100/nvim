@@ -25,7 +25,6 @@ set t_Co=256
 set hlsearch
 set cursorline
 set backspace=indent,eol,start 
-set relativenumber
 set autowriteall
 
 " Customize status line
@@ -41,7 +40,7 @@ set statusline+=(%p%%)\   "Percentage through file in lines as in CTRL-G
 
 set splitbelow
 set splitright
-set scrolloff=1
+set scrolloff=5
 set sidescrolloff=5
  
 filetype plugin indent on      " activate filetype after initializing vundle 
@@ -56,6 +55,9 @@ execute pathogen#helptags()
 set timeoutlen=1000 ttimeoutlen=0
 
 map <Space> \
+
+nnoremap <silent>[os :set scrolloff=999<CR>
+nnoremap <silent>]os :set scrolloff=0<CR>
 
 " customized unimpaired mapping
 nnoremap [op :set paste<CR>
@@ -97,7 +99,8 @@ nnoremap [c :call Conflict(1)<CR>
 nnoremap ]c :call Conflict(0)<CR>
 
 function! Conflict(reverse)
-  call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
+  "call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
+  call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
 nnoremap <silent> [oh :set hlsearch<CR>
@@ -123,16 +126,15 @@ nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
-"nnoremap <Leader>wa :wa!<CR>
-nnoremap <Leader>wa :wa<CR>
+nnoremap <Leader>wa :wa!<CR>
 nnoremap <silent> <Leader>qa :qa!<CR>
-nnoremap <silent> <Leader>yal :call CopyLine()<CR>
-nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
-nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
-nnoremap <silent> <Leader>p o<C-r>+<ESC>
+"nnoremap <silent> <Leader>yal :call CopyLine()<CR>
+"nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
+"nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
+"nnoremap <silent> <Leader>p o<C-r>+<ESC>
 noremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
-nnoremap <silent> <C-u> 5<C-y>
-nnoremap <silent> <C-d> 5<C-e>
+nnoremap <silent> <C-u> 10<C-y>
+nnoremap <silent> <C-d> 10<C-e>
 nnoremap <silent> <leader>m :CommandTMRU<CR>
 nnoremap <Leader>f :Ack<SPACE>
 
@@ -149,7 +151,7 @@ let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
 let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
-set wildignore+=.git,*.class,*.o,.svn
+set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
 
 call textobj#user#plugin('path', {
 \   '-': {
@@ -188,6 +190,7 @@ let g:ycm_key_list_previous_completion=['<C-p>']
 
 autocmd WinLeave * setlocal nocursorline
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+autocmd FileType html setlocal tabstop=2 sw=2
 
 let longLine=matchadd('WarningMsg', '\%>80v.\+', -1)
 
@@ -195,3 +198,6 @@ let longLine=matchadd('WarningMsg', '\%>80v.\+', -1)
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 let g:bookmark_center = 1
+let g:bookmark_auto_close = 1
+
+let g:AutoPairsShortcutBackInsert = '<C-b>'

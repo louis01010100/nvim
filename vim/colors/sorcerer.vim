@@ -28,10 +28,10 @@ hi Directory              cterm=NONE             ctermbg=234   ctermfg=68
 hi ErrorMsg               cterm=NONE             ctermbg=88    ctermfg=230
 hi FoldColumn             cterm=NONE             ctermbg=239   ctermfg=66
 hi Folded                 cterm=NONE             ctermbg=16    ctermfg=60
-hi IncSearch              cterm=NONE             ctermbg=185  ctermfg=0
+hi IncSearch              cterm=NONE             ctermbg=237  ctermfg=185
 hi LineNr                 cterm=NONE             ctermbg=NONE    ctermfg=238
 hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=246
-hi MatchParen             cterm=NONE             ctermbg=NONE    ctermfg=226
+hi MatchParen             cterm=NONE             ctermbg=237    ctermfg=226
 hi ModeMsg                cterm=NONE             ctermbg=NONE  ctermfg=230
 hi MoreMsg                cterm=NONE             ctermbg=234   ctermfg=29
 hi NonText                cterm=NONE             ctermbg=NONE   ctermfg=59
@@ -40,7 +40,7 @@ hi PmenuSbar              cterm=NONE             ctermbg=250   ctermfg=fg
 hi PmenuSel               cterm=NONE             ctermbg=109   ctermfg=230
 hi PmenuThumb             cterm=reverse          ctermbg=NONE    ctermfg=fg
 hi Question               cterm=NONE             ctermbg=NONE    ctermfg=248
-hi Search                 cterm=NONE             ctermbg=185   ctermfg=0
+hi Search                 cterm=NONE             ctermbg=237   ctermfg=185
 "hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
 hi SignColumn             cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi SpecialKey             cterm=NONE             ctermbg=NONE    ctermfg=59
