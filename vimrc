@@ -12,7 +12,7 @@ set shiftwidth=4
 set hidden
 set history=10000
 set display=uhex
-set expandtab
+"set expandtab
 
 runtime! macros/matchit.vim
 "set cindent
@@ -56,7 +56,6 @@ execute pathogen#helptags()
 set timeoutlen=1000 ttimeoutlen=0
 
 map <Space> \
-
 nnoremap <silent>[os :set scrolloff=999<CR>
 nnoremap <silent>]os :set scrolloff=0<CR>
 
@@ -97,16 +96,14 @@ nnoremap <silent> [T :tabfirst<CR>
 nnoremap <silent> ]T :tablast<CR>
 nnoremap <silent> [t :tabp<CR>
 nnoremap <silent> ]t :tabn<CR>
-
-
 nnoremap <silent> [Q :cfirst<CR>
 nnoremap <silent> ]Q :clast<CR>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
-
-
 nnoremap [c :call Conflict(1)<CR>
 nnoremap ]c :call Conflict(0)<CR>
+
+inoremap jk <Esc>
 
 function! Conflict(reverse)
   "call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
@@ -205,7 +202,51 @@ let g:bookmark_auto_close = 1
 " auto-pairs
 let g:AutoPairsShortcutBackInsert = '<C-b>'
 
-autocmd FileType html setlocal sw=2 ts=2
-autocmd FileType xml setlocal sw=2 ts=2
-autocmd FileType javascript setlocal sw=4 ts=4
+autocmd FileType html setlocal sw=2 ts=2 foldlevel=3
+autocmd FileType xml setlocal sw=2 ts=2 foldlevel=3
+autocmd FileType javascript setlocal sw=4 ts=4 
+set foldmethod=indent
 autocmd FileType css setlocal sw=4 ts=4
+
+echo searchpair('<[^ /!<>]\+>', '', '</[^ /!<>]\+>')
+ 
+syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+setlocal foldmethod=syntax
+setlocal foldlevel=99
+
+" Set a nicer foldtext function
+set foldtext=MyFoldText()
+function! MyFoldText()
+  let line = getline(v:foldstart)
+  if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+    let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+    let linenum = v:foldstart + 1
+    while linenum < v:foldend
+      let line = getline( linenum )
+      let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+      if comment_content != ''
+        break
+      endif
+      let linenum = linenum + 1
+    endwhile
+    let sub = initial . ' ' . comment_content
+  else
+    let sub = line
+    let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+    if startbrace == '{'
+      let line = getline(v:foldend)
+      let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+      if endbrace == '}'
+        let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+      endif
+    endif
+  endif
+  let n = v:foldend - v:foldstart + 1
+  let info = " " . n . " lines"
+  "let sub = sub . "                                                                                                                  "
+  "let sub = sub . "                                                          "
+  let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+  let fold_w = getwinvar( 0, '&foldcolumn' )
+  let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+  return sub . info
+endfunction
