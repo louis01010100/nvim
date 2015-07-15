@@ -55,7 +55,8 @@ execute pathogen#helptags()
 
 set timeoutlen=1000 ttimeoutlen=0
 
-map <Space> \
+"map <Space> \
+let mapleader = "\<Space>"
 nnoremap <silent>[os :set scrolloff=999<CR>
 nnoremap <silent>]os :set scrolloff=0<CR>
 
@@ -104,7 +105,6 @@ nnoremap [c :call Conflict(1)<CR>
 nnoremap ]c :call Conflict(0)<CR>
 
 function! Conflict(reverse)
-  "call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
   call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
@@ -129,16 +129,15 @@ nnoremap <silent> <Leader>qa :qa!<CR>
 "nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 "nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
 "nnoremap <silent> <Leader>p o<C-r>+<ESC>
-noremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 10<C-y>
 nnoremap <silent> <C-d> 10<C-e>
-"nnoremap <silent> <leader>m :CommandTMRU<CR>
-nnoremap <Leader>f :Unite -start-insert file<CR>
-nnoremap <Leader>b :Unite -start-insert buffer<CR>
-nnoremap <Leader>m :Unite -start-insert file_mru<CR>
+"nnoremap <Leader>f :Unite -start-insert file<CR>
+"nnoremap <Leader>b :Unite -start-insert buffer<CR>
+"nnoremap <Leader>m :Unite -start-insert file_mru<CR>
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>r :Unite -start-insert file_rec/async:!<CR>
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"nnoremap <leader>r :Unite -start-insert file_rec/async:!<CR>
 
 
 
@@ -153,11 +152,15 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 " Unite
 let g:unite_split_rule = "botright"
 
-if exists("*unite")
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  call unite#filters#sorter_default#use(['sorter_rank'])
-  call unite#set_profile('files', 'smartcase', 1)
-endif
+"if exists("*unite")
+"  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"  call unite#filters#sorter_default#use(['sorter_rank'])
+"  call unite#set_profile('files', 'smartcase', 1)
+"endif
+
+" ag.vim
+let g:ag_mapping_message=0
+nnoremap <leader>ag :Ag 
 
 " For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
@@ -165,6 +168,7 @@ let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
 set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
+nnoremap <silent> <leader>m :CommandTMRU<cr>
 
 call textobj#user#plugin('path', {
 \   '-': {
