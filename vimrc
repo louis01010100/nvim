@@ -103,8 +103,6 @@ nnoremap <silent> ]q :cnext<CR>
 nnoremap [c :call Conflict(1)<CR>
 nnoremap ]c :call Conflict(0)<CR>
 
-inoremap jk <Esc>
-
 function! Conflict(reverse)
   "call search('^@@ .* @@\|^[<=>|]\{7}[<=>|]\@!', a:reverse ? 'bW' : 'W')
   call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
@@ -134,8 +132,15 @@ nnoremap <silent> <Leader>qa :qa!<CR>
 noremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 10<C-y>
 nnoremap <silent> <C-d> 10<C-e>
-nnoremap <silent> <leader>m :CommandTMRU<CR>
-nnoremap <Leader>f :Ack<SPACE>
+"nnoremap <silent> <leader>m :CommandTMRU<CR>
+nnoremap <Leader>f :Unite -start-insert file<CR>
+nnoremap <Leader>b :Unite -start-insert buffer<CR>
+nnoremap <Leader>m :Unite -start-insert file_mru<CR>
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>r :Unite -start-insert file_rec/async:!<CR>
+
+
 
 " invisible character
 
@@ -144,6 +149,15 @@ hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=239
 hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
 "let g:scratch_insert_autohide = 0
+
+" Unite
+let g:unite_split_rule = "botright"
+
+if exists("*unite")
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  call unite#filters#sorter_default#use(['sorter_rank'])
+  call unite#set_profile('files', 'smartcase', 1)
+endif
 
 " For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
