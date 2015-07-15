@@ -111,12 +111,12 @@ function! Conflict(reverse)
 endfunction
 
 
-" nnoremap <C-h> <c-w>h
-" nnoremap <C-j> <c-w>j
-" nnoremap <C-k> <c-w>k
-" nnoremap <C-l> <c-w>l
-" nnoremap <C-c> <c-w>c
-"
+nnoremap <C-h> <c-w>h
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
+nnoremap <C-l> <c-w>l
+nnoremap <C-c> <c-w>c
+
 nnoremap <silent> <F2> :TagbarToggle<CR> 
 nnoremap <silent> <F4> :ColorToggle<CR> 
 
@@ -205,14 +205,12 @@ let g:AutoPairsShortcutBackInsert = '<C-b>'
 autocmd FileType html setlocal sw=2 ts=2 foldlevel=3
 autocmd FileType xml setlocal sw=2 ts=2 foldlevel=3
 autocmd FileType javascript setlocal sw=4 ts=4 
-set foldmethod=indent
+"set foldmethod=indent
 autocmd FileType css setlocal sw=4 ts=4
 
-echo searchpair('<[^ /!<>]\+>', '', '</[^ /!<>]\+>')
- 
-syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-setlocal foldmethod=syntax
-setlocal foldlevel=99
+"syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+"setlocal foldmethod=syntax
+"setlocal foldlevel=2
 
 " Set a nicer foldtext function
 set foldtext=MyFoldText()
