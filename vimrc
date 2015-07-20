@@ -6,13 +6,13 @@ set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
 set number
-set tw=80
+set textwidth=78
 set tabstop=4 
 set shiftwidth=4 
 set hidden
 set history=10000
 set display=uhex
-"set expandtab
+set expandtab
 
 runtime! macros/matchit.vim
 "set cindent
@@ -151,7 +151,6 @@ let g:ag_mapping_message=0
 nnoremap <leader>ag :Ag 
 
 " vim-autoformat
-let g:formatdef_uglify_js2 = 'uglifier'
 nnoremap <silent> <Leader>af :Autoformat<CR>
 
 " For Command-T 
