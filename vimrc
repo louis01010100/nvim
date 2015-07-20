@@ -123,8 +123,8 @@ nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
-nnoremap <Leader>wa :wa!<CR>
-nnoremap <silent> <Leader>qa :qa!<CR>
+nnoremap <Leader>w :wa!<CR>
+nnoremap <silent> <Leader>q :qa!<CR>
 "nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 "nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 "nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
@@ -135,11 +135,8 @@ nnoremap <silent> <C-d> 10<C-e>
 "nnoremap <Leader>f :Unite -start-insert file<CR>
 "nnoremap <Leader>b :Unite -start-insert buffer<CR>
 "nnoremap <Leader>m :Unite -start-insert file_mru<CR>
-
 "call unite#filters#matcher_default#use(['matcher_fuzzy'])
 "nnoremap <leader>r :Unite -start-insert file_rec/async:!<CR>
-
-
 
 " invisible character
 
@@ -149,18 +146,13 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
 "let g:scratch_insert_autohide = 0
 
-" Unite
-let g:unite_split_rule = "botright"
-
-"if exists("*unite")
-"  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"  call unite#filters#sorter_default#use(['sorter_rank'])
-"  call unite#set_profile('files', 'smartcase', 1)
-"endif
-
 " ag.vim
 let g:ag_mapping_message=0
 nnoremap <leader>ag :Ag 
+
+" vim-autoformat
+let g:formatdef_uglify_js2 = 'uglifier'
+nnoremap <silent> <Leader>af :Autoformat<CR>
 
 " For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
