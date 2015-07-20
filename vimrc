@@ -257,3 +257,14 @@ function! MyFoldText()
   let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
   return sub . info
 endfunction
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" syntastic
+"
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
