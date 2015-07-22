@@ -61,22 +61,22 @@ nnoremap <silent>[os :set scrolloff=999<CR>
 nnoremap <silent>]os :set scrolloff=0<CR>
 
 " customized unimpaired mapping
-nnoremap [op :set paste<CR>
-nnoremap ]op :set nopaste<CR>
-nnoremap <silent> [oq :copen<CR>
-nnoremap <silent> ]oq :cclose<CR>
-nnoremap <silent> [ol :lopen<CR>
-nnoremap <silent> ]ol :lclose<CR>
-nnoremap <silent> [oh :set hlsearch<CR>
-nnoremap <silent> ]oh :set nohlsearch<CR>
-nnoremap <silent> [oc :set cursorcolumn<CR>
-nnoremap <silent> ]oc :set nocursorcolumn<CR>
-nnoremap <silent> [or :set relativenumber<CR>
-nnoremap <silent> ]or :set norelativenumber<CR>
-nnoremap <silent> [ow :set wrap<CR>
-nnoremap <silent> ]ow :set nowrap<CR>
-nnoremap <silent> [ol :set list<CR>
-nnoremap <silent> ]ol :set nolist<CR>
+nnoremap ]op :set paste<CR>
+nnoremap [op :set nopaste<CR>
+nnoremap <silent> ]oq :copen<CR>
+nnoremap <silent> [oq :cclose<CR>
+nnoremap <silent> ]ol :lopen<CR>
+nnoremap <silent> [ol :lclose<CR>
+nnoremap <silent> ]oh :set hlsearch<CR>
+nnoremap <silent> [oh :set nohlsearch<CR>
+nnoremap <silent> ]oc :set cursorcolumn<CR>
+nnoremap <silent> [oc :set nocursorcolumn<CR>
+nnoremap <silent> ]or :set relativenumber<CR>
+nnoremap <silent> [or :set norelativenumber<CR>
+nnoremap <silent> ]ow :set wrap<CR>
+nnoremap <silent> [ow :set nowrap<CR>
+nnoremap <silent> ]ol :set list<CR>
+nnoremap <silent> [ol :set nolist<CR>
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -132,19 +132,11 @@ nnoremap <silent> <Leader>q :qa!<CR>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 10<C-y>
 nnoremap <silent> <C-d> 10<C-e>
-"nnoremap <Leader>f :Unite -start-insert file<CR>
-"nnoremap <Leader>b :Unite -start-insert buffer<CR>
-"nnoremap <Leader>m :Unite -start-insert file_mru<CR>
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"nnoremap <leader>r :Unite -start-insert file_rec/async:!<CR>
 
 " invisible character
-
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
 hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=239
 hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
-
-"let g:scratch_insert_autohide = 0
 
 " ag.vim
 let g:ag_mapping_message=0
@@ -198,9 +190,8 @@ let g:ycm_key_list_previous_completion=['<C-p>']
 
 autocmd WinLeave * setlocal nocursorline
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-autocmd FileType html setlocal tabstop=2 sw=2
 
-let longLine=matchadd('WarningMsg', '\%>80v.\+', -1)
+"let longLine=matchadd('WarningMsg', '\%>'.&tw.'v.\+', -1)
 
 " vim-bookmark
 let g:bookmark_save_per_working_dir = 1
@@ -211,52 +202,15 @@ let g:bookmark_auto_close = 1
 " auto-pairs
 let g:AutoPairsShortcutBackInsert = '<C-b>'
 
-autocmd FileType html setlocal sw=2 ts=2 foldlevel=3
-autocmd FileType xml setlocal sw=2 ts=2 foldlevel=3
-autocmd FileType javascript setlocal sw=4 ts=4 
-"set foldmethod=indent
-autocmd FileType css setlocal sw=4 ts=4
+autocmd FileType html setlocal sw=2 ts=2 tw=120
+autocmd FileType xml setlocal sw=2 ts=2 tw=120
+autocmd FileType javascript setlocal sw=4 ts=4  tw=78
+autocmd FileType css setlocal sw=4 ts=4 tw=78
 
 "syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 "setlocal foldmethod=syntax
 "setlocal foldlevel=2
 
-" Set a nicer foldtext function
-set foldtext=MyFoldText()
-function! MyFoldText()
-  let line = getline(v:foldstart)
-  if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-    let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-    let linenum = v:foldstart + 1
-    while linenum < v:foldend
-      let line = getline( linenum )
-      let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-      if comment_content != ''
-        break
-      endif
-      let linenum = linenum + 1
-    endwhile
-    let sub = initial . ' ' . comment_content
-  else
-    let sub = line
-    let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-    if startbrace == '{'
-      let line = getline(v:foldend)
-      let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-      if endbrace == '}'
-        let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-      endif
-    endif
-  endif
-  let n = v:foldend - v:foldstart + 1
-  let info = " " . n . " lines"
-  "let sub = sub . "                                                                                                                  "
-  "let sub = sub . "                                                          "
-  let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-  let fold_w = getwinvar( 0, '&foldcolumn' )
-  let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-  return sub . info
-endfunction
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -268,3 +222,13 @@ set statusline+=%*
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
+
+nnoremap <silent> <Leader>l
+      \ :if exists('w:long_line_match') <Bar>
+      \   silent! call matchdelete(w:long_line_match) <Bar>
+      \   unlet w:long_line_match <Bar>
+      \ elseif &textwidth > 0 <Bar>
+      \   let w:long_line_match = matchadd('WarningMsg', '\%>'.&tw.'v.\+', -1) <Bar>
+      \ else <Bar>
+      \   let w:long_line_match = matchadd('WarningMsg', '\%>80v.\+', -1) <Bar>
+      \ endif<CR>
