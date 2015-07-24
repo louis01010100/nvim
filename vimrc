@@ -140,7 +140,7 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
 " ag.vim
 let g:ag_mapping_message=0
-nnoremap <leader>ag :Ag 
+nnoremap <Leader>ag :Ag 
 
 " vim-autoformat
 nnoremap <silent> <Leader>af :Autoformat<CR>
@@ -151,7 +151,7 @@ let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
 set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
-nnoremap <silent> <leader>m :CommandTMRU<cr>
+nnoremap <silent> <Leader>m :CommandTMRU<CR>
 
 call textobj#user#plugin('path', {
 \   '-': {
