@@ -49,14 +49,14 @@ syntax on
     
 colorscheme sorcerer
  
-
 execute pathogen#infect()  
 execute pathogen#helptags()  
 
 set timeoutlen=1000 ttimeoutlen=0
 
-"map <Space> \
 let mapleader = "\<Space>"
+noremap <silent> <C-l> <Esc>
+
 nnoremap <silent>[os :set scrolloff=999<CR>
 nnoremap <silent>]os :set scrolloff=0<CR>
 
@@ -118,11 +118,11 @@ function! Conflict(reverse)
 endfunction
 
 
-nnoremap <C-h> <c-w>h
-nnoremap <C-j> <c-w>j
-nnoremap <C-k> <c-w>k
-nnoremap <C-l> <c-w>l
-nnoremap <C-c> <c-w>c
+" nnoremap <C-h> <c-w>h
+" nnoremap <C-j> <c-w>j
+" nnoremap <C-k> <c-w>k
+" nnoremap <C-l> <c-w>l
+" nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F2> :TagbarToggle<CR> 
 nnoremap <silent> <F3> :ColorToggle<CR> 
