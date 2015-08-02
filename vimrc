@@ -80,6 +80,12 @@ nnoremap <silent> [ol :set nolist<CR>
 nnoremap <silent> ]oc :ColorHighlight<CR>
 nnoremap <silent> [oc :ColorClear<CR>
 
+" Tagbar
+nnoremap <silent> ]ot :TagbarOpen<CR>
+nnoremap <silent> [ot :TagbarClose<CR>
+let g:tagbar_left = 1
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -91,10 +97,10 @@ nnoremap <silent> ]B :last<CR>
 nnoremap <silent> [b :previous<CR>
 nnoremap <silent> ]b :next<CR>
 
-nnoremap <silent> [L :lfirst<CR>
-nnoremap <silent> ]L :llast<CR>
-nnoremap <silent> [l :lprevious<CR>
-nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [F :lfirst<CR>
+nnoremap <silent> ]F :llast<CR>
+nnoremap <silent> [f :lprevious<CR>
+nnoremap <silent> ]f :lnext<CR>
 
 nnoremap <silent> [T :tabfirst<CR>
 nnoremap <silent> ]T :tablast<CR>
