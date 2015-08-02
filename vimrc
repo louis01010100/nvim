@@ -65,18 +65,21 @@ nnoremap ]op :set paste<CR>
 nnoremap [op :set nopaste<CR>
 nnoremap <silent> ]oq :copen<CR>
 nnoremap <silent> [oq :cclose<CR>
-nnoremap <silent> ]ol :lopen<CR>
-nnoremap <silent> [ol :lclose<CR>
+nnoremap <silent> ]of :lopen<CR>
+nnoremap <silent> [of :lclose<CR>
 nnoremap <silent> ]oh :set hlsearch<CR>
 nnoremap <silent> [oh :set nohlsearch<CR>
-nnoremap <silent> ]oc :set cursorcolumn<CR>
-nnoremap <silent> [oc :set nocursorcolumn<CR>
 nnoremap <silent> ]or :set relativenumber<CR>
 nnoremap <silent> [or :set norelativenumber<CR>
 nnoremap <silent> ]ow :set wrap<CR>
 nnoremap <silent> [ow :set nowrap<CR>
 nnoremap <silent> ]ol :set list<CR>
 nnoremap <silent> [ol :set nolist<CR>
+
+" Colorizer
+nnoremap <silent> ]oc :ColorHighlight<CR>
+nnoremap <silent> [oc :ColorClear<CR>
+
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -116,7 +119,7 @@ nnoremap <C-l> <c-w>l
 nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F2> :TagbarToggle<CR> 
-nnoremap <silent> <F4> :ColorToggle<CR> 
+nnoremap <silent> <F3> :ColorToggle<CR> 
 
 nnoremap <silent> <Leader>so :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>df :TernDef<CR>
@@ -217,12 +220,15 @@ set statusline+=%*
 
 " syntastic
 "
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"
+highlight link SyntasticError SpellBad
+highlight link SyntasticWarning SpellCap
 
+" Highlight characters exceeding the text-width 
 nnoremap <silent> <Leader>l
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
@@ -232,3 +238,5 @@ nnoremap <silent> <Leader>l
       \ else <Bar>
       \   let w:long_line_match = matchadd('WarningMsg', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
+
+

@@ -44,10 +44,10 @@ hi Search                 cterm=NONE             ctermbg=237   ctermfg=185
 "hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
 hi SignColumn             cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi SpecialKey             cterm=NONE             ctermbg=NONE    ctermfg=59
-hi SpellBad               cterm=undercurl        ctermbg=NONE    ctermfg=196
-hi SpellCap               cterm=undercurl        ctermbg=NONE    ctermfg=21
-hi SpellLocal             cterm=undercurl        ctermbg=NONE    ctermfg=30
-hi SpellRare              cterm=undercurl        ctermbg=NONE    ctermfg=201
+hi SpellBad               cterm=NONE             ctermbg=88    ctermfg=230
+hi SpellCap               cterm=NONE             ctermbg=166    ctermfg=230
+hi SpellLocal             cterm=NONE             ctermbg=NONE    ctermfg=30
+hi SpellRare              cterm=NONE             ctermbg=NONE    ctermfg=201
 hi StatusLine             cterm=NONE             ctermbg=241   ctermfg=252
 hi StatusLineNC           cterm=NONE             ctermbg=238   ctermfg=244
 hi VertSplit              cterm=NONE             ctermbg=238   ctermfg=238
