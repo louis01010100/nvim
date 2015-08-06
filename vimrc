@@ -81,10 +81,10 @@ nnoremap <silent> ]oc :ColorHighlight<CR>
 nnoremap <silent> [oc :ColorClear<CR>
 
 " Tagbar
-nnoremap <silent> ]ot :TagbarOpen<CR>
-nnoremap <silent> [ot :TagbarClose<CR>
-let g:tagbar_left = 1
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+nnoremap <silent> [ot :TagbarOpen<CR>
+nnoremap <silent> ]ot :TagbarClose<CR>
+"let g:tagbar_left = 1
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 
 nnoremap <silent> [A :first<CR>
