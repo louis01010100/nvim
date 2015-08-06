@@ -5,6 +5,7 @@ set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
+
 set number
 set textwidth=78
 set tabstop=4 
@@ -55,7 +56,6 @@ execute pathogen#helptags()
 set timeoutlen=1000 ttimeoutlen=0
 
 let mapleader = "\<Space>"
-noremap <silent> <C-l> <Esc>
 
 nnoremap <silent>[os :set scrolloff=999<CR>
 nnoremap <silent>]os :set scrolloff=0<CR>
@@ -81,10 +81,10 @@ nnoremap <silent> ]oc :ColorHighlight<CR>
 nnoremap <silent> [oc :ColorClear<CR>
 
 " Tagbar
-nnoremap <silent> ]ot :TagbarOpen<CR>
-nnoremap <silent> [ot :TagbarClose<CR>
-let g:tagbar_left = 1
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+nnoremap <silent> [ot :TagbarOpen<CR>
+nnoremap <silent> ]ot :TagbarClose<CR>
+"let g:tagbar_left = 1
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 
 nnoremap <silent> [A :first<CR>
