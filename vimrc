@@ -14,6 +14,7 @@ set hidden
 set history=10000
 set display=uhex
 set expandtab
+set ffs=unix
 
 runtime! macros/matchit.vim
 "set cindent
@@ -32,7 +33,8 @@ set autowriteall
 " Customize status line
 set laststatus=2
 set statusline=\ %F     "Full path to the file in the buffer
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]
+"set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}]
 set statusline+=%m      "Modified flag, text is [+]; [-] if 'modifiable' is off."
 set statusline+=%=      "Separation point between left and right aligned items
 set statusline+=%c,     "Column number
@@ -132,15 +134,15 @@ nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
-nnoremap <Leader>w :wa!<CR>
-nnoremap <silent> <Leader>q :qa!<CR>
+nnoremap <Leader>wa :wa!<CR>
+nnoremap <silent> <Leader>qa :qa!<CR>
 "nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 "nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 "nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
 "nnoremap <silent> <Leader>p o<C-r>+<ESC>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
-nnoremap <silent> <C-u> 10<C-y>
-nnoremap <silent> <C-d> 10<C-e>
+nnoremap <silent> <C-u> 5<C-y>
+nnoremap <silent> <C-d> 5<C-e>
 
 " invisible character
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
@@ -244,5 +246,4 @@ nnoremap <silent> <Leader>l
       \ else <Bar>
       \   let w:long_line_match = matchadd('WarningMsg', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
-
 
