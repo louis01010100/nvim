@@ -134,8 +134,8 @@ nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
-nnoremap <Leader>wa :wa!<CR>
-nnoremap <silent> <Leader>qa :qa!<CR>
+nnoremap <Leader>w :wa!<CR>
+nnoremap <silent> <Leader>q :qa!<CR>
 "nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 "nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 "nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
