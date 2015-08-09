@@ -15,6 +15,7 @@ set history=10000
 set display=uhex
 set expandtab
 set ffs=unix
+set noswapfile
 
 runtime! macros/matchit.vim
 "set cindent
