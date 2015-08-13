@@ -94,4 +94,9 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 . /usr/share/autojump/autojump.sh
 KEYTIMEOUT=1
+
 bindkey -v
+
+zle -A kill-whole-line vi-kill-line
+zle -A backward-kill-word vi-backward-kill-word
+zle -A backward-delete-char vi-backward-delete-char
