@@ -56,7 +56,8 @@ colorscheme sorcerer
 execute pathogen#infect()  
 execute pathogen#helptags()  
 
-set timeoutlen=1000 ttimeoutlen=0
+
+"ket timeoutlen=1000 ttimeoutlen=0
 
 let mapleader = "\<Space>"
 
