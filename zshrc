@@ -99,22 +99,20 @@ export TERM=xterm-256color
 #                                  vi-mode                                  #
 #############################################################################
 KEYTIMEOUT=1
+vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"
+vim_cmd_mode="%{$fg[green]%}[CMD]%{$reset_color%}"
+vim_mode="${vim_ins_mode}"
 
-# Ensures that $terminfo values are valid and updates editor information when
-# the keymap changes.
 function zle-keymap-select zle-line-init zle-line-finish {
-  # The terminal must be in application mode when ZLE is active for $terminfo
-  # values to be valid.
-  
-  # if (( ${+terminfo[smkx]} )); then
-  #   printf '%s' ${terminfo[smkx]}
-  # fi
-  # if (( ${+terminfo[rmkx]} )); then
-  #   printf '%s' ${terminfo[rmkx]}
-  # fi
 
-  zle reset-prompt
-  zle -R
+    case ${KEYMAP} in
+      (vicmd)      vim_mode="${vim_cmd_mode}" ;;
+      (main|viins) vim_mode="${vim_ins_mode}" ;;
+      (*)          vim_mode="${vim_ins_mode}" ;;
+    esac
+    PROMPT="${vim_mode}${user} ${pwd}$ "
+
+    zle reset-prompt
 }
 
 # Ensure that the prompt is redrawn when the terminal size changes.
@@ -145,9 +143,6 @@ bindkey '^w' backward-kill-word
 
 # if mode indicator wasn't setup by theme, define default
 
-vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"
-vim_cmd_mode="%{$fg[green]%}[CMD]%{$reset_color%}"
-vim_mode=$vim_ins_mode
 
 function vi_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
@@ -184,10 +179,10 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
-PROMPT="${user} ${pwd}$ "
+PROMPT="${vim_mode}${user} ${pwd}$ "
 #PROMPT="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}} ${user} ${pwd} $ "
 # RPROMPT="${return_code} ${git_branch} %F{magenta}[%w %T]%f"
-RPROMPT="${return_code} ${git_branch} "'$(vi_mode_prompt_info)'"%F{magenta}[%w %T]%f"
 #
 #RPROMPT='$(git_prompt_info) %F{blue}] %F{green}%D{%L:%M} %F{yellow}%D{%p}%f'
 
+RPROMPT="${return_code} ${git_branch} %F{magenta}[%w %T]%f"
