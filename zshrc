@@ -99,18 +99,14 @@ export TERM=xterm-256color
 #                                  vi-mode                                  #
 #############################################################################
 KEYTIMEOUT=1
-vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"
-vim_cmd_mode="%{$fg[green]%}[CMD]%{$reset_color%}"
-vim_mode="${vim_ins_mode}"
 
 function zle-keymap-select zle-line-init zle-line-finish {
 
     case ${KEYMAP} in
-      (vicmd)      vim_mode="${vim_cmd_mode}" ;;
-      (main|viins) vim_mode="${vim_ins_mode}" ;;
-      (*)          vim_mode="${vim_ins_mode}" ;;
+      (vicmd)      PROMPT="${user} ${pwd}%{$fg[red]%}$%{$reset_color%} ";;
+      (main|viins) PROMPT="${user} ${pwd}%{$fg[white]%}$%{$reset_color%} ";;
+      (*)          PROMPT="${user} ${pwd}%{$fg[white]%}$%{$reset_color%} ";;
     esac
-    PROMPT="${vim_mode}${user} ${pwd}$ "
 
     zle reset-prompt
 }
@@ -141,12 +137,6 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 
-# if mode indicator wasn't setup by theme, define default
-
-
-function vi_mode_prompt_info() {
-  echo "${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-}
 
 
 
@@ -179,10 +169,5 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
-PROMPT="${vim_mode}${user} ${pwd}$ "
-#PROMPT="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}} ${user} ${pwd} $ "
-# RPROMPT="${return_code} ${git_branch} %F{magenta}[%w %T]%f"
-#
-#RPROMPT='$(git_prompt_info) %F{blue}] %F{green}%D{%L:%M} %F{yellow}%D{%p}%f'
-
+PROMPT="${user} ${pwd}%{$fg[white]%}$%{$reset_color%} "
 RPROMPT="${return_code} ${git_branch} %F{magenta}[%w %T]%f"
