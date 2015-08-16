@@ -103,9 +103,9 @@ KEYTIMEOUT=1
 function zle-keymap-select zle-line-init zle-line-finish {
 
     case ${KEYMAP} in
-      (vicmd)      PROMPT="${user} ${pwd}%{$fg[red]%}$%{$reset_color%} ";;
-      (main|viins) PROMPT="${user} ${pwd}%{$fg[white]%}$%{$reset_color%} ";;
-      (*)          PROMPT="${user} ${pwd}%{$fg[white]%}$%{$reset_color%} ";;
+      (vicmd)      PROMPT="${user} ${pwd}%F{208}$%{$reset_color%} ";;
+      (main|viins) PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} ";;
+      (*)          PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} ";;
     esac
 
     zle reset-prompt
@@ -142,8 +142,8 @@ bindkey '^w' backward-kill-word
 
 #############################################################################
 #############################################################################
-local user='%{$fg[magenta]%}%n@%{$fg[magenta]%}%m%{$reset_color%}'
-local pwd='%{$fg[blue]%}%~%{$reset_color%}'
+local user='%F{250}%n@%m%{$reset_color%}'
+local pwd='%F{250}~%{$reset_color%}'
 
 
 # local rvm=''
@@ -169,5 +169,5 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
-PROMPT="${user} ${pwd}%{$fg[white]%}$%{$reset_color%} "
-RPROMPT="${return_code} ${git_branch} %F{magenta}[%w %T]%f"
+PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} "
+RPROMPT="${return_code} ${git_branch} %F{243}[%w %T]%f"
