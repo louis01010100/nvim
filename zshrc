@@ -14,7 +14,7 @@ export ZSH=/home/louis/.oh-my-zsh
 #ZSH_THEME="wezm"
 #ZSH_THEME="michelebologna"
 #ZSH_THEME="fishy"
-ZSH_THEME="alanpeabody"
+#ZSH_THEME="alanpeabody"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -96,28 +96,98 @@ export TERM=xterm-256color
 
 
 #############################################################################
-#                                  vi-mocde                                 #
+#                                  vi-mode                                  #
 #############################################################################
 KEYTIMEOUT=1
 
+# Ensures that $terminfo values are valid and updates editor information when
+# the keymap changes.
+function zle-keymap-select zle-line-init zle-line-finish {
+  # The terminal must be in application mode when ZLE is active for $terminfo
+  # values to be valid.
+  
+  # if (( ${+terminfo[smkx]} )); then
+  #   printf '%s' ${terminfo[smkx]}
+  # fi
+  # if (( ${+terminfo[rmkx]} )); then
+  #   printf '%s' ${terminfo[rmkx]}
+  # fi
+
+  zle reset-prompt
+  zle -R
+}
+
+# Ensure that the prompt is redrawn when the terminal size changes.
+TRAPWINCH() {
+  zle && { zle reset-prompt; zle -R }
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+zle -N edit-command-line
+
+
 bindkey -v
 
-zle -A kill-whole-line vi-kill-line
-zle -A backward-kill-word vi-backward-kill-word
-zle -A backward-delete-char vi-backward-delete-char
+# allow v to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+bindkey -M vicmd 'v' edit-command-line
 
-# Use vim cli mode
+# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
 bindkey '^P' up-history
 bindkey '^N' down-history
 
-# backspace and ^h working even after
-# returning from command mode
+# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
-
-# ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
 
-# ctrl-r starts searching history backward
-bindkey '^r' history-incremental-search-backward
+# if mode indicator wasn't setup by theme, define default
+
+vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"
+vim_cmd_mode="%{$fg[green]%}[CMD]%{$reset_color%}"
+vim_mode=$vim_ins_mode
+
+function vi_mode_prompt_info() {
+  echo "${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+}
+
+
+
+#############################################################################
+#############################################################################
+local user='%{$fg[magenta]%}%n@%{$fg[magenta]%}%m%{$reset_color%}'
+local pwd='%{$fg[blue]%}%~%{$reset_color%}'
+
+
+# local rvm=''
+# if which rvm-prompt &> /dev/null; then
+#   rvm='%{$fg[green]%}‹$(rvm-prompt i v g)›%{$reset_color%}'
+# else
+#   if which rbenv &> /dev/null; then
+#     rvm='%{$fg[green]%}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
+#   fi
+# fi
+local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
+local git_branch='$(git_prompt_status)%{$reset_color%}$(git_prompt_info)%{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=""
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
+
+PROMPT="${user} ${pwd}$ "
+#PROMPT="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}} ${user} ${pwd} $ "
+# RPROMPT="${return_code} ${git_branch} %F{magenta}[%w %T]%f"
+RPROMPT="${return_code} ${git_branch} "'$(vi_mode_prompt_info)'"%F{magenta}[%w %T]%f"
+#
+#RPROMPT='$(git_prompt_info) %F{blue}] %F{green}%D{%L:%M} %F{yellow}%D{%p}%f'
 
