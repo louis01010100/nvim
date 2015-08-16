@@ -100,7 +100,7 @@ export TERM=xterm-256color
 #############################################################################
 KEYTIMEOUT=1
 
-function zle-keymap-select zle-line-init zle-line-finish {
+function zle-keymap-select zle-line-init {
 
     case ${KEYMAP} in
       (vicmd)      PROMPT="${user} ${pwd}%F{208}$%{$reset_color%} ";;
@@ -108,6 +108,11 @@ function zle-keymap-select zle-line-init zle-line-finish {
       (*)          PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} ";;
     esac
 
+    zle reset-prompt
+}
+
+function zle-line-finish {
+    PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} "
     zle reset-prompt
 }
 
