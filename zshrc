@@ -93,6 +93,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export TERM=xterm-256color
 . /usr/share/autojump/autojump.sh
+
+
+#############################################################################
+#                                  vi-mocde                                 #
+#############################################################################
 KEYTIMEOUT=1
 
 bindkey -v
@@ -100,3 +105,19 @@ bindkey -v
 zle -A kill-whole-line vi-kill-line
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
+
+# Use vim cli mode
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# backspace and ^h working even after
+# returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+
+# ctrl-w removed word backwards
+bindkey '^w' backward-kill-word
+
+# ctrl-r starts searching history backward
+bindkey '^r' history-incremental-search-backward
+
