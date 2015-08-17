@@ -99,20 +99,26 @@ export TERM=xterm-256color
 #                                  vi-mode                                  #
 #############################################################################
 KEYTIMEOUT=1
+local user='%n@%m%'
+local pwd='%~'
+#local prompt_vicmd='%F{160}[%D{%b %d %H:%M}] ${user}\:${pwd}$%f '
+#local prompt_viins='%F{245}[%D{%b %d %H:%M}] ${user}\:${pwd}$%f '
+local prompt_vicmd='%F{160}${user}\:${pwd}$%f '
+local prompt_viins='%F{245}${user}\:${pwd}$%f '
 
 function zle-keymap-select zle-line-init {
 
     case ${KEYMAP} in
-      (vicmd)      PROMPT="${user} ${pwd}%F{208}$%{$reset_color%} ";;
-      (main|viins) PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} ";;
-      (*)          PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} ";;
+      (vicmd)      PROMPT="$prompt_vicmd";;
+      (main|viins) PROMPT="$prompt_viins";;
+      (*)          PROMPT="$prompt_viins";;
     esac
 
     zle reset-prompt
 }
 
 function zle-line-finish {
-    PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} "
+    PROMPT="$prompt_viins"
     zle reset-prompt
 }
 
@@ -147,8 +153,6 @@ bindkey '^w' backward-kill-word
 
 #############################################################################
 #############################################################################
-local user='%F{250}%n@%m%{$reset_color%}'
-local pwd='%F{250}~%{$reset_color%}'
 
 
 # local rvm=''
@@ -174,5 +178,5 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
-PROMPT="${user} ${pwd}%F{250}$%{$reset_color%} "
-RPROMPT="${return_code} ${git_branch} %F{243}[%w %T]%f"
+PROMPT="$prompt_viins"
+RPROMPT="${return_code} ${git_branch}"
