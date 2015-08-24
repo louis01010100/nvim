@@ -59,7 +59,7 @@ execute pathogen#helptags()
 
 "ket timeoutlen=1000 ttimeoutlen=0
 
-let mapleader = "\<Space>"
+"let mapleader = "\<Space>"
 
 nnoremap <silent>[os :set scrolloff=999<CR>
 nnoremap <silent>]os :set scrolloff=0<CR>
@@ -249,3 +249,9 @@ nnoremap <silent> <Leader>l
       \   let w:long_line_match = matchadd('WarningMsg', '\%>80v.\+', -1) <Bar>
       \ endif<CR>
 
+
+" Highlight current word in 1 sec
+set updatetime=1000
+au! CursorMoved * set nohlsearch
+au! CursorHold * set hlsearch | let @/='\<'.expand("<cword>").'\>'
+set hlsearch

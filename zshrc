@@ -16,7 +16,7 @@ local pwd="%~"
 #local prompt_vicmd='%F{160}[%D{%b %d %H:%M}] ${user}\:${pwd}$%f '
 #local prompt_viins='%F{245}[%D{%b %d %H:%M}] ${user}\:${pwd}$%f '
 local prompt_vicmd="%F{160}${user}\:${pwd}$%f "
-local prompt_viins="%F{245}${user}\:${pwd}$%f "
+local prompt_viins="%F{250}${user}\:${pwd}$%f "
 
 function zle-keymap-select zle-line-init {
 
