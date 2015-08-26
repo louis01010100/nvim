@@ -22,9 +22,9 @@ hi CursorColumn           cterm=NONE             ctermbg=235  ctermfg=NONE
 hi CursorLine             cterm=NONE             ctermbg=235   ctermfg=NONE
 hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
-hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=68
+hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=67
 hi DiffText               cterm=NONE             ctermbg=117   ctermfg=16
-hi Directory              cterm=NONE             ctermbg=234   ctermfg=68
+hi Directory              cterm=NONE             ctermbg=234   ctermfg=67
 hi ErrorMsg               cterm=NONE             ctermbg=88    ctermfg=230
 hi FoldColumn             cterm=NONE             ctermbg=239   ctermfg=66
 hi Folded                 cterm=NONE             ctermbg=16    ctermfg=60
@@ -57,11 +57,11 @@ hi TabLineSel             cterm=NONE             ctermbg=59    ctermfg=250
 hi Title                  cterm=NONE             ctermbg=NONE    ctermfg=66
 hi Visual                 cterm=NONE             ctermbg=237    ctermfg=NONE
 hi WarningMsg             cterm=NONE             ctermbg=166   ctermfg=230
-hi WildMenu               cterm=NONE             ctermbg=116   ctermfg=16
+hi WildMenu               cterm=NONE             ctermbg=109   ctermfg=230
 
 hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=59
 hi Boolean                cterm=NONE             ctermbg=NONE    ctermfg=130
-hi String                 cterm=NONE             ctermbg=NONE    ctermfg=101
+hi String                 cterm=NONE             ctermbg=NONE    ctermfg=102
 hi Identifier             cterm=NONE             ctermbg=NONE    ctermfg=NONE
 hi Function               cterm=NONE             ctermbg=NONE    ctermfg=67
 hi Type                   cterm=NONE             ctermbg=NONE    ctermfg=102
@@ -79,7 +79,7 @@ hi diffFile               cterm=NONE             ctermbg=NONE    ctermfg=67
 hi diffLine               cterm=NONE             ctermbg=NONE    ctermfg=67
 hi diffAdded              cterm=NONE             ctermfg=NONE    ctermfg=71
 hi diffRemoved            cterm=NONE             ctermfg=NONE    ctermfg=166
-hi diffChanged            cterm=NONE             ctermfg=NONE    ctermfg=68
+hi diffChanged            cterm=NONE             ctermfg=NONE    ctermfg=67
 hi link             diffSubname     diffLine
 hi link             diffOnly        Constant
 hi link             diffIdentical   Constant

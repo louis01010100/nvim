@@ -138,6 +138,7 @@ nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
 nnoremap <Leader>w :wa!<CR>
 nnoremap <silent> <Leader>q :qa!<CR>
+nnoremap <silent> <Leader>x :xa!<CR>
 "nnoremap <silent> <Leader>yal :call CopyLine()<CR>
 "nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
 "nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
