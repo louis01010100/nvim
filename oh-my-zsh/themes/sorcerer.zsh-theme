@@ -9,7 +9,7 @@ else
     rvm='%F{65}‹$(rbenv version | sed -e "s/ (set.*$//")›%f'
   fi
 fi
-local return_code='%(?..%F{130}%? ↵%f)'
+local return_code='%(?..%F{9}%? ↵%f)'
 local git_branch='$(git_prompt_status)%f$(git_prompt_info)%f'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{65}"
