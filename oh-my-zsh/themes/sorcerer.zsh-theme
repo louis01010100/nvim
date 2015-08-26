@@ -1,6 +1,6 @@
 export TERM=xterm-256color
-local user='%F{96}%n@%m%f'
-local pwd='%F{67}%~%f'
+local user='%F{59}%n@%m%f'
+local pwd='%F{59}%~%f'
 local rvm=''
 if which rvm-prompt &> /dev/null; then
   rvm='%F{65}‹$(rvm-prompt i v g)›%f'
@@ -25,5 +25,5 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%F{185} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{109} ✭"
 
 PROMPT="${user}%F{59}:%f${pwd} %F{59}$%f "
-RPROMPT="${return_code}${git_branch} ${rvm}"
+RPROMPT="${return_code} ${git_branch} ${rvm}"
 
