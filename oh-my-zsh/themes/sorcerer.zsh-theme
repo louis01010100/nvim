@@ -24,6 +24,6 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%F{96} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%F{185} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{109} ✭"
 
-PROMPT="%F{102}${user}:${pwd} $%f "
+PROMPT="%F{244}${user}:${pwd} $%f "
 RPROMPT="${return_code} ${git_branch} ${rvm}"
 
