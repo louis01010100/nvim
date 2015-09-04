@@ -15,11 +15,11 @@ let colors_name = "sorcerer"
 
 " 256 Colors {{{1
 " ============================================================================
-hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=248
+hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=246
 hi ColorColumn            cterm=NONE             ctermbg=235   ctermfg=fg
 "hi Cursor                 cterm=NONE             ctermbg=88  ctermfg=88
 hi CursorColumn           cterm=NONE             ctermbg=235  ctermfg=NONE
-hi CursorLine             cterm=NONE             ctermbg=235   ctermfg=NONE
+hi CursorLine             cterm=NONE             ctermbg=233   ctermfg=NONE
 hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
 hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=67
@@ -30,7 +30,7 @@ hi FoldColumn             cterm=NONE             ctermbg=239   ctermfg=66
 hi Folded                 cterm=NONE             ctermbg=16    ctermfg=60
 hi IncSearch              cterm=NONE             ctermbg=237  ctermfg=185
 hi LineNr                 cterm=NONE             ctermbg=NONE    ctermfg=238
-hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=246
+hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=238
 hi MatchParen             cterm=NONE             ctermbg=237    ctermfg=226
 hi ModeMsg                cterm=NONE             ctermbg=NONE  ctermfg=230
 hi MoreMsg                cterm=NONE             ctermbg=234   ctermfg=29
@@ -39,7 +39,7 @@ hi Pmenu                  cterm=NONE             ctermbg=102   ctermfg=230
 hi PmenuSbar              cterm=NONE             ctermbg=250   ctermfg=fg
 hi PmenuSel               cterm=NONE             ctermbg=109   ctermfg=230
 hi PmenuThumb             cterm=reverse          ctermbg=NONE    ctermfg=fg
-hi Question               cterm=NONE             ctermbg=NONE    ctermfg=248
+hi Question               cterm=NONE             ctermbg=NONE    ctermfg=246
 hi Search                 cterm=NONE             ctermbg=237   ctermfg=185
 "hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
 hi SignColumn             cterm=NONE             ctermbg=NONE   ctermfg=NONE
@@ -90,7 +90,7 @@ hi link             diffNoEOL       Constant
 hi link             diffCommon      Constant
 hi link             diffComment     Constant
 
-hi Conceal                cterm=NONE             ctermbg=248   ctermfg=252
+hi Conceal                cterm=NONE             ctermbg=246 ctermfg=252
 hi Error                  cterm=NONE             ctermbg=88  ctermfg=230
 hi Ignore                 cterm=NONE             ctermbg=NONE    ctermfg=234
 "hi InsertModeCursorLine   cterm=NONE             ctermbg=16    ctermfg=fg
