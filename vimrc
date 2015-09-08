@@ -121,6 +121,12 @@ function! Conflict(reverse)
   call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
+" Highlight current word in 1 sec
+function! HighlightCword(reverse)
+    set hlsearch! | let @/='\<'.expand("<cword>").'\>'
+endfunction
+
+nnoremap <silent> <Leader>h :call HighlightCword(1)<CR>
 
 " nnoremap <C-h> <c-w>h
 " nnoremap <C-j> <c-w>j
@@ -251,8 +257,3 @@ nnoremap <silent> <Leader>l
       \ endif<CR>
 
 
-" Highlight current word in 1 sec
-set updatetime=1000
-au! CursorMoved * set nohlsearch
-au! CursorHold * set hlsearch | let @/='\<'.expand("<cword>").'\>'
-set hlsearch
