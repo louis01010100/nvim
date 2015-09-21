@@ -59,7 +59,7 @@ hi Visual                 cterm=NONE             ctermbg=237    ctermfg=NONE
 hi WarningMsg             cterm=NONE             ctermbg=166   ctermfg=230
 hi WildMenu               cterm=NONE             ctermbg=109   ctermfg=230
 
-hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=60
+hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=59
 hi Boolean                cterm=NONE             ctermbg=NONE    ctermfg=130
 hi String                 cterm=NONE             ctermbg=NONE    ctermfg=102
 hi Identifier             cterm=NONE             ctermbg=NONE    ctermfg=NONE
