@@ -16,10 +16,10 @@ let colors_name = "sorcerer"
 " 256 Colors {{{1
 " ============================================================================
 hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=246
-hi ColorColumn            cterm=NONE             ctermbg=235   ctermfg=fg
+hi ColorColumn            cterm=NONE             ctermbg=234   ctermfg=fg
 "hi Cursor                 cterm=NONE             ctermbg=88  ctermfg=88
-hi CursorColumn           cterm=NONE             ctermbg=235  ctermfg=NONE
-hi CursorLine             cterm=NONE             ctermbg=233   ctermfg=NONE
+hi CursorColumn           cterm=NONE             ctermbg=234  ctermfg=NONE
+hi CursorLine             cterm=NONE             ctermbg=234   ctermfg=NONE
 hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
 hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=67
@@ -62,7 +62,7 @@ hi WildMenu               cterm=NONE             ctermbg=109   ctermfg=230
 hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=59
 hi Boolean                cterm=NONE             ctermbg=NONE    ctermfg=130
 hi String                 cterm=NONE             ctermbg=NONE    ctermfg=102
-hi Identifier             cterm=NONE             ctermbg=NONE    ctermfg=NONE
+hi Identifier             cterm=NONE             ctermbg=NONE    ctermfg=67
 hi Function               cterm=NONE             ctermbg=NONE    ctermfg=67
 hi Type                   cterm=NONE             ctermbg=NONE    ctermfg=102
 hi Statement              cterm=NONE             ctermbg=NONE    ctermfg=67
