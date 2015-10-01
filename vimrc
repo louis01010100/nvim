@@ -7,7 +7,7 @@ set smartcase       " Do smart case matching
 set incsearch       " Incremental search
 
 set number
-set textwidth=78
+"set textwidth=78
 set tabstop=4 
 set shiftwidth=4 
 set hidden
@@ -219,8 +219,6 @@ let g:bookmark_auto_save = 1
 let g:bookmark_center = 1
 let g:bookmark_auto_close = 1
 
-" auto-pairs
-let g:AutoPairsShortcutBackInsert = '<C-b>'
 
 autocmd FileType html setlocal sw=2 ts=2 tw=120
 autocmd FileType xml setlocal sw=2 ts=2 tw=120
@@ -253,7 +251,7 @@ nnoremap <silent> <Leader>l
       \ elseif &textwidth > 0 <Bar>
       \   let w:long_line_match = matchadd('WarningMsg', '\%>'.&tw.'v.\+', -1) <Bar>
       \ else <Bar>
-      \   let w:long_line_match = matchadd('WarningMsg', '\%>80v.\+', -1) <Bar>
+      \   let w:long_line_match = matchadd('WarningMsg', '\%>78v.\+', -1) <Bar>
       \ endif<CR>
 
 
