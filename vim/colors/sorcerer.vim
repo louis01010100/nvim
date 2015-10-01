@@ -16,10 +16,9 @@ let colors_name = "sorcerer"
 " 256 Colors {{{1
 " ============================================================================
 hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=246
-hi ColorColumn            cterm=NONE             ctermbg=234   ctermfg=fg
-"hi Cursor                 cterm=NONE             ctermbg=88  ctermfg=88
-hi CursorColumn           cterm=NONE             ctermbg=234  ctermfg=NONE
-hi CursorLine             cterm=NONE             ctermbg=234   ctermfg=NONE
+hi ColorColumn            cterm=NONE             ctermbg=232   ctermfg=fg
+hi CursorColumn           cterm=NONE             ctermbg=232  ctermfg=NONE
+hi CursorLine             cterm=NONE             ctermbg=232   ctermfg=NONE
 hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
 hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=67
@@ -48,10 +47,10 @@ hi SpellBad               cterm=NONE             ctermbg=88    ctermfg=230
 hi SpellCap               cterm=NONE             ctermbg=166    ctermfg=230
 hi SpellLocal             cterm=NONE             ctermbg=NONE    ctermfg=30
 hi SpellRare              cterm=NONE             ctermbg=NONE    ctermfg=201
-hi StatusLine             cterm=NONE             ctermbg=241   ctermfg=252
-hi StatusLineNC           cterm=NONE             ctermbg=238   ctermfg=244
-hi VertSplit              cterm=NONE             ctermbg=238   ctermfg=238
-hi TabLine                cterm=NONE             ctermbg=238   ctermfg=243
+hi StatusLine             cterm=NONE             ctermbg=238   ctermfg=252
+hi StatusLineNC           cterm=NONE             ctermbg=234   ctermfg=244
+hi VertSplit              cterm=NONE             ctermbg=234   ctermfg=238
+hi TabLine                cterm=NONE             ctermbg=234   ctermfg=243
 hi TabLineFill            cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi TabLineSel             cterm=NONE             ctermbg=59    ctermfg=250
 hi Title                  cterm=NONE             ctermbg=NONE    ctermfg=66
