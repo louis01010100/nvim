@@ -4,7 +4,7 @@ PS1="[\u@\h:\w]$ "
 
 source /usr/local/share/autojump/autojump.bash
 
-source /Users/louis01010100/Projects/dot-file/ls_colors.sh
+source /Users/louis/Projects/dot-file/ls_colors.sh
 alias ls='gls --color'
 
 alias readlink="greadlink"

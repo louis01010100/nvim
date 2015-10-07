@@ -23,7 +23,7 @@ hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
 hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=67
 hi DiffText               cterm=NONE             ctermbg=117   ctermfg=16
-hi Directory              cterm=NONE             ctermbg=234   ctermfg=67
+hi Directory              cterm=NONE             ctermbg=NONE   ctermfg=67
 hi ErrorMsg               cterm=NONE             ctermbg=88    ctermfg=230
 hi FoldColumn             cterm=NONE             ctermbg=239   ctermfg=66
 hi Folded                 cterm=NONE             ctermbg=16    ctermfg=60
