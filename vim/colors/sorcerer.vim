@@ -49,7 +49,7 @@ hi SpellLocal             cterm=NONE             ctermbg=NONE    ctermfg=30
 hi SpellRare              cterm=NONE             ctermbg=NONE    ctermfg=201
 hi StatusLine             cterm=NONE             ctermbg=238   ctermfg=252
 hi StatusLineNC           cterm=NONE             ctermbg=234   ctermfg=244
-hi VertSplit              cterm=NONE             ctermbg=234   ctermfg=238
+hi VertSplit              cterm=NONE             ctermbg=234   ctermfg=234
 hi TabLine                cterm=NONE             ctermbg=234   ctermfg=243
 hi TabLineFill            cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi TabLineSel             cterm=NONE             ctermbg=59    ctermfg=250

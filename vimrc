@@ -5,6 +5,7 @@ set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
+set fillchars+=vert:\ "get rid of | in the vertical split 
 
 set number
 "set textwidth=78
