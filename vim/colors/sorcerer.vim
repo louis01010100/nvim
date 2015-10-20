@@ -14,11 +14,11 @@ endif
 let colors_name = "sorcerer"
 
 " 256 Colors {{{1
-" ============================================================================
+" ==========================================================================
 hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=246
 hi ColorColumn            cterm=NONE             ctermbg=232   ctermfg=fg
 hi CursorColumn           cterm=NONE             ctermbg=232  ctermfg=NONE
-hi CursorLine             cterm=NONE             ctermbg=232   ctermfg=NONE
+hi CursorLine             cterm=NONE             ctermbg=233   ctermfg=NONE
 hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
 hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=67
@@ -47,8 +47,8 @@ hi SpellBad               cterm=NONE             ctermbg=88    ctermfg=230
 hi SpellCap               cterm=NONE             ctermbg=166    ctermfg=230
 hi SpellLocal             cterm=NONE             ctermbg=NONE    ctermfg=30
 hi SpellRare              cterm=NONE             ctermbg=NONE    ctermfg=201
-hi StatusLine             cterm=NONE             ctermbg=238   ctermfg=252
-hi StatusLineNC           cterm=NONE             ctermbg=234   ctermfg=244
+hi StatusLine             cterm=NONE             ctermbg=238   ctermfg=250
+hi StatusLineNC           cterm=NONE             ctermbg=236   ctermfg=244
 hi VertSplit              cterm=NONE             ctermbg=234   ctermfg=234
 hi TabLine                cterm=NONE             ctermbg=234   ctermfg=243
 hi TabLineFill            cterm=NONE             ctermbg=NONE   ctermfg=NONE
@@ -58,7 +58,7 @@ hi Visual                 cterm=NONE             ctermbg=233    ctermfg=NONE
 hi WarningMsg             cterm=NONE             ctermbg=166   ctermfg=230
 hi WildMenu               cterm=NONE             ctermbg=109   ctermfg=230
 
-hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=59
+hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=240
 hi Boolean                cterm=NONE             ctermbg=NONE    ctermfg=130
 hi String                 cterm=NONE             ctermbg=NONE    ctermfg=102
 hi Identifier             cterm=NONE             ctermbg=NONE    ctermfg=67
@@ -100,7 +100,8 @@ hi StatusLineUnalert      cterm=NONE             ctermbg=238   ctermfg=144
 hi Test                   cterm=NONE             ctermbg=NONE    ctermfg=fg
 hi Underlined             cterm=underline        ctermbg=NONE    ctermfg=111
 hi VisualNOS              cterm=NONE,underline   ctermbg=NONE    ctermfg=fg
-hi cCursor                cterm=reverse          ctermbg=NONE    ctermfg=fg
+hi Cursor                 cterm=NONE          ctermbg=NONE    ctermfg=250
+"hi cCursor                cterm=reverse          ctermbg=NONE    ctermfg=fg
 "hi iCursor                cterm=NONE             ctermbg=210   ctermfg=16
 "hi lCursor                cterm=NONE             ctermbg=145   ctermfg=234
 "hi nCursor                cterm=NONE             ctermbg=46    ctermfg=16
