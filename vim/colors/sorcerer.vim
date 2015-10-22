@@ -1,7 +1,7 @@
 
-" 'sorcerer.vim' -- Vim color scheme.
-" Maintainer:   Jeet Sukumaran
-" Based on 'Mustang' by Henrique C. Alves (hcarvalhoalves@gmail.com),
+" 'sorcerer.vim' -- vim color scheme.
+" maintainer:   jeet sukumaran
+" based on 'mustang' by henrique c. alves (hcarvalhoalves@gmail.com),
 
 set background=dark
 
@@ -13,21 +13,21 @@ endif
 
 let colors_name = "sorcerer"
 
-" 256 Colors {{{1
+" 256 colors {{{1
 " ==========================================================================
-hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=246
-hi ColorColumn            cterm=NONE             ctermbg=232   ctermfg=fg
-hi CursorColumn           cterm=NONE             ctermbg=232  ctermfg=NONE
-hi CursorLine             cterm=NONE             ctermbg=233   ctermfg=NONE
-hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
-hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
-hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=67
-hi DiffText               cterm=NONE             ctermbg=117   ctermfg=16
-hi Directory              cterm=NONE             ctermbg=NONE   ctermfg=67
-hi ErrorMsg               cterm=NONE             ctermbg=88    ctermfg=230
-hi FoldColumn             cterm=NONE             ctermbg=239   ctermfg=66
-hi Folded                 cterm=NONE             ctermbg=16    ctermfg=60
-hi IncSearch              cterm=NONE             ctermbg=237  ctermfg=185
+hi normal                 cterm=none             ctermbg=none   ctermfg=246
+hi colorcolumn            cterm=none             ctermbg=232   ctermfg=fg
+hi cursorcolumn           cterm=none             ctermbg=232  ctermfg=none
+hi cursorline             cterm=none             ctermbg=234   ctermfg=none
+hi diffadd                cterm=none             ctermbg=71    ctermfg=16
+hi diffdelete             cterm=none             ctermbg=166    ctermfg=none
+hi diffchange             cterm=none             ctermbg=166    ctermfg=67
+hi difftext               cterm=none             ctermbg=117   ctermfg=16
+hi directory              cterm=none             ctermbg=none   ctermfg=67
+hi errormsg               cterm=none             ctermbg=88    ctermfg=230
+hi foldcolumn             cterm=none             ctermbg=239   ctermfg=66
+hi folded                 cterm=none             ctermbg=16    ctermfg=60
+hi incsearch              cterm=none             ctermbg=237  ctermfg=185
 hi LineNr                 cterm=NONE             ctermbg=NONE    ctermfg=238
 hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=238
 hi MatchParen             cterm=NONE             ctermbg=237    ctermfg=226
@@ -54,7 +54,7 @@ hi TabLine                cterm=NONE             ctermbg=234   ctermfg=243
 hi TabLineFill            cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi TabLineSel             cterm=NONE             ctermbg=59    ctermfg=250
 hi Title                  cterm=NONE             ctermbg=NONE    ctermfg=66
-hi Visual                 cterm=NONE             ctermbg=233    ctermfg=NONE
+hi Visual                 cterm=NONE             ctermbg=235    ctermfg=NONE
 hi WarningMsg             cterm=NONE             ctermbg=166   ctermfg=230
 hi WildMenu               cterm=NONE             ctermbg=109   ctermfg=230
 
