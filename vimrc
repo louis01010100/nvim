@@ -62,32 +62,32 @@ execute pathogen#helptags()
 
 "let mapleader = "\<Space>"
 
-nnoremap <silent>[os :set scrolloff=999<CR>
-nnoremap <silent>]os :set scrolloff=0<CR>
+nnoremap <silent>]os :set scrolloff=999<CR>
+nnoremap <silent>[os :set scrolloff=0<CR>
 
 " customized unimpaired mapping
-nnoremap ]op :set paste<CR>
-nnoremap [op :set nopaste<CR>
-nnoremap <silent> ]oq :copen<CR>
-nnoremap <silent> [oq :cclose<CR>
-nnoremap <silent> ]of :lopen<CR>
-nnoremap <silent> [of :lclose<CR>
-nnoremap <silent> ]oh :set hlsearch<CR>
-nnoremap <silent> [oh :set nohlsearch<CR>
-nnoremap <silent> ]or :set relativenumber<CR>
-nnoremap <silent> [or :set norelativenumber<CR>
-nnoremap <silent> ]ow :set wrap<CR>
-nnoremap <silent> [ow :set nowrap<CR>
-nnoremap <silent> ]ol :set list<CR>
-nnoremap <silent> [ol :set nolist<CR>
+nnoremap [op :set paste<CR>
+nnoremap ]op :set nopaste<CR>
+nnoremap <silent> [oq :copen<CR>
+nnoremap <silent> ]oq :cclose<CR>
+nnoremap <silent> [of :lopen<CR>
+nnoremap <silent> ]of :lclose<CR>
+nnoremap <silent> [oh :set hlsearch<CR>
+nnoremap <silent> ]oh :set nohlsearch<CR>
+nnoremap <silent> [or :set relativenumber<CR>
+nnoremap <silent> ]or :set norelativenumber<CR>
+nnoremap <silent> [ow :set wrap<CR>
+nnoremap <silent> ]ow :set nowrap<CR>
+nnoremap <silent> [ol :set list<CR>
+nnoremap <silent> ]ol :set nolist<CR>
 
 " Colorizer
-nnoremap <silent> ]oc :ColorHighlight<CR>
-nnoremap <silent> [oc :ColorClear<CR>
+nnoremap <silent> [oc :ColorHighlight<CR>
+nnoremap <silent> ]oc :ColorClear<CR>
 
 " Tagbar
-nnoremap <silent> ]ot :TagbarOpen<CR>
-nnoremap <silent> [ot :TagbarClose<CR>
+nnoremap <silent> [ot :TagbarOpen<CR>
+nnoremap <silent> ]ot :TagbarClose<CR>
 "let g:tagbar_left = 1
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 
@@ -122,7 +122,6 @@ function! Conflict(reverse)
   call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
-" Highlight current word in 1 sec
 function! HighlightCword(reverse)
     set hlsearch! | let @/='\<'.expand("<cword>").'\>'
 endfunction
