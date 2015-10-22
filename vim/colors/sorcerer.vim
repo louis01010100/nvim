@@ -54,7 +54,7 @@ hi TabLine                cterm=NONE             ctermbg=234   ctermfg=243
 hi TabLineFill            cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi TabLineSel             cterm=NONE             ctermbg=59    ctermfg=250
 hi Title                  cterm=NONE             ctermbg=NONE    ctermfg=66
-hi Visual                 cterm=NONE             ctermbg=235    ctermfg=NONE
+hi Visual                 cterm=NONE             ctermbg=234    ctermfg=NONE
 hi WarningMsg             cterm=NONE             ctermbg=166   ctermfg=230
 hi WildMenu               cterm=NONE             ctermbg=109   ctermfg=230
 
