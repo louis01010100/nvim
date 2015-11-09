@@ -145,10 +145,10 @@ nnoremap <silent> <Leader>rae :%w !bash<CR>
 nnoremap <Leader>w :wa!<CR>
 nnoremap <silent> <Leader>q :qa!<CR>
 nnoremap <silent> <Leader>x :xa!<CR>
-"nnoremap <silent> <Leader>yal :call CopyLine()<CR>
-"nnoremap <silent> <Leader>yap :call CopyParagraph()<CR>
-"nnoremap <silent> <Leader>yae :call CopyEntire()<CR>
-"nnoremap <silent> <Leader>p o<C-r>+<ESC>
+nnoremap <silent> <Leader>yil :call CopyLine()<CR>
+nnoremap <silent> <Leader>yip :call CopyParagraph()<CR>
+nnoremap <silent> <Leader>yie :call CopyEntire()<CR>
+nnoremap <silent> <Leader>p o<C-r>+<ESC>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
@@ -195,7 +195,7 @@ function! CopyLine()
 endfunction
 
 function! CopyParagraph() 		
-	normal! "+yap
+	normal! "+yip
 endfunction
 
 function! CopyEntire() 		
