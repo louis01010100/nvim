@@ -195,7 +195,7 @@ function! CopyLine()
 endfunction
 
 function! CopyParagraph() 		
-	normal! "+yap
+	normal! "+yip
 endfunction
 
 function! CopyEntire() 		
