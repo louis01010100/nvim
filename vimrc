@@ -135,7 +135,7 @@ nnoremap <silent> <Leader>h :call HighlightCword(1)<CR>
 " nnoremap <C-c> <c-w>c
 
 nnoremap <silent> <F2> :TagbarToggle<CR> 
-nnoremap <silent> <F12> :ColorToggle<CR> 
+nnoremap <Leader>c  :call AutoPairsToggle()<CR> 
 
 nnoremap <silent> <Leader>so :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>df :TernDef<CR>
