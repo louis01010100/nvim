@@ -1,4 +1,4 @@
-export HOMEBREW_GITHUB_API_TOKEN=1f7f2c762ea214399714bc6f9599194ce40ae810
+export HOMEBREW_GITHUB_API_TOKEN=9ccb3dfddb7de37c609b0169eb0c5fa0c6f34122
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/louis/Applications/gradle-2.8/bin:$PATH"
