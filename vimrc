@@ -119,10 +119,10 @@ function! Conflict(reverse)
 endfunction
 
 function! HighlightCword(reverse)
-    set hlsearch! | let @/='\<'.expand("<cword>").'\>'
+    set hlsearch | let @/='\<'.expand("<cword>").'\>'
 endfunction
 
-nnoremap <silent> gh :call HighlightCword(1)<CR>
+nnoremap <silent> ghw :call HighlightCword(1)<CR>
 
 " nnoremap <C-h> <c-w>h
 " nnoremap <C-j> <c-w>j
@@ -130,9 +130,8 @@ nnoremap <silent> gh :call HighlightCword(1)<CR>
 " nnoremap <C-l> <c-w>l
 " nnoremap <C-c> <c-w>c
 
-nnoremap <silent> <Leader>c  :call AutoPairsToggle()<CR> 
-nnoremap <silent> gtb  :TagbarToggle<CR> 
-nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
+nnoremap <silent> gov  :TagbarToggle<CR> 
+nnoremap <silent> gac  :call AutoPairsToggle()<CR> 
 
 nnoremap <silent> gso :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>df :TernDef<CR>
@@ -143,8 +142,11 @@ nnoremap gw :wa!<CR>
 nnoremap gq :qa!<CR>
 nnoremap gx :xa!<CR>
 nnoremap <silent> gyil :call CopyLine()<CR>
+nnoremap <silent> gyal :call CopyLine()<CR>
 nnoremap <silent> gyip :call CopyParagraph()<CR>
+nnoremap <silent> gyap :call CopyParagraph()<CR>
 nnoremap <silent> gyie :call CopyEntire()<CR>
+nnoremap <silent> gyae :call CopyEntire()<CR>
 nnoremap <silent> gp o<C-r>+<ESC>
 nnoremap <silent> ge :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
@@ -248,7 +250,7 @@ set statusline+=%*
 "highlight link SyntasticWarning SpellCap
 
 " Highlight characters exceeding the text-width 
-nnoremap <silent> <Leader>l
+nnoremap <silent> gll
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
       \   unlet w:long_line_match <Bar>
