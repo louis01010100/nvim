@@ -37,6 +37,7 @@ set laststatus=2
 set statusline=\ %F     "Full path to the file in the buffer
 "set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}]
+
 set statusline+=%m      "Modified flag, text is [+]; [-] if 'modifiable' is off."
 set statusline+=%=      "Separation point between left and right aligned items
 set statusline+=%c,     "Column number
@@ -86,11 +87,6 @@ nnoremap <silent> [oc :ColorHighlight<CR>
 nnoremap <silent> ]oc :ColorClear<CR>
 
 " Tagbar
-nnoremap <silent> [ot :TagbarOpen<CR>
-nnoremap <silent> ]ot :TagbarClose<CR>
-"let g:tagbar_left = 1
-"autocmd VimEnter * nested :call tagbar#autoopen(1)
-
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -126,7 +122,7 @@ function! HighlightCword(reverse)
     set hlsearch! | let @/='\<'.expand("<cword>").'\>'
 endfunction
 
-nnoremap <silent> <Leader>h :call HighlightCword(1)<CR>
+nnoremap <silent> gh :call HighlightCword(1)<CR>
 
 " nnoremap <C-h> <c-w>h
 " nnoremap <C-j> <c-w>j
@@ -134,22 +130,23 @@ nnoremap <silent> <Leader>h :call HighlightCword(1)<CR>
 " nnoremap <C-l> <c-w>l
 " nnoremap <C-c> <c-w>c
 
-nnoremap <silent> <F2> :TagbarToggle<CR> 
-nnoremap <Leader>c  :call AutoPairsToggle()<CR> 
+nnoremap <silent> <Leader>c  :call AutoPairsToggle()<CR> 
+nnoremap <silent> gtb  :TagbarToggle<CR> 
+nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
 
-nnoremap <silent> <Leader>so :source ~/.vimrc<CR>
+nnoremap <silent> gso :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> <Leader>ral :.w !bash<CR>
 nnoremap <silent> <Leader>rae :%w !bash<CR>
-nnoremap <Leader>w :wa!<CR>
-nnoremap <silent> <Leader>q :qa!<CR>
-nnoremap <silent> <Leader>x :xa!<CR>
-nnoremap <silent> <Leader>yil :call CopyLine()<CR>
-nnoremap <silent> <Leader>yip :call CopyParagraph()<CR>
-nnoremap <silent> <Leader>yie :call CopyEntire()<CR>
-nnoremap <silent> <Leader>p o<C-r>+<ESC>
-nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap gw :wa!<CR>
+nnoremap gq :qa!<CR>
+nnoremap gx :xa!<CR>
+nnoremap <silent> gyil :call CopyLine()<CR>
+nnoremap <silent> gyip :call CopyParagraph()<CR>
+nnoremap <silent> gyie :call CopyEntire()<CR>
+nnoremap <silent> gp o<C-r>+<ESC>
+nnoremap <silent> ge :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
 
@@ -160,10 +157,10 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
 " ag.vim
 let g:ag_mapping_message=0
-nnoremap <leader>ag :Ag 
+nnoremap <Leader>s :Ag 
 
 " vim-autoformat
-nnoremap <silent> <Leader>af :Autoformat<CR>
+nnoremap <silent> gf :Autoformat<CR>
 
 " For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
@@ -189,10 +186,17 @@ call textobj#user#plugin('var', {
 
 function! CopyLine() 		
 	let pos = getpos('.')
-	normal! ^"+y$
+	normal! "+y$
 	call setpos('.', pos)
 	echo "1 line yanked"
 endfunction
+
+" function! Source() 
+"     let pos = getpos('.')
+"     :source ~/.vimrc
+"     call setpos('.', pos)
+"     echo "~/.vimrc sourced"
+" endfunction
 
 function! CopyParagraph() 		
 	normal! "+yip
