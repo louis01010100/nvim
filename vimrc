@@ -67,26 +67,19 @@ nnoremap <silent>]os :set scrolloff=999<CR>
 nnoremap <silent>[os :set scrolloff=0<CR>
 
 " customized unimpaired mapping
-nnoremap [op :set paste<CR>
-nnoremap ]op :set nopaste<CR>
-nnoremap <silent> [oq :copen<CR>
-nnoremap <silent> ]oq :cclose<CR>
-nnoremap <silent> [of :lopen<CR>
-nnoremap <silent> ]of :lclose<CR>
-nnoremap <silent> [oh :set hlsearch<CR>
-nnoremap <silent> ]oh :set nohlsearch<CR>
-nnoremap <silent> [or :set relativenumber<CR>
-nnoremap <silent> ]or :set norelativenumber<CR>
-nnoremap <silent> [ow :set wrap<CR>
-nnoremap <silent> ]ow :set nowrap<CR>
-nnoremap <silent> [ol :set list<CR>
-nnoremap <silent> ]ol :set nolist<CR>
 
-" Colorizer
-nnoremap <silent> [oc :ColorHighlight<CR>
-nnoremap <silent> ]oc :ColorClear<CR>
+nnoremap gop :set paste!<CR>
+nnoremap goq :copen!<CR>
+nnoremap gof :lopen!<CR>
+nnoremap goh :set hlsearch!<CR>
+nnoremap gor :set relativenumber!<CR>
+nnoremap gow :set wrap!<CR>
+nnoremap gol :set list!<CR>
 
-" Tagbar
+
+" " Colorizer
+" nnoremap <silent> [oc :ColorHighlight<CR>
+" nnoremap <silent> ]oc :ColorClear<CR>
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -130,25 +123,19 @@ nnoremap <silent> ghw :call HighlightCword(1)<CR>
 " nnoremap <C-l> <c-w>l
 " nnoremap <C-c> <c-w>c
 
-nnoremap <silent> gov  :TagbarToggle<CR> 
-nnoremap <silent> gac  :call AutoPairsToggle()<CR> 
+nnoremap <silent> gtb  :TagbarToggle<CR> 
+nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
 
 nnoremap <silent> gso :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
-nnoremap <silent> <Leader>ral :.w !bash<CR>
-nnoremap <silent> <Leader>rae :%w !bash<CR>
-nnoremap gw :wa!<CR>
-nnoremap gq :qa!<CR>
-nnoremap gx :xa!<CR>
-nnoremap <silent> gyil :call CopyLine()<CR>
-nnoremap <silent> gyal :call CopyLine()<CR>
-nnoremap <silent> gyip :call CopyParagraph()<CR>
-nnoremap <silent> gyap :call CopyParagraph()<CR>
-nnoremap <silent> gyie :call CopyEntire()<CR>
-nnoremap <silent> gyae :call CopyEntire()<CR>
-nnoremap <silent> gp o<C-r>+<ESC>
-nnoremap <silent> ge :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <silent> grl :.w !bash<CR>
+nnoremap <silent> gre :%w !bash<CR>
+nnoremap gwa :wa!<CR>
+nnoremap gqa :qa!<CR>
+nnoremap gxa :xa!<CR>
+nnoremap <silent> gpp o<C-r>+<ESC>
+nnoremap gef :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <silent> <C-u> 5<C-y>
 nnoremap <silent> <C-d> 5<C-e>
 
@@ -159,10 +146,10 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
 " ag.vim
 let g:ag_mapping_message=0
-nnoremap <Leader>s :Ag 
+nnoremap gag :Ag 
 
 " vim-autoformat
-nnoremap <silent> gf :Autoformat<CR>
+nnoremap <silent> gaf :Autoformat<CR>
 
 " For Command-T 
 let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
@@ -186,6 +173,15 @@ call textobj#user#plugin('var', {
 \	},
 \ })
 
+nnoremap <silent> gyl :call CopyLine()<CR>
+nnoremap <silent> gyp :call CopyParagraph()<CR>
+nnoremap <silent> gye :call CopyEntire()<CR>
+nnoremap <silent> gy" :call CopyDoubleQuotes()<CR>
+nnoremap <silent> gy' :call CopySingleQuotes()<CR>
+nnoremap <silent> gy( :call CopyParentheses()<CR>
+nnoremap <silent> gy[ :call CopyBrackets()<CR>
+nnoremap <silent> gy{ :call CopyBraces()<CR>
+
 function! CopyLine() 		
 	let pos = getpos('.')
 	normal! "+y$
@@ -202,6 +198,31 @@ endfunction
 
 function! CopyParagraph() 		
 	normal! "+yip
+endfunction
+
+function! CopyDoubleQuotes() 		
+	normal! "+yi"
+    echo "Words in the double quotes yanked"
+endfunction
+
+function! CopySingleQuotes() 		
+	normal! "+yi'
+    echo "Words in the single quotes yanked"
+endfunction
+
+function! CopyParentheses() 		
+	normal! "+yi(
+    echo "Words in the parentheses yanked"
+endfunction
+
+function! CopyBrackets() 		
+	normal! "+yi[
+    echo "Words in the brackets yanked"
+endfunction
+
+function! CopyBraces() 		
+	normal! "+yi{
+    echo "Words in the braces yanked"
 endfunction
 
 function! CopyEntire() 		
