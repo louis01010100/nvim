@@ -131,9 +131,9 @@ nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> grl :.w !bash<CR>
 nnoremap <silent> gre :%w !bash<CR>
-nnoremap gww :w!<CR>
-nnoremap gqq :q!<CR>
-nnoremap gxx :x!<CR>
+nnoremap gwb :w!<CR>
+nnoremap gqb :q!<CR>
+nnoremap gxb :x!<CR>
 nnoremap gwa :wa!<CR>
 nnoremap gqa :qa!<CR>
 nnoremap gxa :xa!<CR>
@@ -159,6 +159,7 @@ let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
 let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
+let g:CommandTFileScanner='find'
 set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
 nnoremap <silent> gcm :CommandTMRU<cr>
 nnoremap <silent> gct :CommandT<CR>
