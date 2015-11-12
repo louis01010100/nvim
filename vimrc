@@ -271,7 +271,7 @@ set statusline+=%*
 "highlight link SyntasticWarning SpellCap
 
 " Highlight characters exceeding the text-width 
-nnoremap <silent> gll
+nnoremap <silent> ghl
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
       \   unlet w:long_line_match <Bar>
