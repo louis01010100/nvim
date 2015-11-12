@@ -160,7 +160,9 @@ let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
 set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
-nnoremap <silent> <leader>m :CommandTMRU<cr>
+nnoremap <silent> gcm :CommandTMRU<cr>
+nnoremap <silent> gct :CommandT<CR>
+nnoremap <silent> gcb :CommandTBuffer<CR>
 
 call textobj#user#plugin('path', {
 \   '-': {
