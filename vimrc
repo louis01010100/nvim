@@ -63,18 +63,18 @@ execute pathogen#helptags()
 
 "let mapleader = "\<Space>"
 
-nnoremap <silent>]os :set scrolloff=999<CR>
-nnoremap <silent>[os :set scrolloff=0<CR>
+"nnoremap <silent>]os :set scrolloff=999<CR>
+"nnoremap <silent>[os :set scrolloff=0<CR>
 
 " customized unimpaired mapping
 
 nnoremap gop :set paste!<CR>
-nnoremap goq :copen!<CR>
-nnoremap gof :lopen!<CR>
 nnoremap goh :set hlsearch!<CR>
 nnoremap gor :set relativenumber!<CR>
 nnoremap gow :set wrap!<CR>
 nnoremap gol :set list!<CR>
+nnoremap <script> <silent> gof :call ToggleLocationList()<CR>
+nnoremap <script> <silent> goq :call ToggleQuickfixList()<CR>
 
 
 " " Colorizer
@@ -117,11 +117,11 @@ endfunction
 
 nnoremap <silent> ghw :call HighlightCword(1)<CR>
 
-" nnoremap <C-h> <c-w>h
-" nnoremap <C-j> <c-w>j
-" nnoremap <C-k> <c-w>k
-" nnoremap <C-l> <c-w>l
-" nnoremap <C-c> <c-w>c
+nnoremap <C-h> <c-w>h
+nnoremap <C-j> <c-w>j
+nnoremap <C-k> <c-w>k
+nnoremap <C-l> <c-w>l
+ nnoremap <C-c> <c-w>c
 
 nnoremap <silent> gtb  :TagbarToggle<CR> 
 nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
@@ -131,6 +131,9 @@ nnoremap <silent> <Leader>df :TernDef<CR>
 nnoremap <silent> <Leader>rf :TernRef<CR>
 nnoremap <silent> grl :.w !bash<CR>
 nnoremap <silent> gre :%w !bash<CR>
+nnoremap gww :w!<CR>
+nnoremap gqq :q!<CR>
+nnoremap gxx :x!<CR>
 nnoremap gwa :wa!<CR>
 nnoremap gqa :qa!<CR>
 nnoremap gxa :xa!<CR>
