@@ -71,6 +71,7 @@ execute pathogen#helptags()
 nnoremap gop :set paste!<CR>
 nnoremap goh :set hlsearch!<CR>
 nnoremap gor :set relativenumber!<CR>
+nnoremap gon :set number!<CR>
 nnoremap gow :set wrap!<CR>
 nnoremap gol :set list!<CR>
 nnoremap <script> <silent> gof :call ToggleLocationList()<CR>
