@@ -47,8 +47,8 @@ set statusline+=(%p%%)\   "Percentage through file in lines as in CTRL-G
 
 set splitbelow
 set splitright
-set scrolloff=5
-set sidescrolloff=5
+" set scrolloff=5
+" set sidescrolloff=5
  
 filetype plugin indent on      " activate filetype after initializing vundle 
 syntax on
@@ -57,16 +57,6 @@ colorscheme sorcerer
  
 execute pathogen#infect()  
 execute pathogen#helptags()  
-
-
-"ket timeoutlen=1000 ttimeoutlen=0
-
-"let mapleader = "\<Space>"
-
-"nnoremap <silent>]os :set scrolloff=999<CR>
-"nnoremap <silent>[os :set scrolloff=0<CR>
-
-" customized unimpaired mapping
 
 nnoremap gop :set paste!<CR>
 nnoremap goh :set hlsearch!<CR>
@@ -140,8 +130,8 @@ nnoremap gqa :qa!<CR>
 nnoremap gxa :xa!<CR>
 nnoremap <silent> gpp o<C-r>+<ESC>
 nnoremap gef :e <C-R>=expand('%:p:h') . '/'<CR>
-nnoremap <silent> <C-u> 5<C-y>
-nnoremap <silent> <C-d> 5<C-e>
+nnoremap <silent> <C-u> 4<C-y>
+nnoremap <silent> <C-d> 4<C-e>
 
 " invisible character
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
