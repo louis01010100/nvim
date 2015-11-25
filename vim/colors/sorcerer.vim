@@ -29,7 +29,7 @@ hi foldcolumn             cterm=none             ctermbg=239   ctermfg=66
 hi folded                 cterm=none             ctermbg=16    ctermfg=60
 hi incsearch              cterm=none             ctermbg=237  ctermfg=185
 hi LineNr                 cterm=NONE             ctermbg=NONE    ctermfg=238
-hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=238
+hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=246
 hi MatchParen             cterm=NONE             ctermbg=237    ctermfg=226
 hi ModeMsg                cterm=NONE             ctermbg=NONE  ctermfg=230
 hi MoreMsg                cterm=NONE             ctermbg=234   ctermfg=29

@@ -150,7 +150,7 @@ let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
 let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
-let g:CommandTFileScanner='find'
+"let g:CommandTFileScanner='find'
 set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
 nnoremap <silent> gcm :CommandTMRU<cr>
 nnoremap <silent> gct :CommandT<CR>
@@ -181,7 +181,7 @@ nnoremap <silent> gy{ :call CopyBraces()<CR>
 
 function! CopyLine() 		
 	let pos = getpos('.')
-	normal! "+y$
+	normal! ^"+y$
 	call setpos('.', pos)
 	echo "1 line yanked"
 endfunction
