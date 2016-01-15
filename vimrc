@@ -102,11 +102,12 @@ function! Conflict(reverse)
   call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
-function! HighlightCword(reverse)
-    set hlsearch | let @/='\<'.expand("<cword>").'\>'
+function! HighlightCword()
+    let @/='\<'.expand("<cword>").'\>'
+    set hlsearch 
 endfunction
 
-nnoremap <silent> ghw :call HighlightCword(1)<CR>
+nnoremap <silent> ghw :call HighlightCword()<CR>
 
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
@@ -298,3 +299,7 @@ function! Expander()
 endfunction
 
 inoremap <expr> <CR> Expander()
+
+let g:ac_smooth_scroll_fb_sleep_time_msec = 30
+let g:ac_smooth_scroll_du_sleep_time_msec = 30
+set lazyredraw
