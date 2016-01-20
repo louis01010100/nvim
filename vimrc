@@ -131,8 +131,8 @@ nnoremap gqa :qa!<CR>
 nnoremap gxa :xa!<CR>
 nnoremap <silent> gpp o<C-r>+<ESC>
 nnoremap gef :e <C-R>=expand('%:p:h') . '/'<CR>
-nnoremap <silent> <C-u> 4<C-y>
-nnoremap <silent> <C-d> 4<C-e>
+"nnoremap <silent> <C-u> 4<C-y>
+"nnoremap <silent> <C-d> 4<C-e>
 
 " invisible character
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
@@ -156,6 +156,9 @@ set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
 nnoremap <silent> gcm :CommandTMRU<cr>
 nnoremap <silent> gct :CommandT<CR>
 nnoremap <silent> gcb :CommandTBuffer<CR>
+nnoremap <silent> <leader>m :CommandTMRU<cr>
+nnoremap <silent> <leader>t :CommandT<CR>
+nnoremap <silent> <leader>b :CommandTBuffer<CR>
 
 call textobj#user#plugin('path', {
 \   '-': {
@@ -300,6 +303,6 @@ endfunction
 
 inoremap <expr> <CR> Expander()
 
-let g:ac_smooth_scroll_fb_sleep_time_msec = 30
-let g:ac_smooth_scroll_du_sleep_time_msec = 30
+let g:ac_smooth_scroll_fb_sleep_time_msec = 7
+let g:ac_smooth_scroll_du_sleep_time_msec = 15
 set lazyredraw
