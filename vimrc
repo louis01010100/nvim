@@ -119,10 +119,13 @@ nnoremap <silent> gtb  :TagbarToggle<CR>
 nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
 
 nnoremap <silent> gso :source ~/.vimrc<CR>
-nnoremap <silent> <Leader>df :TernDef<CR>
-nnoremap <silent> <Leader>rf :TernRef<CR>
+nnoremap <silent> gdf :TernDef<CR>
+nnoremap <silent> grf :TernRef<CR>
 nnoremap <silent> grl :.w !bash<CR>
 nnoremap <silent> gre :%w !bash<CR>
+nnoremap <silent> <Leader>w :wa!<CR>
+nnoremap <silent> <Leader>q :qa!<CR>
+nnoremap <silent> <Leader>x :xa!<CR>
 nnoremap gwb :w!<CR>
 nnoremap gqb :q!<CR>
 nnoremap gxb :x!<CR>
@@ -303,6 +306,6 @@ endfunction
 
 inoremap <expr> <CR> Expander()
 
-let g:ac_smooth_scroll_fb_sleep_time_msec = 7
+let g:ac_smooth_scroll_fb_sleep_time_msec = 15
 let g:ac_smooth_scroll_du_sleep_time_msec = 15
 set lazyredraw
