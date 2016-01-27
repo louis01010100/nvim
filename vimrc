@@ -148,6 +148,7 @@ nnoremap gag :Ag
 nnoremap <Leader>s :Ag 
 
 " vim-autoformat
+au BufWrite * :Autoformat
 nnoremap <silent> gaf :Autoformat<CR>
 
 " For Command-T 
