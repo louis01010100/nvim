@@ -1,7 +1,7 @@
 
-" 'sorcerer.vim' -- vim color scheme.
-" maintainer:   jeet sukumaran
-" based on 'mustang' by henrique c. alves (hcarvalhoalves@gmail.com),
+" 'sorcerer.vim' -- Vim color scheme.
+" Maintainer:   Jeet Sukumaran
+" Based on 'Mustang' by Henrique C. Alves (hcarvalhoalves@gmail.com),
 
 set background=dark
 
@@ -13,21 +13,22 @@ endif
 
 let colors_name = "sorcerer"
 
-" 256 colors {{{1
-" ==========================================================================
-hi normal                 cterm=none             ctermbg=none   ctermfg=246
-hi colorcolumn            cterm=none             ctermbg=232   ctermfg=fg
-hi cursorcolumn           cterm=none             ctermbg=232  ctermfg=none
-hi cursorline             cterm=none             ctermbg=234   ctermfg=none
-hi diffadd                cterm=none             ctermbg=71    ctermfg=16
-hi diffdelete             cterm=none             ctermbg=166    ctermfg=none
-hi diffchange             cterm=none             ctermbg=166    ctermfg=67
-hi difftext               cterm=none             ctermbg=117   ctermfg=16
-hi directory              cterm=none             ctermbg=none   ctermfg=67
-hi errormsg               cterm=none             ctermbg=88    ctermfg=230
-hi foldcolumn             cterm=none             ctermbg=239   ctermfg=66
-hi folded                 cterm=none             ctermbg=16    ctermfg=60
-hi incsearch              cterm=none             ctermbg=237  ctermfg=185
+" 256 Colors {{{1
+" ============================================================================
+hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=248
+hi ColorColumn            cterm=NONE             ctermbg=235   ctermfg=fg
+"hi Cursor                 cterm=NONE             ctermbg=88  ctermfg=88
+hi CursorColumn           cterm=NONE             ctermbg=235  ctermfg=NONE
+hi CursorLine             cterm=NONE             ctermbg=235   ctermfg=NONE
+hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
+hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
+hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=68
+hi DiffText               cterm=NONE             ctermbg=117   ctermfg=16
+hi Directory              cterm=NONE             ctermbg=234   ctermfg=68
+hi ErrorMsg               cterm=NONE             ctermbg=88    ctermfg=230
+hi FoldColumn             cterm=NONE             ctermbg=239   ctermfg=66
+hi Folded                 cterm=NONE             ctermbg=16    ctermfg=60
+hi IncSearch              cterm=NONE             ctermbg=237  ctermfg=185
 hi LineNr                 cterm=NONE             ctermbg=NONE    ctermfg=238
 hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=246
 hi MatchParen             cterm=NONE             ctermbg=237    ctermfg=226
@@ -38,38 +39,38 @@ hi Pmenu                  cterm=NONE             ctermbg=102   ctermfg=230
 hi PmenuSbar              cterm=NONE             ctermbg=250   ctermfg=fg
 hi PmenuSel               cterm=NONE             ctermbg=109   ctermfg=230
 hi PmenuThumb             cterm=reverse          ctermbg=NONE    ctermfg=fg
-hi Question               cterm=NONE             ctermbg=NONE    ctermfg=246
+hi Question               cterm=NONE             ctermbg=NONE    ctermfg=248
 hi Search                 cterm=NONE             ctermbg=237   ctermfg=185
 "hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
 hi SignColumn             cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi SpecialKey             cterm=NONE             ctermbg=NONE    ctermfg=59
-hi SpellBad               cterm=NONE             ctermbg=88    ctermfg=230
-hi SpellCap               cterm=NONE             ctermbg=166    ctermfg=230
-hi SpellLocal             cterm=NONE             ctermbg=NONE    ctermfg=30
-hi SpellRare              cterm=NONE             ctermbg=NONE    ctermfg=201
-hi StatusLine             cterm=NONE             ctermbg=238   ctermfg=250
-hi StatusLineNC           cterm=NONE             ctermbg=236   ctermfg=244
-hi VertSplit              cterm=NONE             ctermbg=234   ctermfg=234
-hi TabLine                cterm=NONE             ctermbg=234   ctermfg=243
+hi SpellBad               cterm=undercurl        ctermbg=NONE    ctermfg=196
+hi SpellCap               cterm=undercurl        ctermbg=NONE    ctermfg=21
+hi SpellLocal             cterm=undercurl        ctermbg=NONE    ctermfg=30
+hi SpellRare              cterm=undercurl        ctermbg=NONE    ctermfg=201
+hi StatusLine             cterm=NONE             ctermbg=241   ctermfg=252
+hi StatusLineNC           cterm=NONE             ctermbg=238   ctermfg=244
+hi VertSplit              cterm=NONE             ctermbg=238   ctermfg=238
+hi TabLine                cterm=NONE             ctermbg=238   ctermfg=243
 hi TabLineFill            cterm=NONE             ctermbg=NONE   ctermfg=NONE
 hi TabLineSel             cterm=NONE             ctermbg=59    ctermfg=250
-hi Title                  cterm=NONE             ctermbg=NONE    ctermfg=66
-hi Visual                 cterm=NONE             ctermbg=236    ctermfg=NONE
+hi Title                  cterm=NONE             ctermbg=NONE    ctermfg=248
+hi Visual                 cterm=NONE             ctermbg=237    ctermfg=NONE
 hi WarningMsg             cterm=NONE             ctermbg=166   ctermfg=230
-hi WildMenu               cterm=NONE             ctermbg=109   ctermfg=230
+hi WildMenu               cterm=NONE             ctermbg=116   ctermfg=16
 
-hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=240
+hi Comment                cterm=NONE             ctermbg=NONE    ctermfg=59
 hi Boolean                cterm=NONE             ctermbg=NONE    ctermfg=130
-hi String                 cterm=NONE             ctermbg=NONE    ctermfg=102
+hi String                 cterm=NONE             ctermbg=NONE    ctermfg=101
 hi Identifier             cterm=NONE             ctermbg=NONE    ctermfg=67
 hi Function               cterm=NONE             ctermbg=NONE    ctermfg=67
-hi Type                   cterm=NONE             ctermbg=NONE    ctermfg=102
+hi Type                   cterm=NONE             ctermbg=NONE    ctermfg=66
 hi Statement              cterm=NONE             ctermbg=NONE    ctermfg=67
 hi Keyword                cterm=NONE             ctermbg=NONE    ctermfg=96
 hi Constant               cterm=NONE             ctermbg=NONE    ctermfg=130
 hi Number                 cterm=NONE             ctermbg=NONE    ctermfg=130
-hi Special                cterm=NONE             ctermbg=NONE    ctermfg=65
-hi PreProc                cterm=NONE             ctermbg=NONE    ctermfg=65
+hi Special                cterm=NONE             ctermbg=NONE    ctermfg=66
+hi PreProc                cterm=NONE             ctermbg=NONE    ctermfg=66
 hi Todo                   cterm=NONE			 ctermbg=234     ctermfg=96
 
 hi diffOldFile            cterm=NONE             ctermbg=NONE    ctermfg=67
@@ -89,7 +90,7 @@ hi link             diffNoEOL       Constant
 hi link             diffCommon      Constant
 hi link             diffComment     Constant
 
-hi Conceal                cterm=NONE             ctermbg=246 ctermfg=252
+hi Conceal                cterm=NONE             ctermbg=248   ctermfg=252
 hi Error                  cterm=NONE             ctermbg=88  ctermfg=230
 hi Ignore                 cterm=NONE             ctermbg=NONE    ctermfg=234
 "hi InsertModeCursorLine   cterm=NONE             ctermbg=16    ctermfg=fg
@@ -100,8 +101,7 @@ hi StatusLineUnalert      cterm=NONE             ctermbg=238   ctermfg=144
 hi Test                   cterm=NONE             ctermbg=NONE    ctermfg=fg
 hi Underlined             cterm=underline        ctermbg=NONE    ctermfg=111
 hi VisualNOS              cterm=NONE,underline   ctermbg=NONE    ctermfg=fg
-hi Cursor                 cterm=NONE          ctermbg=NONE    ctermfg=250
-"hi cCursor                cterm=reverse          ctermbg=NONE    ctermfg=fg
+hi cCursor                cterm=reverse          ctermbg=NONE    ctermfg=fg
 "hi iCursor                cterm=NONE             ctermbg=210   ctermfg=16
 "hi lCursor                cterm=NONE             ctermbg=145   ctermfg=234
 "hi nCursor                cterm=NONE             ctermbg=46    ctermfg=16

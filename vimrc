@@ -145,6 +145,7 @@ hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 " ag.vim
 let g:ag_mapping_message=0
 nnoremap gag :Ag 
+nnoremap <Leader>s :Ag 
 
 " vim-autoformat
 nnoremap <silent> gaf :Autoformat<CR>
@@ -306,6 +307,6 @@ endfunction
 
 inoremap <expr> <CR> Expander()
 
-let g:ac_smooth_scroll_fb_sleep_time_msec = 15
-let g:ac_smooth_scroll_du_sleep_time_msec = 15
-set lazyredraw
+" let g:ac_smooth_scroll_fb_sleep_time_msec = 15
+" let g:ac_smooth_scroll_du_sleep_time_msec = 15
+" set lazyredraw
