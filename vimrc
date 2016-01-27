@@ -5,7 +5,9 @@ set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
-set fillchars+=vert:\ "get rid of | in the vertical split 
+
+"get rid of | in the vertical split 
+set fillchars+=vert:\ 
 
 set number
 "set textwidth=78
@@ -113,7 +115,7 @@ nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
 nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
- nnoremap <C-c> <c-w>c
+nnoremap <C-c> <c-w>c
 
 nnoremap <silent> gtb  :TagbarToggle<CR> 
 nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
@@ -157,7 +159,7 @@ let g:CommandTMaxHeight=20
 let g:CommandTSelectNextMap='<C-n>'
 let g:CommandTSelectPrevMap='<C-p>'
 "let g:CommandTFileScanner='find'
-set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks
+set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks,node_modules
 nnoremap <silent> gcm :CommandTMRU<cr>
 nnoremap <silent> gct :CommandT<CR>
 nnoremap <silent> gcb :CommandTBuffer<CR>
