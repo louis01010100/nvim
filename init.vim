@@ -1,5 +1,5 @@
-﻿set nocompatible               " be iMproved
-set encoding=UTF-8
+﻿"set nocompatible               " be iMproved
+"set encoding=UTF-8
 set showcmd     	" Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
@@ -28,7 +28,7 @@ set autowriteall
 "In Ex mode, press <tab> to list all the files in the current working directory
 set wildmode=list:longest   
 
-set t_Co=256
+"set t_Co=256
 set hlsearch
 set cursorline
 set backspace=indent,eol,start 
@@ -121,7 +121,7 @@ nnoremap <C-c> <c-w>c
 nnoremap <silent> gtb  :TagbarToggle<CR> 
 nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
 
-nnoremap <silent> gso :source ~/.vimrc<CR>
+nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
 nnoremap <silent> gdf :TernDef<CR>
 nnoremap <silent> grf :TernRef<CR>
 nnoremap <silent> grl :.w !bash<CR>
@@ -155,18 +155,24 @@ nnoremap <Leader>s :Ag
 nnoremap <silent> gaf :Autoformat<CR>
 
 " For Command-T 
-let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
-let g:CommandTMaxHeight=20
-let g:CommandTSelectNextMap='<C-n>'
-let g:CommandTSelectPrevMap='<C-p>'
+"let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
+"let g:CommandTMaxHeight=20
+"let g:CommandTSelectNextMap='<C-n>'
+"let g:CommandTSelectPrevMap='<C-p>'
 "let g:CommandTFileScanner='find'
 set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks,node_modules
-nnoremap <silent> gcm :CommandTMRU<cr>
-nnoremap <silent> gct :CommandT<CR>
-nnoremap <silent> gcb :CommandTBuffer<CR>
-nnoremap <silent> <leader>m :CommandTMRU<cr>
-nnoremap <silent> <leader>t :CommandT<CR>
-nnoremap <silent> <leader>b :CommandTBuffer<CR>
+"nnoremap <silent> gcm :CommandTMRU<cr>
+"nnoremap <silent> gct :CommandT<CR>
+"nnoremap <silent> gcb :CommandTBuffer<CR>
+"nnoremap <silent> <leader>m :CommandTMRU<cr>
+"nnoremap <silent> <leader>t :CommandT<CR>
+"nnoremap <silent> <leader>b :CommandTBuffer<CR>
+
+nnoremap <silent> gff :Files<CR>
+nnoremap <silent> gfb :Buffers<CR>
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
 
 call textobj#user#plugin('path', {
 \   '-': {
@@ -314,3 +320,5 @@ inoremap <expr> <CR> Expander()
 " let g:ac_smooth_scroll_fb_sleep_time_msec = 15
 " let g:ac_smooth_scroll_du_sleep_time_msec = 15
 " set lazyredraw
+
+set rtp+=~/.fzf
