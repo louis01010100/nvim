@@ -69,6 +69,7 @@ Plug 'https://github.com/kana/vim-textobj-line.git'
 Plug 'https://github.com/kana/vim-textobj-entire.git'
 Plug 'https://github.com/thinca/vim-textobj-function-javascript.git'
 Plug 'https://github.com/godlygeek/tabular.git'
+Plug 'https://github.com/majutsushi/tagbar.git'
 call plug#end()
 
 " Fuzzy Finder 
@@ -79,9 +80,9 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
 " Tabular
-"nnoremap <Leader>a= :Tabularize /=<CR>
-"nnoremap <Leader>a: :Tabularize /:<CR>
-"nnoremap <Leader>a:: :Tabularize /:\zs<CR>
+"nnoremap ga= :Tabularize /=<CR>
+"nnoremap ga: :Tabularize /:<CR>
+"nnoremap ga:: :Tabularize /:\zs<CR>
 nnoremap ga, :Tabularize /,<CR>
 
 nnoremap gop :set paste!<CR>
@@ -143,6 +144,7 @@ nnoremap <C-l> <c-w>l
 nnoremap <C-c> <c-w>c
 
 nnoremap <silent> gtb  :TagbarToggle<CR> 
+let g:tagbar_left = 1
 nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
 
 nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
