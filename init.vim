@@ -119,6 +119,7 @@ nnoremap <C-l> <c-w>l
 nnoremap <C-c> <c-w>c
 
 nnoremap <silent> gtb  :TagbarToggle<CR> 
+let g:tagbar_left = 1
 nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
 
 nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
