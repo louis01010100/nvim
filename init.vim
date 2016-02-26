@@ -1,16 +1,13 @@
-﻿"set nocompatible               " be iMproved
-"set encoding=UTF-8
-set showcmd     	" Show (partial) command in status line.
+﻿set showcmd     	" Show (partial) command in status line.
 set showmatch       " Show matching brackets.
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
 
 "get rid of | in the vertical split 
-set fillchars+=vert:\ 
+set fillchars=stl:\ ,stlnc:\ ,vert:\ 
 
 set number
-"set textwidth=78
 set tabstop=4 
 set shiftwidth=4 
 set hidden
@@ -20,7 +17,6 @@ set expandtab
 set ffs=unix
 set noswapfile
 
-runtime! macros/matchit.vim
 "set cindent
 set autoread		
 set autowriteall
@@ -49,16 +45,13 @@ set statusline+=(%p%%)\   "Percentage through file in lines as in CTRL-G
 
 set splitbelow
 set splitright
-" set scrolloff=5
-" set sidescrolloff=5
  
 filetype plugin indent on      " activate filetype after initializing vundle 
 syntax on
     
 colorscheme sorcerer
  
-execute pathogen#infect()  
-execute pathogen#helptags()  
+runtime! init.d/*.vim
 
 nnoremap gop :set paste!<CR>
 nnoremap goh :set hlsearch!<CR>
@@ -66,10 +59,6 @@ nnoremap gor :set relativenumber!<CR>
 nnoremap gon :set number!<CR>
 nnoremap gow :set wrap!<CR>
 nnoremap gol :set list!<CR>
-nnoremap <script> <silent> gof :call ToggleLocationList()<CR>
-nnoremap <script> <silent> goq :call ToggleQuickfixList()<CR>
-let g:toggle_list_no_mappings = 1
-
 
 " " Colorizer
 " nnoremap <silent> [oc :ColorHighlight<CR>
@@ -118,10 +107,6 @@ nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
 nnoremap <C-c> <c-w>c
 
-nnoremap <silent> gtb  :TagbarToggle<CR> 
-let g:tagbar_left = 1
-nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
-
 nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
 nnoremap <silent> gdf :TernDef<CR>
 nnoremap <silent> grf :TernRef<CR>
@@ -138,142 +123,24 @@ nnoremap gqa :qa!<CR>
 nnoremap gxa :xa!<CR>
 nnoremap <silent> gpp o<C-r>+<ESC>
 nnoremap gef :e <C-R>=expand('%:p:h') . '/'<CR>
-"nnoremap <silent> <C-u> 4<C-y>
-"nnoremap <silent> <C-d> 4<C-e>
 
 " invisible character
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
 hi specialKey	cterm=NONE	ctermbg=NONE	ctermfg=239
 hi nontext		cterm=NONE	ctermbg=NONE	ctermfg=239
 
-" ag.vim
-let g:ag_mapping_message=0
-nnoremap gag :Ag 
-nnoremap <Leader>s :Ag 
-
-" vim-autoformat
-"au BufWrite * :Autoformat
-nnoremap <silent> gaf :Autoformat<CR>
-
-" For Command-T 
-"let g:CommandTCancelMap=['<ESC>','<C-c>', '<C-x>']
-"let g:CommandTMaxHeight=20
-"let g:CommandTSelectNextMap='<C-n>'
-"let g:CommandTSelectPrevMap='<C-p>'
-"let g:CommandTFileScanner='find'
-set wildignore+=.git,*.class,*.o,.svn,*.jar,.vim-bookmarks,node_modules
-"nnoremap <silent> gcm :CommandTMRU<cr>
-"nnoremap <silent> gct :CommandT<CR>
-"nnoremap <silent> gcb :CommandTBuffer<CR>
-"nnoremap <silent> <leader>m :CommandTMRU<cr>
-"nnoremap <silent> <leader>t :CommandT<CR>
-"nnoremap <silent> <leader>b :CommandTBuffer<CR>
-
-nnoremap <silent> gff :Files<CR>
-nnoremap <silent> gfb :Buffers<CR>
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-
-
-call textobj#user#plugin('path', {
-\   '-': {
-\     'pattern': '/[0-9a-zA-Z_-]\+',
-\     'select': 'ah',
-\   },
-\ })
-
-call textobj#user#plugin('var', {
-\	'-': {
-\		'pattern' : '\(\$\|@\|%\)\({\)\?[-_0-9a-zA-Z]\+\(}\)\?\_s*',
-\		'select' : 'av',
-\	},
-\ })
-
-nnoremap <silent> gyl :call CopyLine()<CR>
-nnoremap <silent> gyp :call CopyParagraph()<CR>
-nnoremap <silent> gye :call CopyEntire()<CR>
-nnoremap <silent> gy" :call CopyDoubleQuotes()<CR>
-nnoremap <silent> gy' :call CopySingleQuotes()<CR>
-nnoremap <silent> gy( :call CopyParentheses()<CR>
-nnoremap <silent> gy[ :call CopyBrackets()<CR>
-nnoremap <silent> gy{ :call CopyBraces()<CR>
-
-function! CopyLine() 		
-	let pos = getpos('.')
-	normal! ^"+y$
-	call setpos('.', pos)
-	echo "1 line yanked"
-endfunction
-
-" function! Source() 
-"     let pos = getpos('.')
-"     :source ~/.vimrc
-"     call setpos('.', pos)
-"     echo "~/.vimrc sourced"
-" endfunction
-
-function! CopyParagraph() 		
-	normal! "+yip
-endfunction
-
-function! CopyDoubleQuotes() 		
-	normal! "+yi"
-    echo "Words in the double quotes yanked"
-endfunction
-
-function! CopySingleQuotes() 		
-	normal! "+yi'
-    echo "Words in the single quotes yanked"
-endfunction
-
-function! CopyParentheses() 		
-	normal! "+yi(
-    echo "Words in the parentheses yanked"
-endfunction
-
-function! CopyBrackets() 		
-	normal! "+yi[
-    echo "Words in the brackets yanked"
-endfunction
-
-function! CopyBraces() 		
-	normal! "+yi{
-    echo "Words in the braces yanked"
-endfunction
-
-function! CopyEntire() 		
-	let pos = getpos('.')
-	normal! gg"+yG
-	call setpos('.', pos)
-endfunction
-
-"YouCompleteMe"
-let g:ycm_key_list_select_completion=['<C-n>']
-let g:ycm_key_list_previous_completion=['<C-p>']
 
 autocmd WinLeave * setlocal nocursorline
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 
 "let longLine=matchadd('WarningMsg', '\%>'.&tw.'v.\+', -1)
 
-" vim-bookmark
-let g:bookmark_save_per_working_dir = 1
-let g:bookmark_auto_save = 1
-let g:bookmark_center = 1
-let g:bookmark_auto_close = 1
-
-
 autocmd FileType html setlocal sw=2 ts=2 tw=120
 autocmd FileType xml setlocal sw=2 ts=2 tw=120
 autocmd FileType javascript setlocal sw=4 ts=4  tw=78
 autocmd FileType css setlocal sw=4 ts=4 tw=78
 
-"syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-"setlocal foldmethod=syntax
-"setlocal foldlevel=2
-
 set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " syntastic
@@ -317,9 +184,3 @@ function! Expander()
 endfunction
 
 inoremap <expr> <CR> Expander()
-
-" let g:ac_smooth_scroll_fb_sleep_time_msec = 15
-" let g:ac_smooth_scroll_du_sleep_time_msec = 15
-" set lazyredraw
-
-set rtp+=~/.fzf
