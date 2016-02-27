@@ -34,7 +34,7 @@ hi CursorLineNr           cterm=NONE             ctermbg=NONE    ctermfg=246
 hi MatchParen             cterm=NONE             ctermbg=237    ctermfg=226
 hi ModeMsg                cterm=NONE             ctermbg=NONE  ctermfg=230
 hi MoreMsg                cterm=NONE             ctermbg=234   ctermfg=29
-hi NonText                cterm=NONE             ctermbg=NONE   ctermfg=59
+hi NonText		          cterm=NONE	         ctermbg=NONE	ctermfg=239
 hi Pmenu                  cterm=NONE             ctermbg=102   ctermfg=230
 hi PmenuSbar              cterm=NONE             ctermbg=250   ctermfg=fg
 hi PmenuSel               cterm=NONE             ctermbg=109   ctermfg=230
@@ -43,7 +43,7 @@ hi Question               cterm=NONE             ctermbg=NONE    ctermfg=248
 hi Search                 cterm=NONE             ctermbg=237   ctermfg=185
 "hi SignColumn             cterm=NONE             ctermbg=23   ctermfg=231
 hi SignColumn             cterm=NONE             ctermbg=NONE   ctermfg=NONE
-hi SpecialKey             cterm=NONE             ctermbg=NONE    ctermfg=59
+hi specialKey	          cterm=NONE	         ctermbg=NONE	ctermfg=239
 hi SpellBad               cterm=undercurl        ctermbg=NONE    ctermfg=196
 hi SpellCap               cterm=undercurl        ctermbg=NONE    ctermfg=21
 hi SpellLocal             cterm=undercurl        ctermbg=NONE    ctermfg=30

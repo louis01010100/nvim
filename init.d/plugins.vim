@@ -142,3 +142,9 @@ function! CopyEntire()
 	normal! gg"+yG
 	call setpos('.', pos)
 endfunction
+
+" " Colorizer
+" nnoremap <silent> [oc :ColorHighlight<CR>
+" nnoremap <silent> ]oc :ColorClear<CR>
+"
+
