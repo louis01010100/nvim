@@ -13,6 +13,7 @@ Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
+Plug 'https://github.com/tomtom/tcomment_vim.git'
  
 call plug#end()
 
@@ -100,6 +101,7 @@ nnoremap <silent> gy' :call CopySingleQuotes()<CR>
 nnoremap <silent> gy( :call CopyParentheses()<CR>
 nnoremap <silent> gy[ :call CopyBrackets()<CR>
 nnoremap <silent> gy{ :call CopyBraces()<CR>
+nnoremap <silent> gy/ :call CopyPathElement()<CR>
 
 function! CopyLine() 		
 	let pos = getpos('.')
@@ -140,6 +142,13 @@ endfunction
 function! CopyEntire() 		
 	let pos = getpos('.')
 	normal! gg"+yG
+	call setpos('.', pos)
+endfunction
+
+function! CopyPathElement() 		
+	let pos = getpos('.')
+	normal! T/"+yt/
+    echo "Words in the forward slashes yanked"
 	call setpos('.', pos)
 endfunction
 

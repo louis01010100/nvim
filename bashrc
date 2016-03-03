@@ -1,5 +1,21 @@
 export TERM=xterm-256color
 
+launchTmux() {
+    if [[ -n $TMUX ]]; then
+        return
+    fi
+
+    if [[ $(tmux ls) =~ (hskp:|no server running) ]]; then
+        if [[ "${BASH_REMATCH[1]}" == 'no server running' ]]; then
+            exec tmux new -s hskp
+        else
+            exec tmux attach -t hskp
+        fi
+    fi
+}
+
+launchTmux
+
 PS1="\[\033[38;5;66m\]\u@\h:\[\033[38;5;102m\]\w \[\033[00m\]\$ "
 
 source ~/.dot-file/ls_colors.sh
