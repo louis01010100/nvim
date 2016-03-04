@@ -5,12 +5,14 @@ launchTmux() {
         return
     fi
 
-    if [[ $(tmux ls) =~ (hskp:|no server running) ]]; then
-        if [[ "${BASH_REMATCH[1]}" == 'no server running' ]]; then
-            exec tmux new -s hskp
-        else
-            exec tmux attach -t hskp
-        fi
+    status="$(tmux ls 2> /dev/null)"
+
+    if [[ -z $status ]]; then
+        exec tmux new -s hskp
+    fi
+
+    if [[ $status =~ hskp: ]]; then
+        exec tmux attach -t hskp
     fi
 }
 
