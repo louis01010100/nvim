@@ -18,6 +18,8 @@ launchTmux
 
 PS1="\[\033[38;5;66m\]\u@\h:\[\033[38;5;102m\]\w \[\033[00m\]\$ "
 
+export PS4=$'>\t[${BASH_SOURCE} $(printf "% 4d" ${LINENO})]  '
+
 source ~/.dot-file/ls_colors.sh
 alias ls='ls --color'
 alias vi='nvim'

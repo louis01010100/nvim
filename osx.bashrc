@@ -17,6 +17,7 @@ launchTmux() {
 launchTmux
 
 PS1="[\u@\h:\w]$ "
+PS4=$'>\t[${BASH_SOURCE} $(printf "% 4d" ${LINENO})]  '
 
 source /usr/local/share/autojump/autojump.bash
 
