@@ -14,6 +14,7 @@ Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/tomtom/tcomment_vim.git'
+Plug 'https://github.com/Chiel92/vim-autoformat.git'
  
 call plug#end()
 
@@ -104,7 +105,7 @@ nnoremap <silent> gy{ :call CopyBraces()<CR>
 nnoremap <silent> gy/ :call CopyPathElement()<CR>
 vnoremap <silent> gyv :call CopyVisualSelection()<CR>
 vnoremap <silent> <Leader>c :call CopyVisualSelection()<CR>
-nnoremap <silent> <Leader>v "+p
+nnoremap <silent> <Leader>v "+P
 
 function! CopyVisualSelection()
   " Why is this not a built-in Vim script function?!
