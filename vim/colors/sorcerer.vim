@@ -19,7 +19,7 @@ hi Normal                 cterm=NONE             ctermbg=NONE   ctermfg=248
 hi ColorColumn            cterm=NONE             ctermbg=235   ctermfg=fg
 "hi Cursor                 cterm=NONE             ctermbg=88  ctermfg=88
 hi CursorColumn           cterm=NONE             ctermbg=235  ctermfg=NONE
-hi CursorLine             cterm=NONE             ctermbg=235   ctermfg=NONE
+hi CursorLine             cterm=NONE             ctermbg=234   ctermfg=NONE
 hi DiffAdd                cterm=NONE             ctermbg=71    ctermfg=16
 hi DiffDelete             cterm=NONE             ctermbg=166    ctermfg=NONE
 hi DiffChange             cterm=NONE             ctermbg=166    ctermfg=68
