@@ -1,4 +1,5 @@
-export TERM=xterm-256color
+#export TERM=xterm-256color
+export TERM=screen-256color
 
 launchTmux() {
     if [[ -n $TMUX ]]; then
@@ -40,3 +41,29 @@ export PATH="$PATH:$HOME/Applications/gradle-2.11/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [[ -f ~/Applications/fzf-extras/fzf-extras.sh ]] && source ~/Applications/fzf-extras/fzf-extras.sh
+
+run() {
+    local -r cmd="${1}"
+
+    if [[ -z  "${cmd}" ]]; then
+        printf "Usage: run \$cmd \n"
+        return 1;
+    fi
+
+    [[ "${cmd}" =~ ^(.+)\.sh$ ]]
+
+    local name="${BASH_REMATCH[1]}"
+
+    if [[ -z "${name}" ]]; then
+        name="${cmd}"
+    fi
+
+    local timeLog="${name}.time"
+    local stdOutErrLog="${name}.log"
+
+    local fullCmd="/usr/bin/time -v -o ${timeLog} bash ${cmd} &> ${stdOutErrLog} &"
+
+    printf "${fullCmd}\n"
+
+    eval "${fullCmd}"
+}

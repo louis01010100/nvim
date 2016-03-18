@@ -187,6 +187,35 @@ fdr() {
   local DIR=$(get_parent_dirs $(realpath "${1:-$(pwd)}") | fzf-tmux --tac)
   cd "$DIR"
 }
+
+run() {
+    local -r cmd="${1}"
+
+    if [[ -z  "${cmd}" ]]; then
+        printf "Usage: run \$cmd \n"
+        return 1;
+    fi
+
+    [[ "${cmd}" =~ ^(.+)\.sh$ ]]
+
+    local name="${BASH_REMATCH[1]}"
+
+    if [[ -z "${name}" ]]; then
+        name="${cmd}"
+    fi
+
+    local timeLog="${name}.time"
+    local stdOutErrLog="${name}.log"
+
+    local fullCmd="/usr/bin/time -v -o ${timeLog} bash ${cmd} &> ${stdOutErrLog} &"
+
+    printf "${fullCmd}\n"
+
+    eval "${fullCmd}"
+}
+
+
+
 export NVM_DIR="/Users/louis/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 

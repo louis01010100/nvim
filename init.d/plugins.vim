@@ -2,9 +2,9 @@ let g:plug_window = 'botright new'
  
 call plug#begin('~/.config/nvim/plugged')
  
-Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/milkypostman/vim-togglelist.git'
 Plug 'https://github.com/junegunn/fzf.vim.git'
+Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/kana/vim-textobj-user'
 Plug 'https://github.com/kana/vim-textobj-line.git'
 Plug 'https://github.com/kana/vim-textobj-entire.git'
