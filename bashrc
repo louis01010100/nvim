@@ -42,7 +42,7 @@ export PATH="$PATH:$HOME/Applications/gradle-2.11/bin"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [[ -f ~/Applications/fzf-extras/fzf-extras.sh ]] && source ~/Applications/fzf-extras/fzf-extras.sh
 
-run() {
+execute() {
     local -r cmd="${1}"
 
     if [[ -z  "${cmd}" ]]; then
