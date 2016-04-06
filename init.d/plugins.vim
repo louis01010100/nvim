@@ -2,9 +2,9 @@ let g:plug_window = 'botright new'
  
 call plug#begin('~/.config/nvim/plugged')
  
-Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/milkypostman/vim-togglelist.git'
 Plug 'https://github.com/junegunn/fzf.vim.git'
+Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/kana/vim-textobj-user'
 Plug 'https://github.com/kana/vim-textobj-line.git'
 Plug 'https://github.com/kana/vim-textobj-entire.git'
@@ -15,6 +15,7 @@ Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/tomtom/tcomment_vim.git'
 Plug 'https://github.com/Chiel92/vim-autoformat.git'
+Plug 'https://github.com/tpope/vim-repeat.git'
  
 call plug#end()
 
@@ -111,7 +112,7 @@ function! CopyVisualSelection()
   " Why is this not a built-in Vim script function?!
   let [lnum1, col1] = getpos("'<")[1:2]
   let [lnum2, col2] = getpos("'>")[1:2]
-  let lines = getline(lnum2, lnum2)
+  let lines = getline(lnum1, lnum2)
   let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
   let lines[0] = lines[0][col1 - 1:]
   let @+ = join(lines, "\n")
