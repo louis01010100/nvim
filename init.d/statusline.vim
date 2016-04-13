@@ -1,7 +1,6 @@
 " Customize status line
 set laststatus=2
 set statusline=\ %F     "Full path to the file in the buffer
-"set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}]
 set statusline+=%m      "Modified flag, text is [+]; [-] if 'modifiable' is off."
 set statusline+=%=      "Separation point between left and right aligned items
