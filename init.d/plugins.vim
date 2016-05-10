@@ -40,7 +40,7 @@ nnoremap <silent> gap  :call AutoPairsToggle()<CR>
 "
 let g:ag_mapping_message=0
 nnoremap gag :Ag 
-nnoremap <Leader>s :Ag 
+nnoremap <Leader>g :Ag 
 
 "
 " Autoformat
@@ -51,7 +51,6 @@ nnoremap <silent> gaf :Autoformat<CR>
 "
 " FZF
 "
-set rtp+=~/.fzf
 nnoremap <silent> gff :Files<CR>
 nnoremap <silent> gfb :Buffers<CR>
 nnoremap <silent> <leader>f :Files<CR>
