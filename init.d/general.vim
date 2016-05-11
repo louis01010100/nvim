@@ -22,6 +22,7 @@ set backspace=indent,eol,start
 set autowriteall
 set splitbelow
 set splitright
+set mouse-=a
 filetype plugin indent on      " activate filetype after initializing vundle 
 syntax on
     
