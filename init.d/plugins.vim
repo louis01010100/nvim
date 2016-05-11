@@ -104,8 +104,8 @@ nnoremap <silent> gy[ :call CopyBrackets()<CR>
 nnoremap <silent> gy{ :call CopyBraces()<CR>
 nnoremap <silent> gy/ :call CopyPathElement()<CR>
 vnoremap <silent> gyv :call CopyVisualSelection()<CR>
-vnoremap <silent> <Leader>c :call CopyVisualSelection()<CR>
-nnoremap <silent> <Leader>v "+P
+vnoremap <silent> <Leader>y :call CopyVisualSelection()<CR>
+nnoremap <silent> <Leader>p "+P
 
 function! CopyVisualSelection()
   " Why is this not a built-in Vim script function?!
