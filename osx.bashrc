@@ -8,7 +8,7 @@ shopt -s extglob
 
 alias vi=nvim
 alias vim=nvim
-alias ls='ls -G'
+alias ls='ls  -G1'
 
 #### fzf ####
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -78,20 +78,20 @@ unset fasd_cache
 
 
 
-launchTmux() {
-    if [[ -n $TMUX ]]; then
-        return
-    fi
+# launchTmux() {
+#     if [[ -n $TMUX ]]; then
+#         return
+#     fi
+#
+#     status="$(tmux ls 2> /dev/null)"
+#
+#     if [[ -z $status ]]; then
+#         exec tmux new -s hskp
+#     fi
+#
+#     if [[ $status =~ hskp: ]]; then
+#         exec tmux attach -t hskp
+#     fi
+# }
 
-    status="$(tmux ls 2> /dev/null)"
-
-    if [[ -z $status ]]; then
-        exec tmux new -s hskp
-    fi
-
-    if [[ $status =~ hskp: ]]; then
-        exec tmux attach -t hskp
-    fi
-}
-
-launchTmux
+#launchTmux

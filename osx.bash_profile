@@ -15,3 +15,7 @@ if which pyenv > /dev/null; then
 fi
 
 export PATH=$PATH:$GRADLE_HOME/bin
+PATH=$PATH:/Users/louis/Applications/htslib/htslib-1.3.1
+PATH=$PATH:/Users/louis/Applications/samtools/samtools-1.3.1
+PATH=$PATH:/Users/louis/Applications/bcftool/bcftools-1.3.1
+PATH=$PATH:/Users/louis/Applications/cufflinks/cufflinks-2.2.1.OSX_x86_64
