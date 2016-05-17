@@ -1,23 +1,22 @@
-#export TERM=xterm-256color
 export TERM=screen-256color
 
-launchTmux() {
-    if [[ -n $TMUX ]]; then
-        return
-    fi
-
-    status="$(tmux ls 2> /dev/null)"
-
-    if [[ -z $status ]]; then
-        exec tmux new -s hskp
-    fi
-
-    if [[ $status =~ hskp: ]]; then
-        exec tmux attach -t hskp
-    fi
-}
-
-launchTmux
+# launchTmux() {
+#     if [[ -n $TMUX ]]; then
+#         return
+#     fi
+#
+#     status="$(tmux ls 2> /dev/null)"
+#
+#     if [[ -z $status ]]; then
+#         exec tmux new -s hskp
+#     fi
+#
+#     if [[ $status =~ hskp: ]]; then
+#         exec tmux attach -t hskp
+#     fi
+# }
+#
+# launchTmux
 
 PS1="\[\033[38;5;66m\]\u@\h:\[\033[38;5;102m\]\w \[\033[00m\]\$ "
 
