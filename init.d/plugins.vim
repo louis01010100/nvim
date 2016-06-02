@@ -16,6 +16,7 @@ Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/tomtom/tcomment_vim.git'
 Plug 'https://github.com/Chiel92/vim-autoformat.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
+Plug 'https://github.com/MattesGroeger/vim-bookmarks.git'
  
 call plug#end()
 
