@@ -56,6 +56,7 @@ nnoremap <silent> gre :%w !bash<CR>
 nnoremap <silent> <Leader>w :wa!<CR>
 nnoremap <silent> <Leader>q :qa!<CR>
 nnoremap <silent> <Leader>x :xa!<CR>
+nnoremap <silent> <Leader>m :make<CR>
 nnoremap gwb :w!<CR>
 nnoremap gqb :q!<CR>
 nnoremap gxb :x!<CR>
