@@ -30,6 +30,7 @@ runtime! macros/matchit.vim
 " Tagbar
 "
 "nnoremap <silent> gtb  :TagbarToggle<CR> 
+nnoremap <silent> <Leader>o  :TagbarToggle<CR> 
 let g:tagbar_left = 1
 "nnoremap <Leader>o :TagbarToggle<CR>
 "
