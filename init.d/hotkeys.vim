@@ -1,9 +1,10 @@
-nnoremap gop :set paste!<CR>
-nnoremap goh :set hlsearch!<CR>
-nnoremap gor :set relativenumber!<CR>
-nnoremap gon :set number!<CR>
-nnoremap gow :set wrap!<CR>
-nnoremap gol :set list!<CR>
+nnoremap <Leader>p :set paste!<CR>
+" nnoremap goh :set hlsearch!<CR>
+" nnoremap gor :set relativenumber!<CR>
+" nnoremap gon :set number!<CR>
+nnoremap <Leader>w :set wrap!<CR>
+nnoremap <Leader>l :set list!<CR>
+nnoremap <Leader>h :set hlsearch!<CR>
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -40,7 +41,7 @@ function! HighlightCword()
     set hlsearch 
 endfunction
 
-nnoremap <silent> ghw :call HighlightCword()<CR>
+nnoremap <silent> gh :call HighlightCword()<CR>
 
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
@@ -48,32 +49,35 @@ nnoremap <C-k> <c-w>k
 nnoremap <C-l> <c-w>l
 nnoremap <C-c> <c-w>c
 
-nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
-nnoremap <silent> gdf :TernDef<CR>
-nnoremap <silent> grf :TernRef<CR>
-nnoremap <silent> grl :.w !bash<CR>
-nnoremap <silent> gre :%w !bash<CR>
-nnoremap <silent> <Leader>w :wa!<CR>
-nnoremap <silent> <Leader>q :qa!<CR>
-nnoremap <silent> <Leader>x :xa!<CR>
-nnoremap gwb :w!<CR>
-nnoremap gqb :q!<CR>
-nnoremap gxb :x!<CR>
-nnoremap gwa :wa!<CR>
-nnoremap gqa :qa!<CR>
-nnoremap gxa :xa!<CR>
-nnoremap <silent> gpp o<C-r>+<ESC>
-nnoremap gef :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap gw :wa!<CR>
+nnoremap gq :qa!<CR>
 
-nnoremap <silent> ghl
-      \ :if exists('w:long_line_match') <Bar>
-      \   silent! call matchdelete(w:long_line_match) <Bar>
-      \   unlet w:long_line_match <Bar>
-      \ elseif &textwidth > 0 <Bar>
-      \   let w:long_line_match = matchadd('WarningMsg', '\%>'.&tw.'v.\+', -1) <Bar>
-      \ else <Bar>
-      \   let w:long_line_match = matchadd('WarningMsg', '\%>78v.\+', -1) <Bar>
-      \ endif<CR>
+" nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
+" nnoremap <silent> gdf :TernDef<CR>
+" nnoremap <silent> grf :TernRef<CR>
+" nnoremap <silent> grl :.w !bash<CR>
+" nnoremap <silent> gre :%w !bash<CR>
+" nnoremap <silent> <Leader>w :wa!<CR>
+" nnoremap <silent> <Leader>q :qa!<CR>
+" nnoremap <silent> <Leader>x :xa!<CR>
+" nnoremap gwb :w!<CR>
+" nnoremap gqb :q!<CR>
+" nnoremap gxb :x!<CR>
+" nnoremap gwa :wa!<CR>
+" nnoremap gqa :qa!<CR>
+" nnoremap gxa :xa!<CR>
+" nnoremap <silent> gpp o<C-r>+<ESC>
+" nnoremap gef :e <C-R>=expand('%:p:h') . '/'<CR>
+
+" nnoremap <silent> ghl
+"       \ :if exists('w:long_line_match') <Bar>
+"       \   silent! call matchdelete(w:long_line_match) <Bar>
+"       \   unlet w:long_line_match <Bar>
+"       \ elseif &textwidth > 0 <Bar>
+"       \   let w:long_line_match = matchadd('WarningMsg', '\%>'.&tw.'v.\+', -1) <Bar>
+"       \ else <Bar>
+"       \   let w:long_line_match = matchadd('WarningMsg', '\%>78v.\+', -1) <Bar>
+"       \ endif<CR>
 
 
 " expand <xml> tags

@@ -24,9 +24,11 @@ set splitbelow
 set splitright
 set mouse-=a
 filetype plugin indent on      " activate filetype after initializing vundle 
-syntax on
     
 " invisible character
 set listchars=tab:▸\ ,eol:¬ "ctrl-v u25b8=▸; ctrl-v u00ac=¬; ctrl-v u2423=␣
 
+set background=dark
 colorscheme sorcerer
+
+let g:python_host_prog = '/usr/bin/python2'

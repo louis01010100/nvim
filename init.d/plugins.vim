@@ -17,7 +17,8 @@ Plug 'https://github.com/tomtom/tcomment_vim.git'
 Plug 'https://github.com/Chiel92/vim-autoformat.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/MattesGroeger/vim-bookmarks.git'
- 
+Plug 'https://github.com/atelierbram/vim-colors_duotones.git'
+
 call plug#end()
 
 "
@@ -28,19 +29,18 @@ runtime! macros/matchit.vim
 "
 " Tagbar
 "
-nnoremap <silent> gtb  :TagbarToggle<CR> 
+"nnoremap <silent> gtb  :TagbarToggle<CR> 
 let g:tagbar_left = 1
-
+"nnoremap <Leader>o :TagbarToggle<CR>
 "
 " AutoPairs 
 "
-nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
+" nnoremap <silent> gap  :call AutoPairsToggle()<CR> 
 
-"
 " Ag
 "
 let g:ag_mapping_message=0
-nnoremap gag :Ag 
+" nnoremap gag :Ag 
 nnoremap <Leader>g :Ag 
 
 "
@@ -52,8 +52,9 @@ nnoremap <silent> gaf :Autoformat<CR>
 "
 " FZF
 "
-nnoremap <silent> gff :Files<CR>
-nnoremap <silent> gfb :Buffers<CR>
+
+"nnoremap <silent> gff :Files<CR>
+"nnoremap <silent> gfb :Buffers<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
@@ -95,18 +96,17 @@ call textobj#user#plugin('var', {
 \	},
 \ })
 
-nnoremap <silent> gyl :call CopyLine()<CR>
-nnoremap <silent> gyp :call CopyParagraph()<CR>
-nnoremap <silent> gye :call CopyEntire()<CR>
-nnoremap <silent> gy" :call CopyDoubleQuotes()<CR>
-nnoremap <silent> gy' :call CopySingleQuotes()<CR>
-nnoremap <silent> gy( :call CopyParentheses()<CR>
-nnoremap <silent> gy[ :call CopyBrackets()<CR>
-nnoremap <silent> gy{ :call CopyBraces()<CR>
-nnoremap <silent> gy/ :call CopyPathElement()<CR>
-vnoremap <silent> gyv :call CopyVisualSelection()<CR>
-vnoremap <silent> <Leader>y :call CopyVisualSelection()<CR>
-nnoremap <silent> <Leader>p "+P
+" nnoremap <silent> gyl :call CopyLine()<CR>
+" nnoremap <silent> gyp :call CopyParagraph()<CR>
+" nnoremap <silent> gye :call CopyEntire()<CR>
+" nnoremap <silent> gy" :call CopyDoubleQuotes()<CR>
+" nnoremap <silent> gy' :call CopySingleQuotes()<CR>
+" nnoremap <silent> gy( :call CopyParentheses()<CR>
+" nnoremap <silent> gy[ :call CopyBrackets()<CR>
+" nnoremap <silent> gy{ :call CopyBraces()<CR>
+" nnoremap <silent> gy/ :call CopyPathElement()<CR>
+vnoremap <silent> gy :call CopyVisualSelection()<CR>
+nnoremap <silent> gp "+P
 
 function! CopyVisualSelection()
   " Why is this not a built-in Vim script function?!
@@ -117,55 +117,55 @@ function! CopyVisualSelection()
   let lines[0] = lines[0][col1 - 1:]
   let @+ = join(lines, "\n")
 endfunction
-
-function! CopyLine() 		
-	let pos = getpos('.')
-	normal! ^"+y$
-	call setpos('.', pos)
-	echo "1 line yanked"
-endfunction
-
-function! CopyParagraph() 		
-	normal! "+yip
-endfunction
-
-function! CopyDoubleQuotes() 		
-	normal! "+yi"
-    echo "Words in the double quotes yanked"
-endfunction
-
-function! CopySingleQuotes() 		
-	normal! "+yi'
-    echo "Words in the single quotes yanked"
-endfunction
-
-function! CopyParentheses() 		
-	normal! "+yi(
-    echo "Words in the parentheses yanked"
-endfunction
-
-function! CopyBrackets() 		
-	normal! "+yi[
-    echo "Words in the brackets yanked"
-endfunction
-
-function! CopyBraces() 		
-	normal! "+yi{
-    echo "Words in the braces yanked"
-endfunction
-
-function! CopyEntire() 		
-	let pos = getpos('.')
-	normal! gg"+yG
-	call setpos('.', pos)
-endfunction
-
-function! CopyPathElement() 		
-	let pos = getpos('.')
-	normal! T/"+yt/
-    echo "Words in the forward slashes yanked"
-	call setpos('.', pos)
-endfunction
+"
+" function! CopyLine() 		
+" 	let pos = getpos('.')
+" 	normal! ^"+y$
+" 	call setpos('.', pos)
+" 	echo "1 line yanked"
+" endfunction
+"
+" function! CopyParagraph() 		
+" 	normal! "+yip
+" endfunction
+"
+" function! CopyDoubleQuotes() 		
+" 	normal! "+yi"
+"     echo "Words in the double quotes yanked"
+" endfunction
+"
+" function! CopySingleQuotes() 		
+" 	normal! "+yi'
+"     echo "Words in the single quotes yanked"
+" endfunction
+"
+" function! CopyParentheses() 		
+" 	normal! "+yi(
+"     echo "Words in the parentheses yanked"
+" endfunction
+"
+" function! CopyBrackets() 		
+" 	normal! "+yi[
+"     echo "Words in the brackets yanked"
+" endfunction
+"
+" function! CopyBraces() 		
+" 	normal! "+yi{
+"     echo "Words in the braces yanked"
+" endfunction
+"
+" function! CopyEntire() 		
+" 	let pos = getpos('.')
+" 	normal! gg"+yG
+" 	call setpos('.', pos)
+" endfunction
+"
+" function! CopyPathElement() 		
+" 	let pos = getpos('.')
+" 	normal! T/"+yt/
+"     echo "Words in the forward slashes yanked"
+" 	call setpos('.', pos)
+" endfunction
 
 " " Colorizer
 " nnoremap <silent> [oc :ColorHighlight<CR>

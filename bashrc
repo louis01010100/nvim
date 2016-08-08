@@ -1,4 +1,5 @@
 export TERM=screen-256color
+export EDITOR=nvim
 
 # launchTmux() {
 #     if [[ -n $TMUX ]]; then
@@ -34,12 +35,8 @@ shopt -s globstar
 shopt -s extglob
 
 export NVM_DIR="/home/louis/.nvm"
+## very slow
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/Applications/gradle-2.13/bin"
-export PATH="$PATH:$HOME/Applications/vcftools/src/cpp"
-export PATH="$PATH:$HOME/Applications/vcflib/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [[ -f ~/Applications/fzf-extras/fzf-extras.sh ]] && source ~/Applications/fzf-extras/fzf-extras.sh
@@ -69,3 +66,7 @@ execute() {
 
     eval "${fullCmd}"
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export JAVA_HOME=$HOME/Applications/jdk1.8.0_71
