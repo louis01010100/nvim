@@ -51,7 +51,6 @@ nnoremap <C-c> <c-w>c
 
 nnoremap gw :wa!<CR>
 nnoremap gq :qa!<CR>
-
 " nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
 " nnoremap <silent> gdf :TernDef<CR>
 " nnoremap <silent> grf :TernRef<CR>
