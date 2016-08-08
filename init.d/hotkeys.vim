@@ -2,9 +2,9 @@ nnoremap <Leader>p :set paste!<CR>
 " nnoremap goh :set hlsearch!<CR>
 " nnoremap gor :set relativenumber!<CR>
 " nnoremap gon :set number!<CR>
-nnoremap <Leader>w :set wrap!<CR>
-nnoremap <Leader>l :set list!<CR>
-nnoremap <Leader>h :set hlsearch!<CR>
+nnoremap gr :set wrap!<CR>
+nnoremap gl :set list!<CR>
+nnoremap gh :nohlsearch<CR>
 
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
@@ -36,12 +36,8 @@ function! Conflict(reverse)
   call search('^@@ .* @@\|^[<]\{7\}[<]\@!', a:reverse ? 'bW' : 'W')
 endfunction
 
-function! HighlightCword()
-    let @/='\<'.expand("<cword>").'\>'
-    set hlsearch 
-endfunction
-
-nnoremap <silent> gh :call HighlightCword()<CR>
+nnoremap * :set hlsearch<CR>*N
+nnoremap # :set hlsearch<CR>#N
 
 nnoremap <C-h> <c-w>h
 nnoremap <C-j> <c-w>j
@@ -51,7 +47,7 @@ nnoremap <C-c> <c-w>c
 
 nnoremap gw :wa!<CR>
 nnoremap gq :qa!<CR>
-" nnoremap <silent> gso :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> g. :source ~/.config/nvim/init.vim<CR>
 " nnoremap <silent> gdf :TernDef<CR>
 " nnoremap <silent> grf :TernRef<CR>
 " nnoremap <silent> grl :.w !bash<CR>
@@ -82,7 +78,7 @@ nnoremap gq :qa!<CR>
 " expand <xml> tags
 inoremap <expr> <CR> Expander()
 function! Expander()
-    let line   = getline(".")
+.   let line   = getline(".")
     let col    = col(".")
     let first  = line[col-2]
     let second = line[col-1]

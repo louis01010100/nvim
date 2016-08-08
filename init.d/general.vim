@@ -16,7 +16,7 @@ set noswapfile
 set autoread		
 set autowriteall
 set wildmode=list:longest   "In Ex mode, press <tab> to list all the files in the current working directory
-set hlsearch
+set hls
 set cursorline
 set backspace=indent,eol,start 
 set autowriteall
