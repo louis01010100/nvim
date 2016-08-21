@@ -19,13 +19,19 @@ if which pyenv > /dev/null; then
     eval "$(pyenv init -)"; 
 fi
 
-export PATH=$PATH:$GRADLE_HOME/bin
-PATH=$PATH:/Users/louis/Applications/htslib/htslib-1.3.1
-PATH=$PATH:/Users/louis/Applications/samtools/samtools-1.3.1
-PATH=$PATH:/Users/louis/Applications/bcftool/bcftools-1.3.1
-PATH=$PATH:/Users/louis/Applications/cufflinks/cufflinks-2.2.1.OSX_x86_64
+export APPLICATION_PATH=/Users/louis/Applications
+export GRADLE_HOME=$APPLICATION_PATH/gradle-3.0
+PATH=$GRADLE_HOME/bin:$PATH
+PATH=$PATH:$APPLICATION_PATH/htslib/htslib-1.3.1
+PATH=$PATH:$APPLICATION_PATH/samtools/samtools-1.3.1
+PATH=$PATH:$APPLICATION_PATH/bcftool/bcftools-1.3.1
+PATH=$PATH:$APPLICATION_PATH/cufflinks/cufflinks-2.2.1.OSX_x86_64
 PATH=/usr/local/opt/sqlite/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/louis/.sdkman"
+[[ -s "/Users/louis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/louis/.sdkman/bin/sdkman-init.sh"
