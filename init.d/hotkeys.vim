@@ -74,7 +74,6 @@ nnoremap <silent> g. :source ~/.config/nvim/init.vim<CR>
 "       \   let w:long_line_match = matchadd('WarningMsg', '\%>78v.\+', -1) <Bar>
 "       \ endif<CR>
 
-
 " expand <xml> tags
 " inoremap <expr> <CR> Expander()
 " function! Expander()

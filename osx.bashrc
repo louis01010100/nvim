@@ -95,3 +95,7 @@ unset fasd_cache
 # }
 
 #launchTmux
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/louis/.sdkman"
+[[ -s "/Users/louis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/louis/.sdkman/bin/sdkman-init.sh"
