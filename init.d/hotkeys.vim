@@ -76,19 +76,19 @@ nnoremap <silent> g. :source ~/.config/nvim/init.vim<CR>
 
 
 " expand <xml> tags
-inoremap <expr> <CR> Expander()
-function! Expander()
-.   let line   = getline(".")
-    let col    = col(".")
-    let first  = line[col-2]
-    let second = line[col-1]
-    let third  = line[col]
-    let betweenTag =  first == ">" && second == "<" && third == "/" 
-
-    if betweenTag
-        return "\<CR>\<C-o>O"
-    else
-
-      return "\<CR>"
-    endif
-endfunction
+" inoremap <expr> <CR> Expander()
+" function! Expander()
+" .   let line   = getline(".")
+"     let col    = col(".")
+"     let first  = line[col-2]
+"     let second = line[col-1]
+"     let third  = line[col]
+"     let betweenTag =  first == ">" && second == "<" && third == "/" 
+"
+"     if betweenTag
+"         return "\<CR>\<C-o>O"
+"     else
+"
+"       return "\<CR>"
+"     endif
+" endfunction
