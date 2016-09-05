@@ -30,7 +30,7 @@ runtime! macros/matchit.vim
 " Tagbar
 "
 "nnoremap <silent> gtb  :TagbarToggle<CR> 
-nnoremap <silent> go  :TagbarToggle<CR> 
+nnoremap <silent> <leader>t :TagbarToggle<CR> 
 let g:tagbar_left = 1
 "nnoremap <Leader>o :TagbarToggle<CR>
 "
@@ -43,7 +43,6 @@ let g:tagbar_left = 1
 let g:ag_mapping_message=0
 " nnoremap gag :Ag 
 nnoremap <Leader>g :Ag 
-nnoremap gs :Ag 
 
 "
 " Autoformat
@@ -57,8 +56,8 @@ nnoremap <silent> gaf :Autoformat<CR>
 
 "nnoremap <silent> gff :Files<CR>
 "nnoremap <silent> gfb :Buffers<CR>
-nnoremap <silent> gf :Files<CR>
-nnoremap <silent> gb :Buffers<CR>
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 "
 " vim-bookmark
@@ -77,8 +76,8 @@ let g:ycm_key_list_previous_completion=['<C-p>']
 "
 " vim-togglelist 
 "
-nnoremap <script> <silent> gof :call ToggleLocationList()<CR>
-nnoremap <script> <silent> goq :call ToggleQuickfixList()<CR>
+nnoremap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nnoremap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 let g:toggle_list_no_mappings = 1
 
 "
