@@ -106,8 +106,8 @@ call textobj#user#plugin('var', {
 " nnoremap <silent> gy[ :call CopyBrackets()<CR>
 " nnoremap <silent> gy{ :call CopyBraces()<CR>
 " nnoremap <silent> gy/ :call CopyPathElement()<CR>
-vnoremap <silent> gy :call CopyVisualSelection()<CR>
-nnoremap <silent> gp "+P
+vnoremap <silent> <leader>y :call CopyVisualSelection()<CR>
+nnoremap <silent> <leader>p "+P
 
 function! CopyVisualSelection()
   " Why is this not a built-in Vim script function?!
@@ -118,58 +118,3 @@ function! CopyVisualSelection()
   let lines[0] = lines[0][col1 - 1:]
   let @+ = join(lines, "\n")
 endfunction
-"
-" function! CopyLine() 		
-" 	let pos = getpos('.')
-" 	normal! ^"+y$
-" 	call setpos('.', pos)
-" 	echo "1 line yanked"
-" endfunction
-"
-" function! CopyParagraph() 		
-" 	normal! "+yip
-" endfunction
-"
-" function! CopyDoubleQuotes() 		
-" 	normal! "+yi"
-"     echo "Words in the double quotes yanked"
-" endfunction
-"
-" function! CopySingleQuotes() 		
-" 	normal! "+yi'
-"     echo "Words in the single quotes yanked"
-" endfunction
-"
-" function! CopyParentheses() 		
-" 	normal! "+yi(
-"     echo "Words in the parentheses yanked"
-" endfunction
-"
-" function! CopyBrackets() 		
-" 	normal! "+yi[
-"     echo "Words in the brackets yanked"
-" endfunction
-"
-" function! CopyBraces() 		
-" 	normal! "+yi{
-"     echo "Words in the braces yanked"
-" endfunction
-"
-" function! CopyEntire() 		
-" 	let pos = getpos('.')
-" 	normal! gg"+yG
-" 	call setpos('.', pos)
-" endfunction
-"
-" function! CopyPathElement() 		
-" 	let pos = getpos('.')
-" 	normal! T/"+yt/
-"     echo "Words in the forward slashes yanked"
-" 	call setpos('.', pos)
-" endfunction
-
-" " Colorizer
-" nnoremap <silent> [oc :ColorHighlight<CR>
-" nnoremap <silent> ]oc :ColorClear<CR>
-"
-

@@ -1,4 +1,4 @@
-nnoremap <Leader>p :set paste!<CR>
+nnoremap gp :set paste!<CR>
 " nnoremap goh :set hlsearch!<CR>
 " nnoremap gor :set relativenumber!<CR>
 " nnoremap gon :set number!<CR>
