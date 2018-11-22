@@ -1,4 +1,0 @@
-set completion-ignore-case on
-set show-mode-in-prompt on
-set editing-mode vi
-set keyseq-timeout 1
