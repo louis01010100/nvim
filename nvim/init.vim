@@ -80,7 +80,7 @@ function ConfigVimPlug()
         Plug 'junegunn/vim-peekaboo' "register management
         " Plug 'roman/golden-ratio' " Auto-expands current split
         Plug 'preservim/nerdtree'
-        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         " Plug 'Xuyuanp/nerdtree-git-plugin' 
         " Plug 'ryanoasis/vim-devicons'
 
@@ -185,6 +185,7 @@ function ConfigVista()
     " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista_update_on_text_changed = 1
+    let g:vista_ignore_kinds = ['variables', 'maps', 'commands']
 
     " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
     let g:vista#renderer#enable_icon = 1
