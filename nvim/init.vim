@@ -1,15 +1,67 @@
 function Init()
     call General()
+    call Theme()
     call ConfigVimPlug()
     call ConfigNERDTree()
     call KeyMapping()
-    call Theme()
     call ConfigFzf()
     call ConfigCoc()
     call ConfigVista()
     call ConfigLightLine()
 endfunction
 
+""
+"" config config
+""
+function General()
+    set expandtab
+    set tabstop=4
+    set shiftwidth=4
+    set number " shows the line number
+    set relativenumber
+    set textwidth=80 " line to limit to 80 chars
+    set hidden
+    set autoindent
+    " set cursorline
+
+    " SPLITS
+    set splitbelow " open a new vertical split below
+    set splitright " open a new horizontal split on the right
+
+    " set pyx=3
+    " let g:loaded_python_provider = 1   " enable python 2 support
+    " let g:loaded_python3_provider = 1  " enable python 3 support
+    let g:python_host_prog = '/home/louis/.pyenv/versions/2.7.17/bin/python2.7'
+    let g:python3_host_prog = '/home/louis/.pyenv/versions/3.8.2/bin/python3.8'
+    let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/neovim-node-host'
+    let g:ruby_host_prg = '/home/louis/.rbenv/versions/2.7.1/bin/neovim-ruby-host'
+
+    " let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/node'
+
+
+    "Key Mapping
+    noremap <UP> <NOP>
+    noremap <DOWN> <NOP>
+    noremap <LEFT> <NOP>
+    noremap <RIGHT> <NOP>
+    " not that noremap only affect normal/visual/select/operator-pending mode, not
+    " command-line or insert mode
+    inoremap <UP> <NOP>
+    inoremap <DOWN> <NOP>
+    inoremap <LEFT> <NOP>
+    inoremap <RIGHT> <NOP>
+
+    noremap gso :so $MYVIMRC<CR>
+    noremap gnu :set nu! rnu! <CR>
+    noremap ghl :nohls <CR>
+    noremap gqa :qa! <CR>
+    noremap gqq :q! <CR>
+    noremap gwa :wa! <CR>
+    noremap gww :w! <CR>
+    noremap gxa :xa! <CR>
+    noremap gxx :x! <CR>
+    "noremap grn :set rnu!<CR>
+endfunction
 
 
 ""
@@ -24,7 +76,6 @@ function ConfigVimPlug()
         " Plug 'roman/golden-ratio' " Auto-expands current split
         Plug 'scrooloose/nerdtree'
 
-
         " The extra settings make sure that when you update the plugin it will also update the executable itself as well.
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
@@ -35,6 +86,8 @@ function ConfigVimPlug()
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'liuchengxu/vista.vim'
         Plug 'itchyny/lightline.vim'
+
+        Plug 'tpope/vim-fugitive'
         " Plug 'ryanoasis/vim-devicons'
 
         " Plug 'terryma/vim-multiple-cursors'
@@ -46,52 +99,44 @@ endfunction
 ""
 function Theme()
     set termguicolors
-    " let g:hybrid_transparent_background = 1
     colorscheme louis01010100
-    " colorscheme hybrid_reverse
 
 endfunction
 
 function ConfigLightLine()
     set noshowmode
-    let g:lightline = {'colorscheme': 'jellybeans'}
+    " let g:lightline = {'colorscheme': 'nord'}
+    " let g:lightline = {'colorscheme': 'jellybeans'}
 
-    let s:base03 = [ '#151513', 233 ]
-    let s:base02 = [ '#30302c ', 236 ]
-    let s:base01 = [ '#4e4e43', 239 ]
-    let s:base00 = [ '#666656', 242  ]
-    let s:base0 = [ '#808070', 244 ]
-    let s:base1 = [ '#949484', 246 ]
-    let s:base2 = [ '#a8a897', 248 ]
-    let s:base3 = [ '#bdbdbd', 253 ]
-    let s:yellow = [ '#ffb964', 215 ]
-    let s:orange = [ '#B3865A', 222 ]
-    let s:red = [ '#cf6a4c', 167 ]
-    let s:magenta = [ '#f0a0c0', 217 ]
-    let s:blue = [ '#8197bf', 103 ]
-    "let s:blue = [ '#37394A', 103 ]
-    let s:cyan = [ '#8fbfdc', 110 ]
-    let s:green = [ '#6C9A85', 107 ]
+    let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'method' ] ]
+      \ },
+      \ 'component_function': {
+      \   'method': 'NearestMethodOrFunction',
+      \   'gitbranch': 'FugitiveHead',
+      \ },
+      \ }
 
-    let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-    let s:p.normal.left = [ [ s:base03, s:blue ], [ s:base3, s:base01 ] ]
-    let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
-    let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
-    let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
-    let s:p.insert.left = [ [ s:base03, s:green ], [ s:base3, s:base01 ] ]
-    let s:p.replace.left = [ [ s:base02, s:red ], [ s:base3, s:base01 ] ]
-    let s:p.visual.left = [ [ s:base03, s:orange ], [ s:base3, s:base01 ] ]
-    let s:p.normal.middle = [ [ s:base0, s:base02 ] ]
-    let s:p.inactive.middle = [ [ s:base00, s:base02 ] ]
-    let s:p.tabline.left = [ [ s:base3, s:base00 ] ]
-    let s:p.tabline.tabsel = [ [ s:base3, s:base02 ] ]
-    let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
-    let s:p.tabline.right = copy(s:p.normal.right)
-    let s:p.normal.error = [ [ s:red, s:base02 ] ]
-    let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
 
-    let g:lightline#colorscheme#jellybeans#palette = lightline#colorscheme#flatten(s:p)
+    " let g:lightline = {
+    "   \ 'colorscheme': 'nord',
+    "   \ 'active': {
+    "   \   'left': [ [ 'mode', 'paste' ],
+    "   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    "   \ },
+    "   \ 'component_function': {
+    "   \   'gitbranch': 'FugitiveHead'
+    "   \ },
+    "   \ }
+
 endfunction
+
+" function! LightlineReadonly()
+"     return &readonly && &filetype !=# 'help' ? 'RO' : ''
+" endfunction
 
 function ConfigVista()
     let g:vista_default_executive = 'ctags'
@@ -291,57 +336,6 @@ function ConfigCoc()
 endfunction
 
 
-""
-"" config config
-""
-function General()
-    set expandtab
-    set tabstop=4
-    set shiftwidth=4
-    set number " shows the line number
-    set relativenumber
-    set textwidth=80 " line to limit to 80 chars
-    set hidden
-    set autoindent
-
-    " SPLITS
-    set splitbelow " open a new vertical split below
-    set splitright " open a new horizontal split on the right
-
-    " set pyx=3
-    " let g:loaded_python_provider = 1   " enable python 2 support
-    " let g:loaded_python3_provider = 1  " enable python 3 support
-    let g:python_host_prog = '/home/louis/.pyenv/versions/2.7.17/bin/python2.7'
-    let g:python3_host_prog = '/home/louis/.pyenv/versions/3.8.2/bin/python3.8'
-    let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/neovim-node-host'
-    let g:ruby_host_prg = '/home/louis/.rbenv/versions/2.7.1/bin/neovim-ruby-host'
-
-    " let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/node'
-
-
-    "Key Mapping
-    noremap <UP> <NOP>
-    noremap <DOWN> <NOP>
-    noremap <LEFT> <NOP>
-    noremap <RIGHT> <NOP>
-    " not that noremap only affect normal/visual/select/operator-pending mode, not
-    " command-line or insert mode
-    inoremap <UP> <NOP>
-    inoremap <DOWN> <NOP>
-    inoremap <LEFT> <NOP>
-    inoremap <RIGHT> <NOP>
-
-    noremap gso :so $MYVIMRC<CR>
-    noremap gnu :set nu! rnu! <CR>
-    noremap ghl :nohls <CR>
-    noremap gqa :qa! <CR>
-    noremap gqq :q! <CR>
-    noremap gwa :wa! <CR>
-    noremap gww :w! <CR>
-    noremap gxa :xa! <CR>
-    noremap gxx :x! <CR>
-    "noremap grn :set rnu!<CR>
-endfunction
 
 ""
 "" NERDTree
