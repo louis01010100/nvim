@@ -10,6 +10,7 @@ function Init()
     call ConfigLightLine()
 endfunction
 
+
 ""
 "" config config
 ""
@@ -107,6 +108,7 @@ function ConfigLightLine()
     set noshowmode
     " let g:lightline = {'colorscheme': 'nord'}
     " let g:lightline = {'colorscheme': 'jellybeans'}
+    "
 
     let g:lightline = {
       \     'colorscheme': 'jellybeans',
@@ -124,45 +126,39 @@ function ConfigLightLine()
 	  \         'filename': 'LightlineFilename',
       \         'modified': 'LightlineModified',
 	  \         'fileformat': 'LightlineFileformat',
-	  \         'filetype': 'LightlineFiletype',
 	  \         'fileencoding': 'LightlineFileencoding',
       \      },
       \ }
-
-    function! LightlineReadonly()
-      return winwidth(0) > 70 ? (&ft !~? 'help' && &readonly ? 'RO' : ''): ''
-    endfunction
-
-    function! LightlineFileformat()
-      return winwidth(0) > 70 ? &fileformat : ''
-    endfunction
-
-    function! LightlineFiletype()
-      return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-    endfunction
-
-    function! LightlineFileencoding()
-      return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-    endfunction
-
-    function! LightlineFilename()
-      let fname = expand('%:t')
-      return fname =~# '^__vista__\|NERD_tree' ? '' :
-                \ (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
-                \ (fname !=# '' ? fname : '[No Name]') .
-                \ (LightlineModified() !=# '' ? ' ' . LightlineModified() : '')
-    endfunction
-
-    function! LightlineModified()
-      return winwidth(0) > 70 ? (&ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'): ''
-    endfunction
 
     function! LightlineMode()
       let fname = expand('%:t')
       return fname =~# '^__vista__' ? 'Vista' :
             \ fname =~# 'NERD_tree' ? 'NERDTree' :
-            \ winwidth(0) > 70 ? lightline#mode() : ''
+            \ winwidth(0) > 78 ? lightline#mode() : ''
     endfunction
+
+    function! LightlineReadonly()
+      return winwidth(0) > 78 ? (&ft !~? 'help' && &readonly ? 'RO' : ''): ''
+    endfunction
+
+    function! LightlineFilename()
+      let fname = expand('%:t')
+      return fname =~# '^__vista__\|NERD_tree' ? '' : (fname !=# '' ? fname : '[No Name]')
+    endfunction
+
+    function! LightlineModified()
+      return winwidth(0) > 78 ? (&ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'): ''
+    endfunction
+
+    function! LightlineFileformat()
+      return winwidth(0) > 78 ? &fileformat : ''
+    endfunction
+
+    function! LightlineFileencoding()
+      return winwidth(0) > 78 ? (&fenc !=# '' ? &fenc : &enc) : ''
+    endfunction
+
+
 
 endfunction
 
@@ -231,14 +227,7 @@ function ConfigCoc()
     " Don't pass messages to |ins-completion-menu|.
     " set shortmess+=c
 
-    " Always show the signcolumn, otherwise it would shift the text each time
-    " diagnostics appear/become resolved.
-    if has("patch-8.1.1564")
-      " Recently vim can merge signcolumn and number column into one
-      set signcolumn=number
-    else
-      set signcolumn=yes
-    endif
+    set signcolumn=yes
 
     " Use tab for trigger completion with characters ahead and navigate.
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
