@@ -1,8 +1,8 @@
 function Init()
     call General()
+    call ConfigNERDTree()
     call Theme()
     call ConfigVimPlug()
-    call ConfigNERDTree()
     call KeyMapping()
     call ConfigFzf()
     call ConfigCoc()
@@ -109,30 +109,63 @@ function ConfigLightLine()
     " let g:lightline = {'colorscheme': 'jellybeans'}
 
     let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'method' ] ]
-      \ },
-      \ 'component_function': {
-      \   'method': 'NearestMethodOrFunction',
-      \   'gitbranch': 'FugitiveHead',
-      \ },
+      \     'colorscheme': 'jellybeans',
+      \     'active': {
+      \         'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'] ],
+      \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']],
+      \      },
+      \     'inactive': {
+      \         'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'] ],
+      \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']],
+      \      },
+      \     'component_function': {
+      \         'mode': 'LightlineMode',
+      \         'readonly': 'LightlineReadonly',
+	  \         'filename': 'LightlineFilename',
+      \         'modified': 'LightlineModified',
+	  \         'fileformat': 'LightlineFileformat',
+	  \         'filetype': 'LightlineFiletype',
+	  \         'fileencoding': 'LightlineFileencoding',
+      \      },
       \ }
 
+    function! LightlineReadonly()
+      return winwidth(0) > 70 ? (&ft !~? 'help' && &readonly ? 'RO' : ''): ''
+    endfunction
 
-    " let g:lightline = {
-    "   \ 'colorscheme': 'nord',
-    "   \ 'active': {
-    "   \   'left': [ [ 'mode', 'paste' ],
-    "   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    "   \ },
-    "   \ 'component_function': {
-    "   \   'gitbranch': 'FugitiveHead'
-    "   \ },
-    "   \ }
+    function! LightlineFileformat()
+      return winwidth(0) > 70 ? &fileformat : ''
+    endfunction
+
+    function! LightlineFiletype()
+      return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+    endfunction
+
+    function! LightlineFileencoding()
+      return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+    endfunction
+
+    function! LightlineFilename()
+      let fname = expand('%:t')
+      return fname =~# '^__vista__\|NERD_tree' ? '' :
+                \ (LightlineReadonly() !=# '' ? LightlineReadonly() . ' ' : '') .
+                \ (fname !=# '' ? fname : '[No Name]') .
+                \ (LightlineModified() !=# '' ? ' ' . LightlineModified() : '')
+    endfunction
+
+    function! LightlineModified()
+      return winwidth(0) > 70 ? (&ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'): ''
+    endfunction
+
+    function! LightlineMode()
+      let fname = expand('%:t')
+      return fname =~# '^__vista__' ? 'Vista' :
+            \ fname =~# 'NERD_tree' ? 'NERDTree' :
+            \ winwidth(0) > 70 ? lightline#mode() : ''
+    endfunction
 
 endfunction
+
 
 " function! LightlineReadonly()
 "     return &readonly && &filetype !=# 'help' ? 'RO' : ''
@@ -141,6 +174,8 @@ endfunction
 function ConfigVista()
     let g:vista_default_executive = 'ctags'
     let g:vista#renderer#enable_icon = 1
+    let g:vista_disable_statusline = 1
+    let g:vista_highlight_whole_line = 0
     let g:vista_blink = [0, 0]
     " let g:vista_icon_indent = ["▸ ", ""] 
     " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
@@ -341,7 +376,9 @@ endfunction
 "" NERDTree
 ""
 function ConfigNERDTree()
-    let NERDTreeShowHidden=1 " Always show dot (hidden) files
+    let g:NERDTreeStatusline = -1
+    let g:NERDTreeShowHidden = 1 " Always show dot (hidden) files
+    let g:NERDTreeMinimalUI = 1
     noremap <F2> :NERDTreeToggle<CR> 
 endfunction
 
