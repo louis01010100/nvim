@@ -74,7 +74,6 @@ endfunction
 ""
 function ConfigVimPlug()
     let g:plug_window = 'botright new'
-     
 
     call plug#begin('~/.config/nvim/plugged')
         Plug 'wellle/targets.vim'	 " text object
@@ -97,11 +96,10 @@ function ConfigVimPlug()
         Plug 'itchyny/lightline.vim'
 
         Plug 'tpope/vim-fugitive'
-        Plug 'https://github.com/christoomey/vim-system-copy.git'
         " Plug 'ryanoasis/vim-devicons'
-
-        " Plug 'terryma/vim-multiple-cursors'
-    call plug#end()
+        "
+        Plug 'psliwka/vim-smoothie'
+        call plug#end()
 endfunction
 
 ""
@@ -177,6 +175,7 @@ endfunction
 " endfunction
 
 function ConfigVista()
+
     let g:vista_default_executive = 'ctags'
     let g:vista#renderer#enable_icon = 1
     let g:vista_disable_statusline = 1
@@ -185,6 +184,7 @@ function ConfigVista()
     " let g:vista_icon_indent = ["▸ ", ""] 
     " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+    let g:vista_update_on_text_changed = 1
 
     " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
     let g:vista#renderer#enable_icon = 1
