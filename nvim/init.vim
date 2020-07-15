@@ -19,17 +19,10 @@ function ConfigVimPlug()
     let g:plug_window = 'botright new'
      
     call plug#begin('~/.config/nvim/plugged')
-        "Plug 'rafi/awesome-vim-colorschemes'
-        Plug 'arcticicestudio/nord-vim'
-        " Plug 'sainnhe/forest-night'
-        " Plug 'mhartington/oceanic-next'
-        Plug 'rakr/vim-one'
         Plug 'wellle/targets.vim'	 " text object
         Plug 'junegunn/vim-peekaboo' "register management
         " Plug 'roman/golden-ratio' " Auto-expands current split
         Plug 'scrooloose/nerdtree'
-        Plug 'kristijanhusak/vim-hybrid-material'
-        " Plug 'changyuheng/color-scheme-holokai-for-vim'
 
 
         " The extra settings make sure that when you update the plugin it will also update the executable itself as well.
