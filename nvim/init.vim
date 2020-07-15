@@ -1,13 +1,13 @@
 function Init()
-    call _General()
-    call _VimPlug()
-    call _NERDTree()
-    call _KeyMapping()
-    call _Theme()
-    call _Fzf()
-    call _Coc()
-    call _Vista()
-    call _Lightline()
+    call General()
+    call ConfigVimPlug()
+    call ConfigNERDTree()
+    call KeyMapping()
+    call Theme()
+    call ConfigFzf()
+    call ConfigCoc()
+    call ConfigVista()
+    call ConfigLightLine()
 endfunction
 
 
@@ -15,16 +15,21 @@ endfunction
 ""
 "" vim plug
 ""
-function _VimPlug()
+function ConfigVimPlug()
     let g:plug_window = 'botright new'
      
     call plug#begin('~/.config/nvim/plugged')
         "Plug 'rafi/awesome-vim-colorschemes'
         Plug 'arcticicestudio/nord-vim'
+        " Plug 'sainnhe/forest-night'
+        " Plug 'mhartington/oceanic-next'
+        Plug 'rakr/vim-one'
         Plug 'wellle/targets.vim'	 " text object
         Plug 'junegunn/vim-peekaboo' "register management
         " Plug 'roman/golden-ratio' " Auto-expands current split
         Plug 'scrooloose/nerdtree'
+        Plug 'kristijanhusak/vim-hybrid-material'
+        " Plug 'changyuheng/color-scheme-holokai-for-vim'
 
 
         " The extra settings make sure that when you update the plugin it will also update the executable itself as well.
@@ -36,8 +41,8 @@ function _VimPlug()
         Plug 'machakann/vim-sandwich'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'liuchengxu/vista.vim'
-
         Plug 'itchyny/lightline.vim'
+        " Plug 'ryanoasis/vim-devicons'
 
         " Plug 'terryma/vim-multiple-cursors'
     call plug#end()
@@ -46,12 +51,15 @@ endfunction
 ""
 "" theme
 ""
-function _Theme()
-    colorscheme nord
-    " let s:nord3_gui_bright = "#7b88a1"
+function Theme()
+    set termguicolors
+    " let g:hybrid_transparent_background = 1
+    colorscheme louis01010100
+    " colorscheme hybrid_reverse
+
 endfunction
 
-function _Lightline()
+function ConfigLightLine()
     set noshowmode
     let g:lightline = {'colorscheme': 'jellybeans'}
 
@@ -92,7 +100,7 @@ function _Lightline()
     let g:lightline#colorscheme#jellybeans#palette = lightline#colorscheme#flatten(s:p)
 endfunction
 
-function _Vista()
+function ConfigVista()
     let g:vista_default_executive = 'ctags'
     let g:vista#renderer#enable_icon = 1
     let g:vista_blink = [0, 0]
@@ -115,7 +123,7 @@ function _Vista()
 
 endfunction
 
-function _Coc()
+function ConfigCoc()
 
     inoremap <silent><expr> <C-n>
           \ pumvisible() ? "\<C-n>" :
@@ -293,7 +301,7 @@ endfunction
 ""
 "" config config
 ""
-function _General()
+function General()
     set expandtab
     set tabstop=4
     set shiftwidth=4
@@ -307,9 +315,15 @@ function _General()
     set splitbelow " open a new vertical split below
     set splitright " open a new horizontal split on the right
 
-    let g:loaded_python_provider = 0   " disable python 2 support
-    let g:loaded_python3_provider = 1  " enable python 2 support
+    " set pyx=3
+    " let g:loaded_python_provider = 1   " enable python 2 support
+    " let g:loaded_python3_provider = 1  " enable python 3 support
+    let g:python_host_prog = '/home/louis/.pyenv/versions/2.7.17/bin/python2.7'
     let g:python3_host_prog = '/home/louis/.pyenv/versions/3.8.2/bin/python3.8'
+    let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/neovim-node-host'
+    let g:ruby_host_prg = '/home/louis/.rbenv/versions/2.7.1/bin/neovim-ruby-host'
+
+    " let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/node'
 
 
     "Key Mapping
@@ -339,13 +353,13 @@ endfunction
 ""
 "" NERDTree
 ""
-function _NERDTree()
+function ConfigNERDTree()
     let NERDTreeShowHidden=1 " Always show dot (hidden) files
     noremap <F2> :NERDTreeToggle<CR> 
 endfunction
 
 
-function _KeyMapping()
+function KeyMapping()
     "Key Mapping
     noremap <UP> <NOP>
     noremap <DOWN> <NOP>
@@ -359,7 +373,7 @@ function _KeyMapping()
     inoremap <RIGHT> <NOP>
 endfunction
 
-function _Fzf()
+function ConfigFzf()
     set runtimepath+=~/.fzf
     noremap <Leader>zf :Files<CR>
     noremap <Leader>zb :Buffers<CR>
