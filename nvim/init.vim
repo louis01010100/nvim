@@ -62,6 +62,10 @@ function General()
     noremap gxa :xa! <CR>
     noremap gxx :x! <CR>
     "noremap grn :set rnu!<CR>
+
+    vnoremap <C-c> "+y
+    noremap <C-v> "+p
+
 endfunction
 
 
@@ -71,11 +75,15 @@ endfunction
 function ConfigVimPlug()
     let g:plug_window = 'botright new'
      
+
     call plug#begin('~/.config/nvim/plugged')
         Plug 'wellle/targets.vim'	 " text object
         Plug 'junegunn/vim-peekaboo' "register management
         " Plug 'roman/golden-ratio' " Auto-expands current split
-        Plug 'scrooloose/nerdtree'
+        Plug 'preservim/nerdtree'
+        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        " Plug 'Xuyuanp/nerdtree-git-plugin' 
+        " Plug 'ryanoasis/vim-devicons'
 
         " The extra settings make sure that when you update the plugin it will also update the executable itself as well.
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -89,6 +97,7 @@ function ConfigVimPlug()
         Plug 'itchyny/lightline.vim'
 
         Plug 'tpope/vim-fugitive'
+        Plug 'https://github.com/christoomey/vim-system-copy.git'
         " Plug 'ryanoasis/vim-devicons'
 
         " Plug 'terryma/vim-multiple-cursors'
@@ -369,6 +378,20 @@ function ConfigNERDTree()
     let g:NERDTreeShowHidden = 1 " Always show dot (hidden) files
     let g:NERDTreeMinimalUI = 1
     noremap <F2> :NERDTreeToggle<CR> 
+
+    " NERDTree Git Plugin
+    let g:NERDTreeIndicatorMapCustom = {
+        \ "Modified"  : "✹",
+        \ "Staged"    : "✚",
+        \ "Untracked" : "✭",
+        \ "Renamed"   : "➜",
+        \ "Unmerged"  : "═",
+        \ "Deleted"   : "✖",
+        \ "Dirty"     : "✗",
+        \ "Clean"     : "✔︎",
+        \ 'Ignored'   : '☒',
+        \ "Unknown"   : "?"
+        \ }
 endfunction
 
 
