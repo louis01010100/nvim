@@ -8,6 +8,8 @@ function Init()
     call ConfigCoc()
     call ConfigVista()
     call ConfigLightLine()
+    call ConfigFormat()
+    call ConfigAle()
 endfunction
 
 
@@ -61,6 +63,7 @@ function General()
     noremap gww :w! <CR>
     noremap gxa :xa! <CR>
     noremap gxx :x! <CR>
+    noremap gwp :set wrap! <CR>
     "noremap grn :set rnu!<CR>
 
     vnoremap <C-c> "+y
@@ -94,6 +97,7 @@ function ConfigVimPlug()
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'liuchengxu/vista.vim'
         Plug 'itchyny/lightline.vim'
+        Plug 'w0rp/ale'
 
         Plug 'tpope/vim-fugitive'
         " Plug 'ryanoasis/vim-devicons'
@@ -185,7 +189,7 @@ function ConfigVista()
     " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
     let g:vista_update_on_text_changed = 1
-    let g:vista_ignore_kinds = ['variables', 'maps', 'commands']
+    let g:vista_ignore_kinds = ['variables', 'maps', 'commands', 'Variable', 'Unknown']
 
     " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
     let g:vista#renderer#enable_icon = 1
@@ -418,5 +422,21 @@ function ConfigFzf()
     " Open files on enter in a new tab
 endfunction
 
+function ConfigAle()
+    let g:ale_lint_on_text_changed = 'never'
+	let g:ale_disable_lsp = 1                  " use coc for this instead
+
+    let g:ale_linters = { 'python': ['pylint']}
+
+	nnoremap ]r :ALENextWrap<CR> " move to the next ALE warning / error
+	nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
+endfunction
+
+function ConfigFormat()
+    autocmd FileType python setlocal formatprg=yapf
+    autocmd BufWritePre *.py :normal magggqG`a
+
+    noremap <F5> magggqG`a
+endfunction
 
 call Init()
