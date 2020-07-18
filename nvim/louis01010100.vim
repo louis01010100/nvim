@@ -251,11 +251,8 @@ call s:hi("WildMenu", s:nord8_gui, s:nord1_gui, s:nord8_term, s:nord1_term, "", 
 "+--- Search ---+
 " call s:hi("IncSearch", s:nord6_gui, s:nord10_gui, s:nord6_term, s:nord10_term, s:underline, "")
 " call s:hi("Search", s:nord1_gui, s:nord8_gui, s:nord1_term, s:nord8_term, "NONE", "")
-" call s:hi("IncSearch", s:nord5_gui, s:nord2_gui, s:nord6_term, s:nord10_term, s:underline, "")
-" call s:hi("Search", s:nord5_gui, s:nord2_gui, s:nord1_term, s:nord8_term, "NONE", "")
 call s:hi("IncSearch", s:nord4_gui, s:nord1_gui, s:nord6_term, s:nord10_term, s:underline, "")
 call s:hi("Search", s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord8_term, "NONE", "")
-
 
 "+--- Tabs ---+
 call s:hi("TabLine", s:nord4_gui, s:nord1_gui, "NONE", s:nord1_term, "NONE", "")

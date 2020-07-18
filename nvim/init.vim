@@ -25,7 +25,7 @@ function General()
     set hidden
     set autoindent
     " set cursorline
-
+    set scrolloff=3 
     " SPLITS
     set splitbelow " open a new vertical split below
     set splitright " open a new horizontal split on the right
