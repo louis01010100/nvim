@@ -24,7 +24,6 @@ set background=dark
 " let s:nord13_gui = "#EBCB8B"
 " let s:nord14_gui = "#A3BE8C"
 " let s:nord15_gui = "#B48EAD"
-
 " factor = 0.8
 let s:nord0_gui = "#242933"
 let s:nord1_gui = "#2F3542"
@@ -37,13 +36,14 @@ let s:nord4_gui = "#979BA3"
 let s:nord5_gui = "#919499"
 let s:nord6_gui = "#BEC0C4"
 let s:nord7_gui = "#729695"
-let s:nord8_gui = "#6D9BA8"
+let s:nord8_gui = "#6D9BA8"         "cyan
+" let s:nord8_gui = "#354B51"
 let s:nord9_gui = "#68819B"
 let s:nord10_gui = "#4B6789"
 let s:nord11_gui = "#994E55"
 let s:nord12_gui = "#A86C5A"
 let s:nord13_gui = "#BCA26F"
-let s:nord14_gui = "#839971"
+let s:nord14_gui = "#717F66"        "green
 let s:nord15_gui = "#91728B"
 
 
@@ -159,7 +159,6 @@ endfunction
 call s:hi("Bold", "", "", "", "", s:bold, "")
 call s:hi("Italic", "", "", "", "", s:italic, "")
 call s:hi("Underline", "", "", "", "", s:underline, "")
-
 "+--- Editor ---+
 call s:hi("ColorColumn", "", s:nord0_gui, "NONE", s:nord1_term, "", "")
 call s:hi("Cursor", s:nord0_gui, s:nord4_gui, "", "NONE", "", "")
@@ -167,7 +166,8 @@ call s:hi("CursorLine", "", s:nord0_gui, "NONE", s:nord1_term, "NONE", "")
 call s:hi("Error", s:nord4_gui, s:nord11_gui, "", s:nord11_term, "", "")
 call s:hi("iCursor", s:nord0_gui, s:nord4_gui, "", "NONE", "", "")
 call s:hi("LineNr", s:nord3_gui, "NONE", s:nord3_term, "NONE", "", "")
-call s:hi("MatchParen", s:nord8_gui, s:nord3_gui, s:nord8_term, s:nord3_term, "", "")
+" call s:hi("MatchParen", s:nord8_gui, s:nord2_gui, s:nord8_term, s:nord3_term, "", "")
+call s:hi("MatchParen", s:nord5_gui, s:nord3_gui, s:nord8_term, s:nord3_term, "", "")
 call s:hi("NonText", s:nord2_gui, "", s:nord3_term, "", "", "")
 call s:hi("Normal", s:nord4_gui, "NONE", "NONE", "NONE", "", "")
 " call s:hi("Normal", "NONE", "NONE", "NONE", "NONE", "", "")
@@ -249,8 +249,13 @@ call s:hi("WarningMsg", s:nord0_gui, s:nord13_gui, s:nord1_term, s:nord13_term, 
 call s:hi("WildMenu", s:nord8_gui, s:nord1_gui, s:nord8_term, s:nord1_term, "", "")
 
 "+--- Search ---+
-call s:hi("IncSearch", s:nord6_gui, s:nord10_gui, s:nord6_term, s:nord10_term, s:underline, "")
-call s:hi("Search", s:nord1_gui, s:nord8_gui, s:nord1_term, s:nord8_term, "NONE", "")
+" call s:hi("IncSearch", s:nord6_gui, s:nord10_gui, s:nord6_term, s:nord10_term, s:underline, "")
+" call s:hi("Search", s:nord1_gui, s:nord8_gui, s:nord1_term, s:nord8_term, "NONE", "")
+" call s:hi("IncSearch", s:nord5_gui, s:nord2_gui, s:nord6_term, s:nord10_term, s:underline, "")
+" call s:hi("Search", s:nord5_gui, s:nord2_gui, s:nord1_term, s:nord8_term, "NONE", "")
+call s:hi("IncSearch", s:nord4_gui, s:nord1_gui, s:nord6_term, s:nord10_term, s:underline, "")
+call s:hi("Search", s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord8_term, "NONE", "")
+
 
 "+--- Tabs ---+
 call s:hi("TabLine", s:nord4_gui, s:nord1_gui, "NONE", s:nord1_term, "NONE", "")

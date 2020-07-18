@@ -3,12 +3,11 @@ function Init()
     call ConfigNERDTree()
     call Theme()
     call ConfigVimPlug()
-    call KeyMapping()
     call ConfigFzf()
     call ConfigCoc()
     call ConfigVista()
     call ConfigLightLine()
-    call ConfigFormat()
+    call ConfigNeoFormat()
     call ConfigAle()
 endfunction
 
@@ -68,7 +67,11 @@ function General()
 
     vnoremap <C-c> "+y
     noremap <C-v> "+p
+    nnoremap * :set hlsearch<CR>*N
 
+    " Disable the default increment/decrement function
+    nmap <C-a> <NOP>
+    nmap <C-x> <NOP>
 endfunction
 
 
@@ -103,7 +106,9 @@ function ConfigVimPlug()
         " Plug 'ryanoasis/vim-devicons'
         "
         Plug 'psliwka/vim-smoothie'
-        call plug#end()
+
+        Plug 'sbdchd/neoformat'
+    call plug#end()
 endfunction
 
 ""
@@ -400,20 +405,6 @@ function ConfigNERDTree()
 endfunction
 
 
-function KeyMapping()
-    "Key Mapping
-    noremap <UP> <NOP>
-    noremap <DOWN> <NOP>
-    noremap <LEFT> <NOP>
-    noremap <RIGHT> <NOP>
-    " not that noremap only affect normal/visual/select/operator-pending mode, not
-    " command-line or insert mode
-    inoremap <UP> <NOP>
-    inoremap <DOWN> <NOP>
-    inoremap <LEFT> <NOP>
-    inoremap <RIGHT> <NOP>
-endfunction
-
 function ConfigFzf()
     set runtimepath+=~/.fzf
     noremap <Leader>zf :Files<CR>
@@ -432,11 +423,9 @@ function ConfigAle()
 	nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 endfunction
 
-function ConfigFormat()
-    autocmd FileType python setlocal formatprg=yapf
-    autocmd BufWritePre *.py :normal magggqG`a
-
-    noremap <F5> magggqG`a
+function ConfigNeoFormat()
+    nnoremap <F5> :Neoformat<CR>
+    let g:neoformat_enabled_python = ['yapf']
 endfunction
 
 call Init()
