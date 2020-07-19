@@ -7,8 +7,8 @@ function Init()
     call ConfigCoc()
     call ConfigVista()
     call ConfigLightLine()
-    call ConfigNeoFormat()
-    call ConfigAle()
+    " call ConfigAle()
+    call ConfigAutoFormat()
 endfunction
 
 
@@ -21,7 +21,7 @@ function General()
     set shiftwidth=4
     set number " shows the line number
     set relativenumber
-    set textwidth=80 " line to limit to 80 chars
+    set textwidth=78 " line to limit to 80 chars
     set hidden
     set autoindent
     " set cursorline
@@ -100,14 +100,15 @@ function ConfigVimPlug()
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'liuchengxu/vista.vim'
         Plug 'itchyny/lightline.vim'
-        Plug 'w0rp/ale'
+        " Plug 'w0rp/ale'
 
         Plug 'tpope/vim-fugitive'
         " Plug 'ryanoasis/vim-devicons'
         "
-        Plug 'psliwka/vim-smoothie'
+        " Plug 'psliwka/vim-smoothie'
 
         Plug 'sbdchd/neoformat'
+        Plug 'fisadev/vim-isort'
     call plug#end()
 endfunction
 
@@ -415,17 +416,29 @@ endfunction
 
 function ConfigAle()
     let g:ale_lint_on_text_changed = 'never'
+    " Write this in your vimrc file
+    let g:ale_lint_on_insert_leave = 1
+    " You can disable this option too
+    " if you don't want linters to run on opening a file
+    let g:ale_lint_on_enter = 1
+    let g:ale_lint_delay=0
+    
 	let g:ale_disable_lsp = 1                  " use coc for this instead
-
     let g:ale_linters = { 'python': ['pylint']}
+    let g:ale_fixers = { 'python': ['yapf', 'isort'] }
+
+    noremap <F5> :ALEFix<CR>
 
 	nnoremap ]r :ALENextWrap<CR> " move to the next ALE warning / error
 	nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 endfunction
 
-function ConfigNeoFormat()
-    nnoremap <F5> :Neoformat<CR>
+function ConfigAutoFormat()
+    nnoremap <F5> :Neoformat<CR>:Isort<CR>
+    let g:vim_isort_config_overrides = {'force_single_line': 1}
     let g:neoformat_enabled_python = ['yapf']
 endfunction
+
+
 
 call Init()
