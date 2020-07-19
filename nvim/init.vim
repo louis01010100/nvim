@@ -5,7 +5,8 @@ function Init()
     call ConfigVimPlug()
     call ConfigFzf()
     call ConfigCoc()
-    call ConfigVista()
+    " call ConfigVista()
+    call ConfigTagbar()
     call ConfigLightLine()
     " call ConfigAle()
     call ConfigAutoFormat()
@@ -98,7 +99,8 @@ function ConfigVimPlug()
         Plug 'tomtom/tcomment_vim'
         Plug 'machakann/vim-sandwich'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'liuchengxu/vista.vim'
+        " Plug 'liuchengxu/vista.vim'
+        Plug 'majutsushi/tagbar'
         Plug 'itchyny/lightline.vim'
         " Plug 'w0rp/ale'
 
@@ -184,33 +186,42 @@ endfunction
 "     return &readonly && &filetype !=# 'help' ? 'RO' : ''
 " endfunction
 
-function ConfigVista()
-
-    let g:vista_default_executive = 'ctags'
-    let g:vista#renderer#enable_icon = 1
-    let g:vista_disable_statusline = 1
-    let g:vista_highlight_whole_line = 0
-    let g:vista_blink = [0, 0]
-    " let g:vista_icon_indent = ["▸ ", ""] 
-    " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-    let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-    let g:vista_update_on_text_changed = 1
-    let g:vista_ignore_kinds = ['variables', 'maps', 'commands', 'Variable', 'Unknown']
-
-    " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
-    let g:vista#renderer#enable_icon = 1
-    let g:vista#renderer#icons = {
-        \   "function": "\uf794",
-        \   "variable": "\uf71b",
-        \  }
-
-    let g:vista_executive_for = {
-          \ 'python': 'coc',
-          \ }
-
-    nnoremap <F3> :Vista!!<CR>
-
+function ConfigTagbar()
+    let g:tagbar_left = 0
+    "let g:tagbar_width = 40
+    let g:tagbar_autoclose = 0
+    let g:tagbar_sort = 0
+    let g:tagbar_foldlevel = 0
+    nnoremap <silent> <F3> :TagbarToggle<CR>
 endfunction
+
+" function ConfigVista()
+"
+"     let g:vista_default_executive = 'ctags'
+"     let g:vista#renderer#enable_icon = 1
+"     let g:vista_disable_statusline = 1
+"     let g:vista_highlight_whole_line = 0
+"     let g:vista_blink = [0, 0]
+"     " let g:vista_icon_indent = ["▸ ", ""] 
+"     " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+"     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+"     let g:vista_update_on_text_changed = 1
+"     let g:vista_ignore_kinds = ['variables', 'maps', 'commands', 'Variable', 'Unknown']
+"
+"     " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+"     let g:vista#renderer#enable_icon = 1
+"     let g:vista#renderer#icons = {
+"         \   "function": "\uf794",
+"         \   "variable": "\uf71b",
+"         \  }
+"
+"     let g:vista_executive_for = {
+"           \ 'python': 'coc',
+"           \ }
+"
+"     nnoremap <F3> :Vista!!<CR>
+"
+" endfunction
 
 function ConfigCoc()
 
