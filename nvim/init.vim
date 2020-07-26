@@ -120,7 +120,6 @@ endfunction
 function Theme()
     set termguicolors
     colorscheme louis01010100
-
 endfunction
 
 function ConfigLightLine()
