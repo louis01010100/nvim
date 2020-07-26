@@ -84,7 +84,7 @@ function ConfigVimPlug()
 
     call plug#begin('~/.config/nvim/plugged')
         Plug 'wellle/targets.vim'	 " text object
-        Plug 'junegunn/vim-peekaboo' "register management
+        " Plug 'junegunn/vim-peekaboo' "register management
         " Plug 'roman/golden-ratio' " Auto-expands current split
         Plug 'preservim/nerdtree'
         " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -97,20 +97,20 @@ function ConfigVimPlug()
         Plug 'tweekmonster/fzf-filemru'
         Plug 'jiangmiao/auto-pairs'
         Plug 'tomtom/tcomment_vim'
-        Plug 'machakann/vim-sandwich'
+        " Plug 'machakann/vim-sandwich'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         " Plug 'liuchengxu/vista.vim'
         Plug 'majutsushi/tagbar'
         Plug 'itchyny/lightline.vim'
-        Plug 'w0rp/ale'
+        " Plug 'w0rp/ale'
 
         Plug 'tpope/vim-fugitive'
         " Plug 'ryanoasis/vim-devicons'
         "
         " Plug 'psliwka/vim-smoothie'
-
-        Plug 'sbdchd/neoformat'
-        Plug 'fisadev/vim-isort'
+        Plug 'tpope/vim-surround' 
+        " Plug 'sbdchd/neoformat'
+        " Plug 'fisadev/vim-isort'
     call plug#end()
 endfunction
 
