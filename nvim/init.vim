@@ -9,7 +9,7 @@ function Init()
     call ConfigTagbar()
     call ConfigLightLine()
     " call ConfigAle()
-    call ConfigAutoFormat()
+    " call ConfigAutoFormat()
 endfunction
 
 
@@ -102,7 +102,7 @@ function ConfigVimPlug()
         " Plug 'liuchengxu/vista.vim'
         Plug 'majutsushi/tagbar'
         Plug 'itchyny/lightline.vim'
-        " Plug 'w0rp/ale'
+        Plug 'w0rp/ale'
 
         Plug 'tpope/vim-fugitive'
         " Plug 'ryanoasis/vim-devicons'
@@ -444,11 +444,11 @@ function ConfigAle()
 	nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 endfunction
 
-function ConfigAutoFormat()
-    nnoremap <F5> :Neoformat<CR>:Isort<CR>
-    let g:vim_isort_config_overrides = {'force_single_line': 1}
-    let g:neoformat_enabled_python = ['yapf']
-endfunction
+" function ConfigAutoFormat()
+"     nnoremap <F5> :Neoformat<CR>:Isort<CR>
+"     let g:vim_isort_config_overrides = {'force_single_line': 1}
+"     let g:neoformat_enabled_python = ['yapf']
+" endfunction
 
 
 
