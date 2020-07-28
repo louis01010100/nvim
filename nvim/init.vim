@@ -66,8 +66,8 @@ function General()
     noremap gwp :set wrap! <CR>
     "noremap grn :set rnu!<CR>
 
-    vnoremap <C-c> "+y
-    noremap <C-v> "+p
+    " vnoremap <C-c> "+y
+    " noremap <C-v> "+p
     nnoremap * :set hlsearch<CR>*N
 
     " Disable the default increment/decrement function
@@ -84,6 +84,7 @@ function ConfigVimPlug()
 
     call plug#begin('~/.config/nvim/plugged')
         Plug 'wellle/targets.vim'	 " text object
+        Plug 'tpope/vim-repeat'
         " Plug 'junegunn/vim-peekaboo' "register management
         " Plug 'roman/golden-ratio' " Auto-expands current split
         Plug 'preservim/nerdtree'
