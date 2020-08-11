@@ -436,16 +436,8 @@ function ConfigAle()
 
     noremap <F5> :ALEFix<CR>
 
-	nnoremap <C-n> :ALENextWrap<CR> " move to the next ALE warning / error
-	nnoremap <C-p> :ALEPreviousWrap<CR> " move to the previous ALE warning / error
+	nnoremap <C-j> :ALENextWrap<CR> " move to the next ALE warning / error
+	nnoremap <C-k> :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 endfunction
-
-" function ConfigAutoFormat()
-"     nnoremap <F5> :Neoformat<CR>:Isort<CR>
-"     let g:vim_isort_config_overrides = {'force_single_line': 1}
-"     let g:neoformat_enabled_python = ['yapf']
-" endfunction
-
-
 
 call Init()
