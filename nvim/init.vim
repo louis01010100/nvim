@@ -436,8 +436,8 @@ function ConfigAle()
 
     noremap <F5> :ALEFix<CR>
 
-	nnoremap ]r :ALENextWrap<CR> " move to the next ALE warning / error
-	nnoremap [r :ALEPreviousWrap<CR> " move to the previous ALE warning / error
+	nnoremap <C-n> :ALENextWrap<CR> " move to the next ALE warning / error
+	nnoremap <C-p> :ALEPreviousWrap<CR> " move to the previous ALE warning / error
 endfunction
 
 " function ConfigAutoFormat()
