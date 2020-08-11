@@ -6,5 +6,5 @@
     "diagnostic.refreshAfterSave": true,
     "coc.preferences.formatOnSaveFiletypes": ["python"],
     "python.jediEnabled": false,
-    "python.formatting.provider": "yapf"
+    "python.formatting.provider": "black"
 }

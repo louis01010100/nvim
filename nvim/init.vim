@@ -431,7 +431,7 @@ function ConfigAle()
     let g:ale_lint_on_enter = 1
     
 	let g:ale_disable_lsp = 1                  " use coc for this instead
-    let g:ale_linters = { 'python': ['pylint']}
+    let g:ale_linters = { 'python': ['flake8']}
     let g:ale_fixers = { 'python': ['isort'] }
 
     noremap <F5> :ALEFix<CR>
