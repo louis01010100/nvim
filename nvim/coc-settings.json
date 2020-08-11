@@ -1,10 +1,10 @@
 {
-    "python.jediEnabled": false,
     "suggest.autoTrigger": "none",
-    "diagnostic.displayByAle": true,
-    "diagnostic.refreshAfterSave": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "suggest.floatEnable": false,
-    "python.formatting.provider": "yapf",
-    "coc.preferences.formatOnSaveFiletypes": ["python"]
+    "diagnostic.displayByAle": true,
+    "diagnostic.refreshAfterSave": true,
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "python.jediEnabled": false,
+    "python.formatting.provider": "yapf"
 }
