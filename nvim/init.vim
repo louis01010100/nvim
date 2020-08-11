@@ -436,8 +436,8 @@ function ConfigAle()
 
     noremap <F5> :ALEFix<CR>
 
-	nnoremap <C-j> :ALENextWrap<CR> " move to the next ALE warning / error
-	nnoremap <C-k> :ALEPreviousWrap<CR> " move to the previous ALE warning / error
+    nnoremap <silent> <C-k> <Plug>(ale_next_wrap)
+    nnoremap <silent> <C-j> <Plug>(ale_previous_wrap)
 endfunction
 
 call Init()
