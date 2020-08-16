@@ -4,7 +4,6 @@
     "suggest.floatEnable": false,
     "diagnostic.displayByAle": true,
     "diagnostic.refreshAfterSave": true,
-    "coc.preferences.formatOnSaveFiletypes": ["python"],
     "python.jediEnabled": false,
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "yapf"
 }

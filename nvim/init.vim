@@ -225,6 +225,8 @@ endfunction
 
 function ConfigCoc()
 
+    autocmd BufWritePre *.py :Format
+
     inoremap <silent><expr> <C-n>
           \ pumvisible() ? "\<C-n>" :
           \ <SID>check_back_space() ? "\<TAB>" :
