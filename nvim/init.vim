@@ -225,7 +225,9 @@ endfunction
 
 function ConfigCoc()
 
-    autocmd BufWritePre *.py :Format
+    autocmd BufWritePre *.py :Format 
+
+    " autocmd BufWritePre *.py :Format <bar> :ALEFix
 
     inoremap <silent><expr> <C-n>
           \ pumvisible() ? "\<C-n>" :
@@ -266,13 +268,13 @@ function ConfigCoc()
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
     " other plugin before putting this into your config.
     " inoremap <silent><expr> <TAB>
-    inoremap <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ coc#refresh()
-
-
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " inoremap <silent><expr> <TAB>
+    "       \ pumvisible() ? "\<C-n>" :
+    "       \ <SID>check_back_space() ? "\<TAB>" :
+    "       \ coc#refresh()
+    "
+    "
+    " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     function! s:check_back_space() abort
       let col = col('.') - 1
@@ -430,7 +432,8 @@ endfunction
 function ConfigAle()
     let g:ale_lint_on_text_changed = 'never'
     let g:ale_lint_on_insert_leave = 0
-    let g:ale_lint_on_enter = 1
+    let g:ale_lint_on_enter = 0
+    let g:ale_lint_on_save = 1
     
 	let g:ale_disable_lsp = 1                  " use coc for this instead
     let g:ale_linters = { 'python': ['flake8']}
