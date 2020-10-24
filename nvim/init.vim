@@ -64,6 +64,7 @@ function General()
     noremap gxa :xa! <CR>
     noremap gxx :x! <CR>
     noremap gwp :set wrap! <CR>
+    noremap gpt :set paste! <CR>
     "noremap grn :set rnu!<CR>
 
     " vnoremap <C-c> "+y
