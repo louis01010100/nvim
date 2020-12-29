@@ -39,8 +39,6 @@ function General()
     let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/neovim-node-host'
     let g:ruby_host_prg = '/home/louis/.rbenv/versions/2.7.1/bin/neovim-ruby-host'
 
-    " let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/node'
-
 
     "Key Mapping
     noremap <UP> <NOP>
@@ -65,10 +63,7 @@ function General()
     noremap gxx :x! <CR>
     noremap gwp :set wrap! <CR>
     noremap gpt :set paste! <CR>
-    "noremap grn :set rnu!<CR>
 
-    " vnoremap <C-c> "+y
-    " noremap <C-v> "+p
     nnoremap * :set hlsearch<CR>*N
 
     " Disable the default increment/decrement function
@@ -86,8 +81,6 @@ function ConfigVimPlug()
     call plug#begin('~/.config/nvim/plugged')
         Plug 'wellle/targets.vim'	 " text object
         Plug 'tpope/vim-repeat'
-        " Plug 'junegunn/vim-peekaboo' "register management
-        " Plug 'roman/golden-ratio' " Auto-expands current split
         Plug 'preservim/nerdtree'
         " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         " Plug 'Xuyuanp/nerdtree-git-plugin' 
