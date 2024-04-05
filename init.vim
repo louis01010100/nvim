@@ -29,11 +29,11 @@ function General()
 
     " set pyx=3
     " let g:loaded_python_provider = 1   " enable python 2 support
-    " let g:loaded_python3_provider = 1  " enable python 3 support
-    let g:python_host_prog = '/home/louis/.pyenv/versions/2.7.17/bin/python2.7'
-    let g:python3_host_prog = '/home/louis/.pyenv/versions/3.8.2/bin/python3.8'
-    let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/neovim-node-host'
-    let g:ruby_host_prg = '/home/louis/.rbenv/versions/2.7.1/bin/neovim-ruby-host'
+    let g:loaded_python3_provider = 1  " enable python 3 support
+    let g:python_host_prog = '/home/louis/.pyenv/shims/python2.7'
+    let g:python3_host_prog = '/home/louis/.pyenv/shims/python3.12'
+    " let g:node_host_prog = '/home/louis/.nodenv/versions/14.5.0/bin/neovim-node-host'
+    " let g:ruby_host_prg = '/home/louis/.rbenv/versions/2.7.1/bin/neovim-ruby-host'
 
 
     "Key Mapping
