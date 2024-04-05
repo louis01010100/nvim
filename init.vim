@@ -87,6 +87,7 @@ function ConfigVimPlug()
         Plug 'jiangmiao/auto-pairs'
         Plug 'tomtom/tcomment_vim'
         Plug 'majutsushi/tagbar'
+        Plug 'itchyny/lightline.vim'
 
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-surround' 
