@@ -89,6 +89,8 @@ function ConfigVimPlug()
 
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-surround' 
+        Plug 'louis01010100/nord-vim'
+
     call plug#end()
 endfunction
 
