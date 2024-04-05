@@ -4,6 +4,7 @@ function Init()
     call ConfigVimPlug()
     call ConfigFzf()
     call ConfigTagbar()
+    call Theme()
 endfunction
 
 
@@ -77,7 +78,6 @@ function ConfigVimPlug()
         Plug 'wellle/targets.vim'	 " text object
         Plug 'tpope/vim-repeat'
         Plug 'preservim/nerdtree'
-        Plug 'arcticicestudio/nord-vim'
 
         " The extra settings make sure that when you update the plugin it will also update the executable itself as well.
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -89,7 +89,6 @@ function ConfigVimPlug()
 
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-surround' 
-        Plug 'louis01010100/nord-vim'
 
     call plug#end()
 endfunction
@@ -99,7 +98,7 @@ endfunction
 ""
 function Theme()
     set termguicolors
-    colorscheme nord
+    colorscheme louis01010100
 endfunction
 
 function ConfigTagbar()
