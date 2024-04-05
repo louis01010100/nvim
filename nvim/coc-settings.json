@@ -1,9 +1,0 @@
-{
-    "suggest.autoTrigger": "none",
-    "suggest.preferCompleteThanJumpPlaceholder": true,
-    "suggest.floatEnable": false,
-    "diagnostic.displayByAle": true,
-    "diagnostic.refreshAfterSave": true,
-    "python.jediEnabled": false,
-    "python.formatting.provider": "yapf"
-}
