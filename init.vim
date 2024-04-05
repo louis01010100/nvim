@@ -1,13 +1,9 @@
 function Init()
     call General()
     call ConfigNERDTree()
-    call Theme()
     call ConfigVimPlug()
     call ConfigFzf()
-    " call ConfigVista()
     call ConfigTagbar()
-    call ConfigLightLine()
-    " call ConfigAutoFormat()
 endfunction
 
 
@@ -23,6 +19,7 @@ function General()
     " set textwidth=78 " line to limit to 80 chars
     set hidden
     set autoindent
+    set mouse=   " disable mouse
     " set cursorline
     set scrolloff=3 
     " SPLITS
@@ -80,9 +77,7 @@ function ConfigVimPlug()
         Plug 'wellle/targets.vim'	 " text object
         Plug 'tpope/vim-repeat'
         Plug 'preservim/nerdtree'
-        " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-        " Plug 'Xuyuanp/nerdtree-git-plugin' 
-        " Plug 'ryanoasis/vim-devicons'
+        Plug 'arcticicestudio/nord-vim'
 
         " The extra settings make sure that when you update the plugin it will also update the executable itself as well.
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -90,20 +85,10 @@ function ConfigVimPlug()
         Plug 'tweekmonster/fzf-filemru'
         Plug 'jiangmiao/auto-pairs'
         Plug 'tomtom/tcomment_vim'
-        " Plug 'machakann/vim-sandwich'
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        " Plug 'liuchengxu/vista.vim'
         Plug 'majutsushi/tagbar'
-        Plug 'itchyny/lightline.vim'
-        Plug 'w0rp/ale'
 
         Plug 'tpope/vim-fugitive'
-        " Plug 'ryanoasis/vim-devicons'
-        "
-        " Plug 'psliwka/vim-smoothie'
         Plug 'tpope/vim-surround' 
-        " Plug 'sbdchd/neoformat'
-        " Plug 'fisadev/vim-isort'
     call plug#end()
 endfunction
 
@@ -112,71 +97,8 @@ endfunction
 ""
 function Theme()
     set termguicolors
-    colorscheme louis01010100
+    colorscheme nord
 endfunction
-
-function ConfigLightLine()
-    set noshowmode
-    " let g:lightline = {'colorscheme': 'nord'}
-    " let g:lightline = {'colorscheme': 'jellybeans'}
-    "
-
-    let g:lightline = {
-      \     'colorscheme': 'jellybeans',
-      \     'active': {
-      \         'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'] ],
-      \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']],
-      \      },
-      \     'inactive': {
-      \         'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'] ],
-      \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']],
-      \      },
-      \     'component_function': {
-      \         'mode': 'LightlineMode',
-      \         'readonly': 'LightlineReadonly',
-	  \         'filename': 'LightlineFilename',
-      \         'modified': 'LightlineModified',
-	  \         'fileformat': 'LightlineFileformat',
-	  \         'fileencoding': 'LightlineFileencoding',
-      \      },
-      \ }
-
-    function! LightlineMode()
-      let fname = expand('%:t')
-      return fname =~# '^__vista__' ? 'Vista' :
-            \ fname =~# 'NERD_tree' ? 'NERDTree' :
-            \ winwidth(0) > 78 ? lightline#mode() : ''
-    endfunction
-
-    function! LightlineReadonly()
-      return winwidth(0) > 78 ? (&ft !~? 'help' && &readonly ? 'RO' : ''): ''
-    endfunction
-
-    function! LightlineFilename()
-      let fname = expand('%:t')
-      return fname =~# '^__vista__\|NERD_tree' ? '' : (fname !=# '' ? fname : '[No Name]')
-    endfunction
-
-    function! LightlineModified()
-      return winwidth(0) > 78 ? (&ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'): ''
-    endfunction
-
-    function! LightlineFileformat()
-      return winwidth(0) > 78 ? &fileformat : ''
-    endfunction
-
-    function! LightlineFileencoding()
-      return winwidth(0) > 78 ? (&fenc !=# '' ? &fenc : &enc) : ''
-    endfunction
-
-
-
-endfunction
-
-
-" function! LightlineReadonly()
-"     return &readonly && &filetype !=# 'help' ? 'RO' : ''
-" endfunction
 
 function ConfigTagbar()
     let g:tagbar_left = 0
@@ -186,35 +108,6 @@ function ConfigTagbar()
     let g:tagbar_foldlevel = 0
     nnoremap <silent> <F3> :TagbarToggle<CR>
 endfunction
-
-" function ConfigVista()
-"
-"     let g:vista_default_executive = 'ctags'
-"     let g:vista#renderer#enable_icon = 1
-"     let g:vista_disable_statusline = 1
-"     let g:vista_highlight_whole_line = 0
-"     let g:vista_blink = [0, 0]
-"     " let g:vista_icon_indent = ["▸ ", ""] 
-"     " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-"     let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-"     let g:vista_update_on_text_changed = 1
-"     let g:vista_ignore_kinds = ['variables', 'maps', 'commands', 'Variable', 'Unknown']
-"
-"     " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
-"     let g:vista#renderer#enable_icon = 1
-"     let g:vista#renderer#icons = {
-"         \   "function": "\uf794",
-"         \   "variable": "\uf71b",
-"         \  }
-"
-"     let g:vista_executive_for = {
-"           \ 'python': 'coc',
-"           \ }
-"
-"     nnoremap <F3> :Vista!!<CR>
-"
-" endfunction
-
 
 
 ""
@@ -249,6 +142,7 @@ function ConfigFzf()
     noremap <Leader>zm :FilesMru --tiebreak=end<CR>
     " Open files on enter in a new tab
 endfunction
+
 
 
 call Init()
