@@ -4,6 +4,7 @@ function Init()
     call ConfigVimPlug()
     call ConfigFzf()
     call ConfigTagbar()
+    call ConfigLightLine()
     call Theme()
 endfunction
 
@@ -91,6 +92,64 @@ function ConfigVimPlug()
         Plug 'tpope/vim-surround' 
 
     call plug#end()
+endfunction
+
+function ConfigLightLine()
+    set noshowmode
+    " let g:lightline = {'colorscheme': 'nord'}
+    " let g:lightline = {'colorscheme': 'jellybeans'}
+    "
+
+    let g:lightline = {
+      \     'colorscheme': 'jellybeans',
+      \     'active': {
+      \         'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'] ],
+      \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']],
+      \      },
+      \     'inactive': {
+      \         'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'] ],
+      \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']],
+      \      },
+      \     'component_function': {
+      \         'mode': 'LightlineMode',
+      \         'readonly': 'LightlineReadonly',
+	  \         'filename': 'LightlineFilename',
+      \         'modified': 'LightlineModified',
+	  \         'fileformat': 'LightlineFileformat',
+	  \         'fileencoding': 'LightlineFileencoding',
+      \      },
+      \ }
+
+    function! LightlineMode()
+      let fname = expand('%:t')
+      return fname =~# '^__vista__' ? 'Vista' :
+            \ fname =~# 'NERD_tree' ? 'NERDTree' :
+            \ winwidth(0) > 78 ? lightline#mode() : ''
+    endfunction
+
+    function! LightlineReadonly()
+      return winwidth(0) > 78 ? (&ft !~? 'help' && &readonly ? 'RO' : ''): ''
+    endfunction
+
+    function! LightlineFilename()
+      let fname = expand('%:t')
+      return fname =~# '^__vista__\|NERD_tree' ? '' : (fname !=# '' ? fname : '[No Name]')
+    endfunction
+
+    function! LightlineModified()
+      return winwidth(0) > 78 ? (&ft ==# 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'): ''
+    endfunction
+
+    function! LightlineFileformat()
+      return winwidth(0) > 78 ? &fileformat : ''
+    endfunction
+
+    function! LightlineFileencoding()
+      return winwidth(0) > 78 ? (&fenc !=# '' ? &fenc : &enc) : ''
+    endfunction
+
+
+
 endfunction
 
 ""
